@@ -17,3 +17,6 @@ Upon first launch, Aware will leverage HealthKitUI to request permissions from t
 A progress gauge reminds a user of their goals, and shares their progress. Users may monitor their mindfulness trends with a heat map habit grid, and gain useful insights like last and average session durations.
 
 When in session, the user is presented as few UI elements as possible, and the new MeshGradient API provides a subtle, yet immersive animation. 
+
+## Challenges
+Drawing a grid is straightforward enough. Drawing a grid when you may have more or less data than available cells was a worthy challenge. The first step was to collect total minutes of mindfulness by calendar day, and Swift Algorithm's <b>chunked(by:)</b> array method saved the day. Once the data was organized, the second step was to assess whether the count of items will satisfy available positions, and insert placeholder cells when necessary. The final challenge was treating the trailing column of data like it was the current week. This means depending on what day <i>today</i> is for the user, there are 1-6 empty positions that show no cells. To do this, a simple extension of Date converts any day of the week to an integer between 1 and 7. The difference between the total number of days in a week (7) and today's <i>weekday int</> is the number of positions that are unavailable (in the future, this week). 
