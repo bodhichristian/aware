@@ -29,3 +29,47 @@ Drawing a grid is straightforward enough. Drawing a grid when you may have more 
 1. The first step was to collect total minutes of mindfulness by calendar day, and Swift Algorithm's <b>chunked(by:)</b> array method saved the day.
 2. Once the data was organized, the second step was to assess whether the count of items will satisfy available positions, and insert placeholder cells when necessary.
 3. The final challenge was treating the trailing column of data like it was the current week. This means depending on what day <i>today</i> is for the user, there are 1-6 empty positions that show no cells. To do this, a simple extension of Date converts any day of the week to an integer between 1 and 7. The difference between the total number of days in a week (7) and today's <i>weekday int</i> is the number of positions that are unavailable (in the future, this week). 
+
+```swift
+struct GridHelper {
+    /// Make a collection of mindfulness data suitable for a ``HeatMap`` instance.
+    /// - Parameter capacity: Columns x Rows
+    /// - Returns: A collection of mindfulness data with any necessary placeholder data
+    static func gridify(_ data: [DailyMindfulness], with capacity: Int) -> [DailyMindfulness] {
+        // Create an array of data for visualization
+        var gridData: [DailyMindfulness] = []
+        // Calculate the number of potential grid positions
+        let gridCapacity = capacity
+        // Get the user's calendar
+        let calendar = Calendar.current
+        // Calculate Int for the current day of the week
+        let todayInt = Date.now.weekdayInt
+        // Calculate potential future placeholders
+        let futurePlaceholderCount = 7 - todayInt
+        // Loop through placeholders and add empty data
+        for i in 0..<futurePlaceholderCount {
+            let futureDate = calendar.date(byAdding: .day, value: i + 1, to: .now)!
+            let placeholder = DailyMindfulness(date: futureDate, minutes: 0)
+            gridData.append(placeholder)
+        }
+        // Append the provided data to any potentially created placeholders
+        gridData += data
+        // Calculate total number of grid items to draw
+        let gridItemCount = capacity - futurePlaceholderCount
+        // Calculate potential difference in available data and gridItemCount
+        let difference = gridItemCount - data.count
+        // Append filler data to complete grid
+        if difference > 0 {
+            // Get the oldest date in the data set
+            let oldestDate = gridData.first?.date
+            // Add necessary placeholder data to history
+            for i in 0..<difference {
+                let fillerDate = calendar.date(byAdding: .day, value: -(i + 1), to: oldestDate ?? .now)!
+                let fillerDailyMindfulness = DailyMindfulness(date: fillerDate, minutes: 0)
+                gridData.append(fillerDailyMindfulness)
+            }
+        }
+        return gridData.prefix(gridCapacity).reversed()
+    }
+}
+```
