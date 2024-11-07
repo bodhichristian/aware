@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA49E1562CDA92A400FE0858 /* SessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E1552CDA92A400FE0858 /* SessionTimer.swift */; };
 		AA8795442CD0EFB2004D817E /* AWError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795322CD0EFB2004D817E /* AWError.swift */; };
 		AA8795452CD0EFB2004D817E /* MindfulnessSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */; };
 		AA8795462CD0EFB2004D817E /* HKPermissionPrimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795382CD0EFB2004D817E /* HKPermissionPrimer.swift */; };
@@ -21,8 +20,13 @@
 		AA8795722CD0F563004D817E /* AWStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795712CD0F563004D817E /* AWStyle.swift */; };
 		AA8795742CD14FA8004D817E /* DataTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795732CD14FA8004D817E /* DataTile.swift */; };
 		AA8795782CD1C223004D817E /* InsightTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795772CD1C223004D817E /* InsightTile.swift */; };
-		AA8795962CD1D3ED004D817E /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795952CD1D3ED004D817E /* MediaPlayer.swift */; };
 		AA8795982CD1D628004D817E /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795972CD1D628004D817E /* GaugeView.swift */; };
+		AAA4A1B72CDC4D3400461C25 /* SessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1B52CDC4D3400461C25 /* SessionTimer.swift */; };
+		AAA4A1BC2CDC4D4F00461C25 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1B82CDC4D4F00461C25 /* Array+Ext.swift */; };
+		AAA4A1BD2CDC4D4F00461C25 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1B92CDC4D4F00461C25 /* Date+Ext.swift */; };
+		AAA4A1BE2CDC4D4F00461C25 /* TimeInterval+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1BA2CDC4D4F00461C25 /* TimeInterval+Ext.swift */; };
+		AAA4A1C02CDC4DA000461C25 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1BF2CDC4DA000461C25 /* SessionView.swift */; };
+		AAA4A1C32CDC4E6B00461C25 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1C22CDC4E6B00461C25 /* DashboardView.swift */; };
 		AAD21C562CD519F400EB133C /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = AAD21C552CD519F400EB133C /* Algorithms */; };
 		AAD21C582CD51AD700EB133C /* DailyMindfulness.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C572CD51AD700EB133C /* DailyMindfulness.swift */; };
 		AAD21C5C2CD5269100EB133C /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C5B2CD5269100EB133C /* MockData.swift */; };
@@ -31,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA49E1552CDA92A400FE0858 /* SessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTimer.swift; sourceTree = "<group>"; };
 		AA8795322CD0EFB2004D817E /* AWError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWError.swift; sourceTree = "<group>"; };
 		AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessSession.swift; sourceTree = "<group>"; };
 		AA8795362CD0EFB2004D817E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -46,22 +49,19 @@
 		AA8795712CD0F563004D817E /* AWStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWStyle.swift; sourceTree = "<group>"; };
 		AA8795732CD14FA8004D817E /* DataTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTile.swift; sourceTree = "<group>"; };
 		AA8795772CD1C223004D817E /* InsightTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightTile.swift; sourceTree = "<group>"; };
-		AA8795952CD1D3ED004D817E /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
 		AA8795972CD1D628004D817E /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
+		AAA4A1B52CDC4D3400461C25 /* SessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTimer.swift; sourceTree = "<group>"; };
+		AAA4A1B82CDC4D4F00461C25 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		AAA4A1B92CDC4D4F00461C25 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		AAA4A1BA2CDC4D4F00461C25 /* TimeInterval+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Ext.swift"; sourceTree = "<group>"; };
+		AAA4A1BF2CDC4DA000461C25 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		AAA4A1C22CDC4E6B00461C25 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		AAD21C572CD51AD700EB133C /* DailyMindfulness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMindfulness.swift; sourceTree = "<group>"; };
 		AAD21C5B2CD5269100EB133C /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		AAD21C6A2CD556DA00EB133C /* HealthKitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitData.swift; sourceTree = "<group>"; };
 		AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulMeshGradient.swift; sourceTree = "<group>"; };
 		AAEFD9BA2CCC3EDE00A4A2DD /* Aware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aware.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		AAD21C612CD5315D00EB133C /* Extensions */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AAEFD9B72CCC3EDE00A4A2DD /* Frameworks */ = {
@@ -105,6 +105,7 @@
 		AA8795392CD0EFB2004D817E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				AAA4A1C12CDC4E4A00461C25 /* Dashboard */,
 				AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */,
 				AA8795382CD0EFB2004D817E /* HKPermissionPrimer.swift */,
 			);
@@ -122,8 +123,8 @@
 		AA87953D2CD0EFB2004D817E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				AAD21C612CD5315D00EB133C /* Extensions */,
 				AA8795712CD0F563004D817E /* AWStyle.swift */,
+				AAA4A1BB2CDC4D4F00461C25 /* Extensions */,
 				AA8795332CD0EFB2004D817E /* Errors */,
 			);
 			path = Utilities;
@@ -132,6 +133,7 @@
 		AA8795432CD0EFB2004D817E /* Aware */ = {
 			isa = PBXGroup;
 			children = (
+				AAA4A1B62CDC4D3400461C25 /* Session */,
 				AA8795402CD0EFB2004D817E /* AwareApp.swift */,
 				AA8795502CD0F023004D817E /* Components */,
 				AA8795352CD0EFB2004D817E /* Model */,
@@ -151,13 +153,38 @@
 				AA8795422CD0EFB2004D817E /* HabitGrid.swift */,
 				AA87954F2CD0F023004D817E /* BackgroundGradient.swift */,
 				AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */,
-				AA49E1552CDA92A400FE0858 /* SessionTimer.swift */,
 				AA8795732CD14FA8004D817E /* DataTile.swift */,
 				AA8795772CD1C223004D817E /* InsightTile.swift */,
-				AA8795952CD1D3ED004D817E /* MediaPlayer.swift */,
 				AA8795972CD1D628004D817E /* GaugeView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		AAA4A1B62CDC4D3400461C25 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				AAA4A1B52CDC4D3400461C25 /* SessionTimer.swift */,
+				AAA4A1BF2CDC4DA000461C25 /* SessionView.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		AAA4A1BB2CDC4D4F00461C25 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AAA4A1B82CDC4D4F00461C25 /* Array+Ext.swift */,
+				AAA4A1B92CDC4D4F00461C25 /* Date+Ext.swift */,
+				AAA4A1BA2CDC4D4F00461C25 /* TimeInterval+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AAA4A1C12CDC4E4A00461C25 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				AAA4A1C22CDC4E6B00461C25 /* DashboardView.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		AAEFD9B12CCC3EDE00A4A2DD = {
@@ -190,9 +217,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				AAD21C612CD5315D00EB133C /* Extensions */,
 			);
 			name = Aware;
 			packageProductDependencies = (
@@ -258,20 +282,24 @@
 			files = (
 				AA8795442CD0EFB2004D817E /* AWError.swift in Sources */,
 				AA8795782CD1C223004D817E /* InsightTile.swift in Sources */,
+				AAA4A1B72CDC4D3400461C25 /* SessionTimer.swift in Sources */,
 				AAD21C582CD51AD700EB133C /* DailyMindfulness.swift in Sources */,
 				AA8795742CD14FA8004D817E /* DataTile.swift in Sources */,
 				AA8795512CD0F023004D817E /* BackgroundGradient.swift in Sources */,
 				AAD21C6B2CD556DA00EB133C /* HealthKitData.swift in Sources */,
+				AAA4A1C02CDC4DA000461C25 /* SessionView.swift in Sources */,
 				AA8795452CD0EFB2004D817E /* MindfulnessSession.swift in Sources */,
-				AA8795962CD1D3ED004D817E /* MediaPlayer.swift in Sources */,
 				AAD21C6D2CD9463000EB133C /* MindfulMeshGradient.swift in Sources */,
 				AA8795462CD0EFB2004D817E /* HKPermissionPrimer.swift in Sources */,
 				AA8795982CD1D628004D817E /* GaugeView.swift in Sources */,
 				AA8795472CD0EFB2004D817E /* HealthKitService.swift in Sources */,
-				AA49E1562CDA92A400FE0858 /* SessionTimer.swift in Sources */,
 				AA8795492CD0EFB2004D817E /* AwareApp.swift in Sources */,
 				AA87954A2CD0EFB2004D817E /* MindfulnessDashboard.swift in Sources */,
 				AAD21C5C2CD5269100EB133C /* MockData.swift in Sources */,
+				AAA4A1BC2CDC4D4F00461C25 /* Array+Ext.swift in Sources */,
+				AAA4A1C32CDC4E6B00461C25 /* DashboardView.swift in Sources */,
+				AAA4A1BD2CDC4D4F00461C25 /* Date+Ext.swift in Sources */,
+				AAA4A1BE2CDC4D4F00461C25 /* TimeInterval+Ext.swift in Sources */,
 				AA8795722CD0F563004D817E /* AWStyle.swift in Sources */,
 				AA87954B2CD0EFB2004D817E /* HabitGrid.swift in Sources */,
 			);

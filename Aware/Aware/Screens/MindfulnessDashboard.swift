@@ -15,91 +15,33 @@ struct MindfulnessDashboard: View {
     @State private var inSession = false
     @State private var showingPrimer = false
     
-    
     var body: some View {
         NavigationStack {
             ZStack {
                 MindfulMeshGradient(engaged: $inSession)
-                
-                if inSession {
-                    ZStack  {
-                        VStack {
-                            Text("Bring attention to the moment.")
-                                .font(.title2)
-                                .foregroundStyle(.white)
-                                .transition(.blurReplace)
-                            
-                           Text("Tap anywhere to end the session.")
-                                .font(.callout)
-                                .foregroundStyle(.secondary)
-                            
-                        }
-                        
-                        SessionTimer(inSession: $inSession)
-                            .frame(maxHeight: .infinity, alignment: .bottom)
-                            .padding()
-                    }
-                }
-                
-                if !inSession {
-                    ScrollView{
-                        VStack(spacing: 16) {
-                            GaugeView(engaged: $inSession)
-                            HStack(spacing: 16) {
-                                DataTile(
-                                    header: "Last Session",
-                                    headerSymbol: "brain.head.profile",
-                                    statString: "\(hkData.lastSessionDuration()) min",
-                                    bodySymbol: "gauge.medium"
-                                )
-                                DataTile(
-                                    header: "Average",
-                                    headerSymbol: "chart.line.uptrend.xyaxis",
-                                    statString: "\(hkData.averageSessionDuration()) min",
-                                    bodySymbol: "gauge.high"
-                                )
-                            }
-                            InsightTile(
-                                header: "Keep it up",
-                                content: "You've had more moments of mindfulness this week than last.",
-                                footer: "View trends",
-                                footerSymbol: "chart.bar.fill"
-                            )
-                            
-                            
-                            HabitGrid(data: hkData.totalMinutesByDay(), color: .accentPurple)
-                            
-                            InsightTile(
-                                header: "Daily Inspiration",
-                                content: "\"The only zen you'll find on mountain tops is the zen you bring up there with you.\"",
-                                footer: "View more",
-                                footerSymbol: "quote.opening"
-                            )
-                            
-                           
-                            
-                        }
-                        .padding(.horizontal)
-                    }
-                    .scrollIndicators(.never)
-                    .transition(.opacity)
+                switch inSession {
+                case true:
+                    SessionView(inSession: $inSession)
+                case false:
+                    DashboardView(inSession: $inSession)
                 }
             }
             .navigationTitle("Mindfulness")
-            //            .toolbar {
-            //                ToolbarItem {
-            //                    Button("Add Sample Data") {
-            //                        Task {
-            //                            try await hkService.addSampleData()
-            //                        }
-            //                    }
-            //                }
-            //            }
+            .toolbar {
+#if DEBUG
+                ToolbarItem (placement: .topBarLeading){
+                    Button("Add Sample Data") {
+                        Task {
+                            try await hkService.addSampleData()
+                        }
+                    }
+                }
+#endif
+            }
         }
         .fullScreenCover(isPresented: $showingPrimer) {
             HKPermissionPrimerView()
         }
-        
         .task {
             fetchHealthData()
         }
@@ -112,10 +54,6 @@ struct MindfulnessDashboard: View {
                 hkData.mindfulnessSessions = try await data
             } catch AWError.authNotDetermined {
                 showingPrimer = true
-            } catch AWError.noData {
-                print("no data")
-            } catch {
-                print("try again ")
             }
         }
     }
@@ -126,3 +64,11 @@ struct MindfulnessDashboard: View {
         .environment(HealthKitService())
         .environment(HealthKitData())
 }
+
+
+
+
+
+
+
+
