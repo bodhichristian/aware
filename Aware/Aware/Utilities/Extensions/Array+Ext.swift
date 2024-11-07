@@ -8,7 +8,7 @@
 import Foundation
 
 extension Array where Element == Int {
-    // extend Array of type Int
+    /// Return the average value for an array of ``Int``
     var average: Int {
         guard !self.isEmpty else { return 0 } // guard against an empty array
         let total = self.reduce(0, +) // get the sum of element values

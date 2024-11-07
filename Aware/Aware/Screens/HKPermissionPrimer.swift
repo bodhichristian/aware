@@ -15,7 +15,7 @@ struct HKPermissionPrimerView: View {
     
     var body: some View {
         ZStack {
-            AWStyle.minimalGradient(for: .backgroundBlue)
+            MindfulMeshGradient(engaged: .constant(false))
                 .ignoresSafeArea()
             
             VStack(alignment: .leading) {
