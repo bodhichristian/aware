@@ -32,7 +32,7 @@ Drawing a grid is straightforward enough. Drawing a grid when you may have more 
 
 ```swift
 struct GridHelper {
-    /// Make a collection of mindfulness data suitable for a ``HeatMap`` instance.
+    /// Make a collection of mindfulness data suitable for a ``HabitGrid`` instance.
     /// - Parameter capacity: Columns x Rows
     /// - Returns: A collection of mindfulness data with any necessary placeholder data
     static func gridify(_ data: [DailyMindfulness], with capacity: Int) -> [DailyMindfulness] {
