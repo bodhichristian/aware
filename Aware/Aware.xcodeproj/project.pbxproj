@@ -14,7 +14,7 @@
 		AA8795472CD0EFB2004D817E /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87953A2CD0EFB2004D817E /* HealthKitService.swift */; };
 		AA8795492CD0EFB2004D817E /* AwareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795402CD0EFB2004D817E /* AwareApp.swift */; };
 		AA87954A2CD0EFB2004D817E /* MindfulnessDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */; };
-		AA87954B2CD0EFB2004D817E /* HeatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795422CD0EFB2004D817E /* HeatMap.swift */; };
+		AA87954B2CD0EFB2004D817E /* HabitGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795422CD0EFB2004D817E /* HabitGrid.swift */; };
 		AA87954C2CD0EFB2004D817E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8795362CD0EFB2004D817E /* Preview Assets.xcassets */; };
 		AA87954D2CD0EFB2004D817E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA87953E2CD0EFB2004D817E /* Assets.xcassets */; };
 		AA8795512CD0F023004D817E /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87954F2CD0F023004D817E /* BackgroundGradient.swift */; };
@@ -41,7 +41,7 @@
 		AA87953F2CD0EFB2004D817E /* Aware.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aware.entitlements; sourceTree = "<group>"; };
 		AA8795402CD0EFB2004D817E /* AwareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareApp.swift; sourceTree = "<group>"; };
 		AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessDashboard.swift; sourceTree = "<group>"; };
-		AA8795422CD0EFB2004D817E /* HeatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMap.swift; sourceTree = "<group>"; };
+		AA8795422CD0EFB2004D817E /* HabitGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitGrid.swift; sourceTree = "<group>"; };
 		AA87954F2CD0F023004D817E /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		AA8795712CD0F563004D817E /* AWStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWStyle.swift; sourceTree = "<group>"; };
 		AA8795732CD14FA8004D817E /* DataTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTile.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		AA8795502CD0F023004D817E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				AA8795422CD0EFB2004D817E /* HeatMap.swift */,
+				AA8795422CD0EFB2004D817E /* HabitGrid.swift */,
 				AA87954F2CD0F023004D817E /* BackgroundGradient.swift */,
 				AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */,
 				AA49E1552CDA92A400FE0858 /* SessionTimer.swift */,
@@ -273,7 +273,7 @@
 				AA87954A2CD0EFB2004D817E /* MindfulnessDashboard.swift in Sources */,
 				AAD21C5C2CD5269100EB133C /* MockData.swift in Sources */,
 				AA8795722CD0F563004D817E /* AWStyle.swift in Sources */,
-				AA87954B2CD0EFB2004D817E /* HeatMap.swift in Sources */,
+				AA87954B2CD0EFB2004D817E /* HabitGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

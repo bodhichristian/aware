@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeatMap: View {
+struct HabitGrid: View {
     let data: [DailyMindfulness]
     let color: Color
     
@@ -99,5 +99,5 @@ struct HeatMap: View {
 
 
 #Preview {
-    HeatMap(data: MockData.dailyMindfulness(), color: .indigo)
+    HabitGrid(data: MockData.dailyMindfulness(), color: .indigo)
 }

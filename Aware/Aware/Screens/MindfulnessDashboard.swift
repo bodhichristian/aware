@@ -47,7 +47,7 @@ struct MindfulnessDashboard: View {
                             )
                             
                             
-                            HeatMap(data: hkData.totalMinutesByDay(), color: .accentPurple)
+                            HabitGrid(data: hkData.totalMinutesByDay(), color: .accentPurple)
                             
                             InsightTile(
                                 header: "Daily Inspiration",
