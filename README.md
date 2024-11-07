@@ -23,7 +23,7 @@ When in session, the user is presented as few UI elements as possible, and the n
 ### Habit Grid
 ![Screenshot 2024-11-06 at 7 58 50 PM](https://github.com/user-attachments/assets/3f84a43e-af60-469f-9302-342db5c078b0)
 
-Drawing a grid is straightforward enough. Drawing a grid when you may have more or less data than available cells was a worthy challenge. I broke it down into three stepos.
+Drawing a grid is straightforward enough. Drawing a grid when you may have more or less data than available cells was a worthy challenge. I broke it down into three steps.
 
 1. The first step was to collect total minutes of mindfulness by calendar day, and Swift Algorithm's <b>chunked(by:)</b> array method saved the day.
 2. Once the data was organized, the second step was to assess whether the count of items will satisfy available positions, and insert placeholder cells when necessary.
