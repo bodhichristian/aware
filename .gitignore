@@ -63,3 +63,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 *.pbxproj
 *.pbxproj
+Aware/.DS_Store
