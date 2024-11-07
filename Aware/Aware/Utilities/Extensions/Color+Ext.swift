@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 extension Color {
+    /// Create an adaptation of ``self`` based on daily total minutes of mindfulness
+    /// - Parameter minutes: ``Int`` representing number of minutes
+    /// - Returns: ``self`` with an applied opacity, or a default color
     func progressOpacity(from minutes: Int) -> Color {
         if minutes >= 15 {
             return self

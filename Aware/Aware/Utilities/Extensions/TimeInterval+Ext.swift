@@ -8,6 +8,8 @@
 import Foundation
 
 extension TimeInterval {
+    /// Create a string representing minutes and seconds.
+    /// - Returns: ``String`` in "00:00" format
     func minutesSecondsString() -> String {
         let minutes = Int(self) / 60
         let seconds = Int(self) % 60
