@@ -1,9 +1,8 @@
 # Aware
 Bring attention to the moment.
+<b>Aware</b> is an iOS app prototype for practicing and tracking mindfulness. Users may start and end a mindfulness session, and have the option to leverage Apple Health for reading and writing mindfulness data.
 
 ![Promo Images 001](https://github.com/user-attachments/assets/c928a468-f8bb-4fd9-8121-81f6652dd90a)
-
-<b>Aware</b> is an iOS app prototype for practicing and tracking mindfulness. Users may start and end a mindfulness session, and have the option to leverage Apple Health for reading and writing mindfulness data.
 
 ## Technologies Used
 - SwiftUI
