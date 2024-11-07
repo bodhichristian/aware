@@ -1,63 +1,18 @@
 //
-//  HeatMap.swift
+//  GridHelper.swift
 //  Aware
 //
-//  Created by christian on 10/28/24.
+//  Created by christian on 11/6/24.
 //
 
+import Foundation
 import SwiftUI
 
-struct HabitGrid: View {
-    let data: [DailyMindfulness]
-    let color: Color
-    
-    let columns = 16
-    let rows = 7
-    
-    private var capacity: Int {
-        columns * rows
-    }
-
-    var body: some View {
-        let gridItems = Array(repeating: GridItem(.flexible(), spacing: 4), count: rows)
-        
-        LazyHGrid(rows: gridItems, spacing: 4) {
-            ForEach(gridify(data, with: capacity), id: \.id) { data in
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(
-                        Calendar.current.startOfDay(for: data.date) > Date.now ? .clear :
-                        colorForMinutes(data.minutes)
-                    )
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .aspectRatio(1, contentMode: .fit)
-            }
-        }
-        .padding()
-        
-        .frame(maxWidth: .infinity, minHeight: 180)
-        .background {
-            RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(.white.opacity(0.5))
-        }
-    }
-    
-    // Time-based opacity
-    private func colorForMinutes(_ minutes: Int) -> Color {
-        if minutes >= 15 {
-            return color
-        } else if minutes >= 10 {
-            return color.opacity(0.7)
-        } else if minutes >= 5 {
-            return color.opacity(0.3)
-        } else {
-            return .white.opacity(0.1)
-        }
-    }
-    
+struct GridHelper {
     /// Make a collection of mindfulness data suitable for a ``HeatMap`` instance.
     /// - Parameter capacity: Columns x Rows
     /// - Returns: A collection of mindfulness data with any necessary placeholder data
-    private func gridify(_ data: [DailyMindfulness], with capacity: Int) -> [DailyMindfulness] {
+    static func gridify(_ data: [DailyMindfulness], with capacity: Int) -> [DailyMindfulness] {
         // Create an array of data for visualization
         var gridData: [DailyMindfulness] = []
         // Calculate the number of potential grid positions
@@ -74,9 +29,8 @@ struct HabitGrid: View {
             let placeholder = DailyMindfulness(date: futureDate, minutes: 0)
             gridData.append(placeholder)
         }
-        
+        // Append the provided data to any potentially created placeholders
         gridData += data
-        
         // Calculate total number of grid items to draw
         let gridItemCount = capacity - futurePlaceholderCount
         // Calculate potential difference in available data and gridItemCount
@@ -92,12 +46,6 @@ struct HabitGrid: View {
                 gridData.append(fillerDailyMindfulness)
             }
         }
-        
         return gridData.prefix(gridCapacity).reversed()
     }
-}
-
-
-#Preview {
-    HabitGrid(data: MockData.dailyMindfulness(), color: .indigo)
 }
