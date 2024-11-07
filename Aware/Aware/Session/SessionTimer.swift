@@ -18,7 +18,7 @@ struct SessionTimer: View {
 
     var body: some View {
         VStack {
-            Text(timeString(from: elapsedTime))
+            Text(elapsedTime.minutesSecondsString())
                 .font(.title2)
                 .foregroundStyle(.secondary)
                 .padding()
@@ -29,12 +29,14 @@ struct SessionTimer: View {
         .onReceive(timer) { _ in
             if inSession {
                 elapsedTime = Date().timeIntervalSince(startTime)
+            } else {
+                stopTimer()
             }
         }
         .onChange(of: inSession) {
             if !inSession {
                 addTimeToHealth()
-                print("✅")
+                stopTimer()
             }
         }
     }
@@ -54,13 +56,8 @@ struct SessionTimer: View {
         inSession = false
         elapsedTime = 0
     }
-
-    private func timeString(from timeInterval: TimeInterval) -> String {
-        let minutes = Int(timeInterval) / 60
-        let seconds = Int(timeInterval) % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
 }
+
 #Preview {
     SessionTimer(inSession: .constant(true))
 }

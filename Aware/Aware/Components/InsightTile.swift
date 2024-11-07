@@ -10,8 +10,8 @@ import SwiftUI
 struct InsightTile: View {
     let header: String
     let content: String
-    let cta: String
-    let ctaSymbol: String
+    let footer: String
+    let footerSymbol: String
     
     var body: some View {
         
@@ -19,7 +19,6 @@ struct InsightTile: View {
             // Base
             RoundedRectangle(cornerRadius: 16)
                 .foregroundStyle(.tileBody)
-            
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -32,7 +31,7 @@ struct InsightTile: View {
             .frame(maxHeight: 44)
             .foregroundStyle(.tileHeader)
             .overlay {
-                Label(cta, systemImage: ctaSymbol)
+                Label(footer, systemImage: footerSymbol)
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundStyle(.white.gradient)
@@ -46,12 +45,10 @@ struct InsightTile: View {
                     .fontDesign(.rounded)
                     .fontWeight(.medium)
                     .foregroundStyle(.secondary)
-                
                 Text(content)
             }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                .padding()
-            
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
         }
         .frame(maxWidth: .infinity)
         .frame(height: 172)
@@ -64,8 +61,8 @@ struct InsightTile: View {
         InsightTile(
             header: "Keep it up",
             content: "You've had more moments of mindfulness this week than last.",
-            cta: "View trends",
-            ctaSymbol: "chart.bar.fill"
+            footer: "View trends",
+            footerSymbol: "chart.bar.fill"
         )
     }
     

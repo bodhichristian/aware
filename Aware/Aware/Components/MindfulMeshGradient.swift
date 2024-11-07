@@ -30,26 +30,6 @@ struct MindfulMeshGradient: View {
                 points: points,
                 colors: colors
             )
-            
-            if engaged {
-                ZStack  {
-                    VStack {
-                        Text("Bring attention to the moment.")
-                            .font(.title2)
-                            .foregroundStyle(.white)
-                            .transition(.blurReplace)
-                        
-                       Text("Tap anywhere to end the session.")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                        
-                    }
-                    
-                    SessionTimer(inSession: $engaged)
-                        .frame(maxHeight: .infinity, alignment: .bottom)
-                        .padding()
-                }
-            }
         }
         .ignoresSafeArea()
         .onChange(of: engaged) { oldValue, newValue in

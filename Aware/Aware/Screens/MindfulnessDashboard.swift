@@ -12,19 +12,39 @@ import HealthKitUI
 struct MindfulnessDashboard: View {
     @Environment(HealthKitData.self) var hkData
     @Environment(HealthKitService.self) var hkService
-    @State private var practicingMindfulness = false
+    @State private var inSession = false
     @State private var showingPrimer = false
     
     
     var body: some View {
         NavigationStack {
             ZStack {
-                MindfulMeshGradient(engaged: $practicingMindfulness)
+                MindfulMeshGradient(engaged: $inSession)
                 
-                if !practicingMindfulness {
-                    ScrollView {
+                if inSession {
+                    ZStack  {
+                        VStack {
+                            Text("Bring attention to the moment.")
+                                .font(.title2)
+                                .foregroundStyle(.white)
+                                .transition(.blurReplace)
+                            
+                           Text("Tap anywhere to end the session.")
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                            
+                        }
+                        
+                        SessionTimer(inSession: $inSession)
+                            .frame(maxHeight: .infinity, alignment: .bottom)
+                            .padding()
+                    }
+                }
+                
+                if !inSession {
+                    ScrollView{
                         VStack(spacing: 16) {
-                            GaugeView(engaged: $practicingMindfulness)
+                            GaugeView(engaged: $inSession)
                             HStack(spacing: 16) {
                                 DataTile(
                                     header: "Last Session",
@@ -42,8 +62,8 @@ struct MindfulnessDashboard: View {
                             InsightTile(
                                 header: "Keep it up",
                                 content: "You've had more moments of mindfulness this week than last.",
-                                cta: "View trends",
-                                ctaSymbol: "chart.bar.fill"
+                                footer: "View trends",
+                                footerSymbol: "chart.bar.fill"
                             )
                             
                             
@@ -52,8 +72,8 @@ struct MindfulnessDashboard: View {
                             InsightTile(
                                 header: "Daily Inspiration",
                                 content: "\"The only zen you'll find on mountain tops is the zen you bring up there with you.\"",
-                                cta: "View more",
-                                ctaSymbol: "quote.opening"
+                                footer: "View more",
+                                footerSymbol: "quote.opening"
                             )
                             
                            

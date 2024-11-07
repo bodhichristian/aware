@@ -14,12 +14,10 @@ struct DataTile: View {
     let bodySymbol: String
     
     var body: some View {
-        
         ZStack(alignment: .top)  {
             // Base
             RoundedRectangle(cornerRadius: 16)
                 .foregroundStyle(.tileBody)
-            
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -51,7 +49,6 @@ struct DataTile: View {
                 Image(systemName: bodySymbol)
                     .font(.title3)
                     .foregroundStyle(.secondary)
-                
             }
             .frame(
                 maxWidth: .infinity,
@@ -59,8 +56,6 @@ struct DataTile: View {
                 alignment: .bottomLeading
             )
             .padding()
-            
-            
         }
         .frame(maxWidth: .infinity)
         .frame(height: 118)
