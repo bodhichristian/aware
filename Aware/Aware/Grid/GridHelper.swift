@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct GridHelper {
-    /// Make a collection of mindfulness data suitable for a ``HeatMap`` instance.
+    /// Make a collection of mindfulness data suitable for a ``HabitGrid`` instance.
     /// - Parameter capacity: Columns x Rows
     /// - Returns: A collection of mindfulness data with any necessary placeholder data
     static func gridify(_ data: [DailyMindfulness], with capacity: Int) -> [DailyMindfulness] {
