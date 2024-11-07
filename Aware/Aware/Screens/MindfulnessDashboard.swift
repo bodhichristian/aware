@@ -26,18 +26,6 @@ struct MindfulnessDashboard: View {
                     DashboardView(inSession: $inSession)
                 }
             }
-            .navigationTitle("Mindfulness")
-            .toolbar {
-#if DEBUG
-                ToolbarItem (placement: .topBarLeading){
-                    Button("Add Sample Data") {
-                        Task {
-                            try await hkService.addSampleData()
-                        }
-                    }
-                }
-#endif
-            }
         }
         .fullScreenCover(isPresented: $showingPrimer) {
             HKPermissionPrimerView()
@@ -69,6 +57,16 @@ struct MindfulnessDashboard: View {
 
 
 
+//.toolbar {
+//
+//}
 
-
-
+//#if DEBUG
+//                ToolbarItem (placement: .topBarLeading){
+//                    Button("Add Sample Data") {
+//                        Task {
+//                            try await hkService.addSampleData()
+//                        }
+//                    }
+//                }
+//#endif

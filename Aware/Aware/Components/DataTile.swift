@@ -58,7 +58,7 @@ struct DataTile: View {
             .padding()
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 118)
+        .frame(height: 110)
     }
 }
 

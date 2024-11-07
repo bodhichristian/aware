@@ -10,10 +10,12 @@ import SwiftUI
 struct DashboardView: View {
     @Binding var inSession: Bool
     @Environment(HealthKitData.self) var hkData
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                GaugeView(engaged: $inSession)
+                headerView
+                GaugeView(inSession: $inSession)
                 HStack(spacing: 16) {
                     DataTile(
                         header: "Last Session",
@@ -47,8 +49,29 @@ struct DashboardView: View {
         .scrollIndicators(.never)
         .transition(.opacity)
     }
+    
+    private var headerView: some View {
+        VStack(spacing: 2) {
+            Text("Mindfulness")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .padding(.top)
+            HStack(spacing: 2) {
+                Text(Date.now.formatted(date: .long, time: .omitted))
+                    
+                Image(systemName: "chevron.down")
+            }
+            .font(.headline)
+            .foregroundStyle(.secondary)
+        }
+    }
 }
 
 #Preview {
-    DashboardView(inSession: .constant(false))
+    ZStack {
+        Color.backgroundBlue.ignoresSafeArea()
+        DashboardView(inSession: .constant(false))
+            .environment(HealthKitData())
+            .preferredColorScheme(.dark)
+    }
 }

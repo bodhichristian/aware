@@ -17,17 +17,18 @@ struct SessionView: View {
                     .font(.title2)
                     .foregroundStyle(.white)
                     .transition(.blurReplace)
-                
                Text("Tap anywhere to end the session.")
                     .font(.callout)
                     .foregroundStyle(.secondary)
-                
             }
+            .frame(maxHeight: .infinity, alignment: .center)
             
             SessionTimer(inSession: $inSession)
                 .frame(maxHeight: .infinity, alignment: .bottom)
-                .padding()
+//                .padding()
         }
+        .frame(maxHeight: .infinity)
+
     }
 }
 

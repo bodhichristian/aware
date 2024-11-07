@@ -16,7 +16,6 @@
 		AA87954B2CD0EFB2004D817E /* HabitGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795422CD0EFB2004D817E /* HabitGrid.swift */; };
 		AA87954C2CD0EFB2004D817E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8795362CD0EFB2004D817E /* Preview Assets.xcassets */; };
 		AA87954D2CD0EFB2004D817E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA87953E2CD0EFB2004D817E /* Assets.xcassets */; };
-		AA8795512CD0F023004D817E /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87954F2CD0F023004D817E /* BackgroundGradient.swift */; };
 		AA8795722CD0F563004D817E /* AWStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795712CD0F563004D817E /* AWStyle.swift */; };
 		AA8795742CD14FA8004D817E /* DataTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795732CD14FA8004D817E /* DataTile.swift */; };
 		AA8795782CD1C223004D817E /* InsightTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795772CD1C223004D817E /* InsightTile.swift */; };
@@ -47,7 +46,6 @@
 		AA8795402CD0EFB2004D817E /* AwareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareApp.swift; sourceTree = "<group>"; };
 		AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessDashboard.swift; sourceTree = "<group>"; };
 		AA8795422CD0EFB2004D817E /* HabitGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitGrid.swift; sourceTree = "<group>"; };
-		AA87954F2CD0F023004D817E /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		AA8795712CD0F563004D817E /* AWStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWStyle.swift; sourceTree = "<group>"; };
 		AA8795732CD14FA8004D817E /* DataTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTile.swift; sourceTree = "<group>"; };
 		AA8795772CD1C223004D817E /* InsightTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightTile.swift; sourceTree = "<group>"; };
@@ -109,10 +107,8 @@
 		AA8795392CD0EFB2004D817E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				AAA4A1C12CDC4E4A00461C25 /* Dashboard */,
-				AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */,
 				AA8795382CD0EFB2004D817E /* HKPermissionPrimer.swift */,
-				AAA4A1B62CDC4D3400461C25 /* Session */,
+				AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -138,11 +134,13 @@
 		AA8795432CD0EFB2004D817E /* Aware */ = {
 			isa = PBXGroup;
 			children = (
-				AAA4A1C52CDC539400461C25 /* Grid */,
 				AA8795402CD0EFB2004D817E /* AwareApp.swift */,
 				AA8795502CD0F023004D817E /* Components */,
+				AAA4A1C12CDC4E4A00461C25 /* Dashboard */,
+				AAA4A1C52CDC539400461C25 /* Grid */,
 				AA8795352CD0EFB2004D817E /* Model */,
 				AA8795392CD0EFB2004D817E /* Screens */,
+				AAA4A1B62CDC4D3400461C25 /* Session */,
 				AA87953B2CD0EFB2004D817E /* Services */,
 				AA87953D2CD0EFB2004D817E /* Utilities */,
 				AA8795372CD0EFB2004D817E /* Preview Content */,
@@ -155,11 +153,10 @@
 		AA8795502CD0F023004D817E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				AA87954F2CD0F023004D817E /* BackgroundGradient.swift */,
-				AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */,
 				AA8795732CD14FA8004D817E /* DataTile.swift */,
 				AA8795772CD1C223004D817E /* InsightTile.swift */,
 				AA8795972CD1D628004D817E /* GaugeView.swift */,
+				AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -300,7 +297,6 @@
 				AAD21C582CD51AD700EB133C /* DailyMindfulness.swift in Sources */,
 				AA8795742CD14FA8004D817E /* DataTile.swift in Sources */,
 				AAA4A1C92CDC554800461C25 /* Color+Ext.swift in Sources */,
-				AA8795512CD0F023004D817E /* BackgroundGradient.swift in Sources */,
 				AAD21C6B2CD556DA00EB133C /* HealthKitData.swift in Sources */,
 				AAA4A1C02CDC4DA000461C25 /* SessionView.swift in Sources */,
 				AAA4A1C72CDC53A700461C25 /* GridHelper.swift in Sources */,

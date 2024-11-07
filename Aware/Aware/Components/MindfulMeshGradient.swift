@@ -40,34 +40,35 @@ struct MindfulMeshGradient: View {
             }
         }
         .onTapGesture {
-            withAnimation(.smooth(duration: 1.2)) {
+            withAnimation() {
                 stopAnimation()
-                colors = AWStyle.defaultMesh()
+
                 engaged = false
+
+                colors = AWStyle.defaultMesh()
+
             }
         }
     }
     
     private func startAnimation() {
         isAnimating = true
-        animateColors()
+        animateMesh()
     }
     
     private func stopAnimation() {
         isAnimating = false
     }
     
-    private func animateColors() {
+    private func animateMesh() {
         guard isAnimating else { return }
-        
         withAnimation(.easeIn(duration: animationDuration)) {
             colors = colors.shuffled()
         }
-        
         // Schedule next animation only if still animating
         DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
             if isAnimating {
-                animateColors()
+                animateMesh()
             }
         }
     }

@@ -51,7 +51,7 @@ struct InsightTile: View {
             .padding()
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 172)
+        .frame(height: 160)
     }
 }
 
