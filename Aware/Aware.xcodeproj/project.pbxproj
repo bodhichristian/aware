@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA30E8452CDE90DF0095FFF8 /* AwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30E8432CDE90DF0095FFF8 /* AwareTests.swift */; };
 		AA8795442CD0EFB2004D817E /* AWError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795322CD0EFB2004D817E /* AWError.swift */; };
 		AA8795452CD0EFB2004D817E /* MindfulnessSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */; };
 		AA8795462CD0EFB2004D817E /* HKPermissionPrimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795382CD0EFB2004D817E /* HKPermissionPrimer.swift */; };
@@ -35,7 +36,19 @@
 		AAD21C6D2CD9463000EB133C /* MindfulMeshGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AA30E83E2CDE90DA0095FFF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAEFD9B22CCC3EDE00A4A2DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAEFD9B92CCC3EDE00A4A2DD;
+			remoteInfo = Aware;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		AA30E83A2CDE90DA0095FFF8 /* AwareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA30E8432CDE90DF0095FFF8 /* AwareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareTests.swift; sourceTree = "<group>"; };
 		AA8795322CD0EFB2004D817E /* AWError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWError.swift; sourceTree = "<group>"; };
 		AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessSession.swift; sourceTree = "<group>"; };
 		AA8795362CD0EFB2004D817E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -66,6 +79,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AA30E8372CDE90DA0095FFF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAEFD9B72CCC3EDE00A4A2DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA30E8442CDE90DF0095FFF8 /* AwareTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA30E8432CDE90DF0095FFF8 /* AwareTests.swift */,
+			);
+			path = AwareTests;
+			sourceTree = "<group>";
+		};
 		AA8795332CD0EFB2004D817E /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8795432CD0EFB2004D817E /* Aware */,
+				AA30E8442CDE90DF0095FFF8 /* AwareTests */,
 				AAEFD9BB2CCC3EDE00A4A2DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -210,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				AAEFD9BA2CCC3EDE00A4A2DD /* Aware.app */,
+				AA30E83A2CDE90DA0095FFF8 /* AwareTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +247,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AA30E8392CDE90DA0095FFF8 /* AwareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA30E8422CDE90DA0095FFF8 /* Build configuration list for PBXNativeTarget "AwareTests" */;
+			buildPhases = (
+				AA30E8362CDE90DA0095FFF8 /* Sources */,
+				AA30E8372CDE90DA0095FFF8 /* Frameworks */,
+				AA30E8382CDE90DA0095FFF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA30E83F2CDE90DA0095FFF8 /* PBXTargetDependency */,
+			);
+			name = AwareTests;
+			packageProductDependencies = (
+			);
+			productName = AwareTests;
+			productReference = AA30E83A2CDE90DA0095FFF8 /* AwareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AAEFD9B92CCC3EDE00A4A2DD /* Aware */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAEFD9C82CCC3EE000A4A2DD /* Build configuration list for PBXNativeTarget "Aware" */;
@@ -244,9 +294,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					AA30E8392CDE90DA0095FFF8 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = AAEFD9B92CCC3EDE00A4A2DD;
+					};
 					AAEFD9B92CCC3EDE00A4A2DD = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -270,11 +324,19 @@
 			projectRoot = "";
 			targets = (
 				AAEFD9B92CCC3EDE00A4A2DD /* Aware */,
+				AA30E8392CDE90DA0095FFF8 /* AwareTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AA30E8382CDE90DA0095FFF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAEFD9B82CCC3EDE00A4A2DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,6 +349,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AA30E8362CDE90DA0095FFF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA30E8452CDE90DF0095FFF8 /* AwareTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAEFD9B62CCC3EDE00A4A2DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,7 +389,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AA30E83F2CDE90DA0095FFF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAEFD9B92CCC3EDE00A4A2DD /* Aware */;
+			targetProxy = AA30E83E2CDE90DA0095FFF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AA30E8402CDE90DA0095FFF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.AwareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aware.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Aware";
+			};
+			name = Debug;
+		};
+		AA30E8412CDE90DA0095FFF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.AwareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aware.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Aware";
+			};
+			name = Release;
+		};
 		AAEFD9C62CCC3EE000A4A2DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -506,6 +622,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AA30E8422CDE90DA0095FFF8 /* Build configuration list for PBXNativeTarget "AwareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA30E8402CDE90DA0095FFF8 /* Debug */,
+				AA30E8412CDE90DA0095FFF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AAEFD9B52CCC3EDE00A4A2DD /* Build configuration list for PBXProject "Aware" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
