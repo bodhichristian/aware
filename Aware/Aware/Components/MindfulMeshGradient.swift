@@ -9,14 +9,12 @@ import SwiftUI
 
 struct MindfulMeshGradient: View {
     @Binding var engaged: Bool
-    
     @State private var points: [SIMD2<Float>] = [
         [0.0, 0.0], [0.5, 0.0], [1.0, 0.0],
         [0.0, 0.5], [0.5, 0.5], [1.0, 0.5],
         [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
         [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
     ]
-    
     @State private var colors: [Color] = AWStyle.defaultMesh()
     @State private var isAnimating: Bool = false
     
@@ -42,11 +40,8 @@ struct MindfulMeshGradient: View {
         .onTapGesture {
             withAnimation() {
                 stopAnimation()
-
                 engaged = false
-
                 colors = AWStyle.defaultMesh()
-
             }
         }
     }

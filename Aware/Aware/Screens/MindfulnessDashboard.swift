@@ -31,6 +31,7 @@ struct MindfulnessDashboard: View {
             HKPermissionPrimerView()
         }
         .task {
+            
             fetchHealthData()
         }
     }
