@@ -11,6 +11,7 @@ import HealthKit
 struct SessionTimer: View {
     @Binding var inSession: Bool
     @Environment(HealthKitService.self) var hkService
+    @Environment(HealthKitData.self) var hkData
     @State private var startTime: Date = .now
     @State private var elapsedTime: TimeInterval = 0
     
@@ -43,8 +44,12 @@ struct SessionTimer: View {
     
     private func addTimeToHealth() {
         Task {
+            // Insert new data
             let newInterval = DateInterval(start: startTime, duration: elapsedTime)
             try await hkService.addMindfulnessData(for: newInterval)
+            // Fetch from Health
+            async let fetch = hkService.fetchMindfulnessData()
+            try await hkData.mindfulnessSessions = fetch
         }
     }
 

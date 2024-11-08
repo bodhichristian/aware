@@ -30,13 +30,6 @@ struct MindfulMeshGradient: View {
             )
         }
         .ignoresSafeArea()
-        .onChange(of: engaged) { oldValue, newValue in
-            if newValue {
-                startAnimation()
-            } else {
-                stopAnimation()
-            }
-        }
         .onTapGesture {
             withAnimation() {
                 stopAnimation()

@@ -42,7 +42,7 @@ final class HealthKitData: Sendable {
     }
     
     func lastSessionDuration() -> Int {
-        guard let lastSession = mindfulnessSessions.first else { return 0 }
+        guard let lastSession = mindfulnessSessions.last else { return 0 }
         return Int(lastSession.interval.duration) / 60
     }
     
@@ -52,6 +52,4 @@ final class HealthKitData: Sendable {
     }
     
     
-  
-
 }
