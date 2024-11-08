@@ -31,7 +31,6 @@ struct MindfulnessDashboard: View {
             HKPermissionPrimerView()
         }
         .task {
-            
             fetchHealthData()
         }
     }
@@ -57,17 +56,13 @@ struct MindfulnessDashboard: View {
 
 
 
-
+// MARK: - Attach this modifier to add sample data to the Health app on the iOS siumulator
 //.toolbar {
-//
+//    ToolbarItem (placement: .topBarLeading){
+//        Button("Add Sample Data") {
+//            Task {
+//                try await hkService.addSampleData()
+//            }
+//        }
+//    }
 //}
-
-//#if DEBUG
-//                ToolbarItem (placement: .topBarLeading){
-//                    Button("Add Sample Data") {
-//                        Task {
-//                            try await hkService.addSampleData()
-//                        }
-//                    }
-//                }
-//#endif

@@ -56,13 +56,9 @@ struct DashboardView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.top)
-            HStack(spacing: 2) {
-                Text(Date.now.formatted(date: .long, time: .omitted))
-                    
-                Image(systemName: "chevron.down")
-            }
-            .font(.headline)
-            .foregroundStyle(.secondary)
+            Text(Date.now.formatted(date: .long, time: .omitted))
+                .font(.headline)
+                .foregroundStyle(.secondary)
         }
     }
 }
