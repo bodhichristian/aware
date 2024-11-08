@@ -1,5 +1,6 @@
 # Aware
-Bring attention to the moment.
+Bring attention to the moment.  
+
 <b>Aware</b> is an iOS app prototype for practicing and tracking mindfulness. Users may start and end a mindfulness session, and have the option to leverage Apple Health for reading and writing mindfulness data.
 
 ## Technologies Used
