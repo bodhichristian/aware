@@ -29,12 +29,11 @@ struct HabitGrid: View {
                         ? .clear
                         : color.progressOpacity(from: data.minutes)
                     )
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .aspectRatio(1, contentMode: .fit)
+                    .frame(width: 16, height: 16)
             }
         }
         .padding()
-        .frame(maxWidth: .infinity, minHeight: 180)
+        .frame(height: 180)
         .background {
             RoundedRectangle(cornerRadius: 16)
                 .foregroundStyle(.white.opacity(0.5))
@@ -45,4 +44,5 @@ struct HabitGrid: View {
 
 #Preview {
     HabitGrid(data: MockData.dailyMindfulness(), color: .indigo)
+        .preferredColorScheme(.dark)
 }
