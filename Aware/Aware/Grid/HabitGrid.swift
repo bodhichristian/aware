@@ -39,7 +39,7 @@ struct HabitGrid: View {
         .frame(height: 180)
         .background {
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(.ultraThinMaterial)
+                .foregroundStyle(.ultraThickMaterial)
         }
     }
 }

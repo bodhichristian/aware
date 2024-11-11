@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA30E8452CDE90DF0095FFF8 /* AwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30E8432CDE90DF0095FFF8 /* AwareTests.swift */; };
+		AA30E8452CDE90DF0095FFF8 /* GridHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */; };
 		AA8795442CD0EFB2004D817E /* AWError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795322CD0EFB2004D817E /* AWError.swift */; };
 		AA8795452CD0EFB2004D817E /* MindfulnessSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */; };
 		AA8795462CD0EFB2004D817E /* HKPermissionPrimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795382CD0EFB2004D817E /* HKPermissionPrimer.swift */; };
@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		AA30E83A2CDE90DA0095FFF8 /* AwareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA30E8432CDE90DF0095FFF8 /* AwareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareTests.swift; sourceTree = "<group>"; };
+		AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridHelperTests.swift; sourceTree = "<group>"; };
 		AA8795322CD0EFB2004D817E /* AWError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWError.swift; sourceTree = "<group>"; };
 		AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessSession.swift; sourceTree = "<group>"; };
 		AA8795362CD0EFB2004D817E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		AA30E8442CDE90DF0095FFF8 /* AwareTests */ = {
 			isa = PBXGroup;
 			children = (
-				AA30E8432CDE90DF0095FFF8 /* AwareTests.swift */,
+				AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */,
 			);
 			path = AwareTests;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA30E8452CDE90DF0095FFF8 /* AwareTests.swift in Sources */,
+				AA30E8452CDE90DF0095FFF8 /* GridHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
