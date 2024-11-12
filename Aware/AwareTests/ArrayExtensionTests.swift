@@ -21,4 +21,11 @@ struct ArrayExtensionTests {
         let average = arr.average
         #expect(average == 0)
     }
+    
+    @Test func arrayAverageWhenCollectionSumIsZero() {
+        let arr: [Int] = [0, 0, 0]
+        let average = arr.average
+        
+        #expect(average == 0)
+    }
 }

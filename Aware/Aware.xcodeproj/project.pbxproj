@@ -106,6 +106,7 @@
 		AA30E8442CDE90DF0095FFF8 /* AwareTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA21BE9C2CE37C3C0098695E /* ArrayExtensionTests.swift */,
 				AA21BE9A2CE309AC0098695E /* DateExtensionTests.swift */,
 				AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */,
 				AA21BE982CE305780098695E /* TimeIntervalExtensionTests.swift */,
@@ -237,7 +238,6 @@
 		AAEFD9B12CCC3EDE00A4A2DD = {
 			isa = PBXGroup;
 			children = (
-				AA21BE9C2CE37C3C0098695E /* ArrayExtensionTests.swift */,
 				AA8795432CD0EFB2004D817E /* Aware */,
 				AA30E8442CDE90DF0095FFF8 /* AwareTests */,
 				AAEFD9BB2CCC3EDE00A4A2DD /* Products */,
