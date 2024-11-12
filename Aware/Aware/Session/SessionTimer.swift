@@ -19,7 +19,7 @@ struct SessionTimer: View {
 
     var body: some View {
         VStack {
-            Text(elapsedTime.minutesSecondsString())
+            Text(elapsedTime.timerFormat())
                 .font(.title2)
                 .foregroundStyle(.secondary)
                 .padding()

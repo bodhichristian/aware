@@ -10,7 +10,7 @@ import Foundation
 extension TimeInterval {
     /// Create a string representing minutes and seconds.
     /// - Returns: ``String`` in "00:00" format
-    func minutesSecondsString() -> String {
+    func timerFormat() -> String {
         let minutes = Int(self) / 60
         let seconds = Int(self) % 60
         return String(format: "%02d:%02d", minutes, seconds)
