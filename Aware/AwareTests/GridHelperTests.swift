@@ -10,7 +10,7 @@ import Testing
 
 struct GridHelperTests {
 
-    @Test func gridifyReturnsCorrectCapacity() async throws {
+    @Test func gridifyEmptyCollection() {
         let data: [DailyMindfulness] = []
         let capacity = 111
         
@@ -18,6 +18,29 @@ struct GridHelperTests {
         
         #expect(dataForGrid.count == capacity)
     }
-
+    
+    @Test func gridifyCollectionSmallerThanCapacity() {
+        let session = DailyMindfulness(date: .now, minutes: 10)
+        let sessionCount = 20
+        let data: [DailyMindfulness] = Array(repeating: session, count: sessionCount)
+        
+        let capacity = 111
+        let dataForGrid = GridHelper.gridify(data, with: capacity)
+        
+        #expect(dataForGrid.count > sessionCount)
+        #expect(dataForGrid.count == capacity)
+    }
+    
+    @Test func gridifyCollectionLargerThanCapacity() {
+        let session = DailyMindfulness(date: .now, minutes: 10)
+        let sessionCount = 200
+        let data: [DailyMindfulness] = Array(repeating: session, count: sessionCount)
+        
+        let capacity = 111
+        let dataForGrid = GridHelper.gridify(data, with: capacity)
+        
+        #expect(dataForGrid.count < sessionCount)
+        #expect(dataForGrid.count == capacity)
+    }
 }
 
