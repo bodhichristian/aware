@@ -9,7 +9,18 @@ import SwiftUI
 
 struct GaugeView: View {
     @Binding var inSession: Bool
-    let progress = 0.8
+    @Environment(HealthKitData.self) var hkData
+
+    private var progress: Double {
+        let goal = 10.0
+        let todaysMindfulMinutes = Double(hkData.totalMinutesToday())
+        let progressRatio = todaysMindfulMinutes / goal
+        if progressRatio > 0 {
+            return progressRatio
+        } else {
+            return 0.02 // Ensures progress indication always exists
+        }
+    }
     
     private var gradient: LinearGradient {
         LinearGradient(
