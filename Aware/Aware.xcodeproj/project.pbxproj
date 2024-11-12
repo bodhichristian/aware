@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA21BE992CE305780098695E /* TimeIntervalExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21BE982CE305780098695E /* TimeIntervalExtensionTests.swift */; };
+		AA21BE9B2CE309AC0098695E /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21BE9A2CE309AC0098695E /* DateExtensionTests.swift */; };
 		AA30E8452CDE90DF0095FFF8 /* GridHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */; };
 		AA8795442CD0EFB2004D817E /* AWError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795322CD0EFB2004D817E /* AWError.swift */; };
 		AA8795452CD0EFB2004D817E /* MindfulnessSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		AA21BE982CE305780098695E /* TimeIntervalExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensionTests.swift; sourceTree = "<group>"; };
+		AA21BE9A2CE309AC0098695E /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		AA30E83A2CDE90DA0095FFF8 /* AwareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridHelperTests.swift; sourceTree = "<group>"; };
 		AA8795322CD0EFB2004D817E /* AWError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWError.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */,
 				AA21BE982CE305780098695E /* TimeIntervalExtensionTests.swift */,
+				AA21BE9A2CE309AC0098695E /* DateExtensionTests.swift */,
 			);
 			path = AwareTests;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA21BE992CE305780098695E /* TimeIntervalExtensionTests.swift in Sources */,
+				AA21BE9B2CE309AC0098695E /* DateExtensionTests.swift in Sources */,
 				AA30E8452CDE90DF0095FFF8 /* GridHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

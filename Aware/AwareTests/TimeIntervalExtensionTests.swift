@@ -11,7 +11,7 @@ import Foundation
 
 struct TimeIntervalExtensionTests {
 
-    @Test func timerFormatUnderOneMinute() {
+    @Test func timerFormatPresentsMinutesPlaceholder() {
         let interval: TimeInterval = 10
         let expectedFormat: String = "00:10"
         let formattedString = interval.timerFormat()
@@ -19,7 +19,7 @@ struct TimeIntervalExtensionTests {
         #expect(formattedString == expectedFormat)
     }
 
-    @Test func timerFormatAtLeastOneMinute() {
+    @Test func timerFormatAccountsForMinutes() {
         let interval: TimeInterval = 120
         let expectedFormat: String = "02:00"
         let formattedString = interval.timerFormat()
