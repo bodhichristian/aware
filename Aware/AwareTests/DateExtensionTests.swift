@@ -10,7 +10,6 @@ import Foundation
 @testable import Aware
 
 struct DateExtensionTests {
-    
     @Test func weekdayIntForKnownSunday() async throws {
         var dateComponents = DateComponents()
         dateComponents.year = 2024
