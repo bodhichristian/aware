@@ -84,4 +84,6 @@ struct GaugeView: View {
         GaugeView(inSession: .constant(false))
             .preferredColorScheme(.dark)
     }
+    .environment(HealthKitData())
+
 }
