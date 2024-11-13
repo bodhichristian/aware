@@ -15,7 +15,8 @@ struct MindfulMeshGradient: View {
         [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
         [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
     ]
-    @State private var colors: [Color] = AWStyle.defaultMesh()
+    
+    @State private var colors: [Color] = AWStyle.greenMesh()
     @State private var isAnimating: Bool = false
     
     let animationDuration: Double = 4.0
@@ -34,7 +35,7 @@ struct MindfulMeshGradient: View {
             withAnimation() {
                 stopAnimation()
                 engaged = false
-                colors = AWStyle.defaultMesh()
+                colors = AWStyle.greenMesh()
             }
         }
     }

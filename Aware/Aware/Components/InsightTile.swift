@@ -18,7 +18,7 @@ struct InsightTile: View {
         ZStack(alignment: .bottom)  {
             // Base
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(.tileBody)
+                .foregroundStyle(.tileBodyGreen)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -29,7 +29,7 @@ struct InsightTile: View {
                 )
             )
             .frame(maxHeight: 44)
-            .foregroundStyle(.tileHeader)
+            .foregroundStyle(.tileHeaderGreen)
             .overlay {
                 Label(footer, systemImage: footerSymbol)
                     .font(.subheadline)

@@ -17,7 +17,7 @@ struct DataTile: View {
         ZStack(alignment: .top)  {
             // Base
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(.tileBody)
+                .foregroundStyle(.tileBodyGreen)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -28,7 +28,7 @@ struct DataTile: View {
                 )
             )
             .frame(maxHeight: 44)
-            .foregroundStyle(.tileHeader)
+            .foregroundStyle(.tileHeaderGreen)
             .overlay {
                 Label(header, systemImage: headerSymbol)
                     .font(.subheadline)

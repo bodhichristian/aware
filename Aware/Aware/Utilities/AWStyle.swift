@@ -33,12 +33,21 @@ struct AWStyle {
         )
     }
     
-    static func defaultMesh() -> [Color] {
+    static func purpleMesh() -> [Color] {
         [
             .backgroundBlue, .backgroundBlue, .backgroundBlue,
             .backgroundBlue, .backgroundBlue, .backgroundBlue,
             .backgroundBlue.opacity(0.2), .backgroundBlue.opacity(0.2), .backgroundBlue.opacity(0.2),
             .backgroundBlue.opacity(0.2), .backgroundBlue.opacity(0.2), .backgroundBlue.opacity(0.2)
+        ]
+    }
+    
+    static func greenMesh() -> [Color] {
+        [
+            .backgroundGreen, .backgroundGreen, .backgroundGreen,
+            .backgroundGreen, .backgroundGreen, .backgroundGreen,
+            .backgroundGreen.opacity(0.2), .backgroundGreen.opacity(0.2), .backgroundGreen.opacity(0.2),
+            .backgroundGreen.opacity(0.2), .backgroundGreen.opacity(0.2), .backgroundGreen.opacity(0.2)
         ]
     }
 }

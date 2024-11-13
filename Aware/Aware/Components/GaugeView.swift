@@ -24,7 +24,7 @@ struct GaugeView: View {
     
     private var gradient: LinearGradient {
         LinearGradient(
-            colors: [.accentPurple, .accentPurple, .white],
+            colors: [.accentSage, .accentGreen, .white],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -34,10 +34,10 @@ struct GaugeView: View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 40.0)
-                .foregroundStyle(.backgroundBlue.mix(with: .black, by: 0.1).gradient)
+                .foregroundStyle(.backgroundGreen.mix(with: .black, by: 0.1).gradient)
             Circle()
                 .stroke(lineWidth: 20.0)
-                .foregroundStyle(.backgroundBlue)
+                .foregroundStyle(.backgroundGreen)
             Circle()
                 .trim(from: 0.0, to: progress)
                 .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round))
@@ -52,7 +52,7 @@ struct GaugeView: View {
                     .transition(.blurReplace())
                 Text("10 min")
                     .font(.headline)
-                    .foregroundStyle(.accentPurple.gradient)
+                    .foregroundStyle(.accentSage.gradient)
                 Button {
                     withAnimation(.smooth(duration: 1)){
                         inSession.toggle()
