@@ -48,6 +48,7 @@ struct DashboardView: View {
         }
         .scrollIndicators(.never)
         .transition(.opacity)
+        .padding(.horizontal)
     }
     
     private var headerView: some View {

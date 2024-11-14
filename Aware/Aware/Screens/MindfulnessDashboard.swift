@@ -32,11 +32,12 @@ struct MindfulnessDashboard: View {
         }
         .task {
             fetchHealthData()
-            Task { @MainActor in
-                if hkData.mindfulnessSessions.isEmpty {
-                    try await hkService.addSampleData()
-                }
-            }
+            // MARK: Add sample data to simulator
+//            Task { @MainActor in
+//                if hkData.mindfulnessSessions.isEmpty {
+//                    try await hkService.addSampleData()
+//                }
+//            }
         }
     }
     

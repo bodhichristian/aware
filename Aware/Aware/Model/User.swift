@@ -11,11 +11,11 @@ import Foundation
 class User {
     var firstName: String
     var dailyMinutesGoal: Int
-    var isInSession: Bool
+    var inSession: Bool
     
     init(firstName: String, dailyMinutesGoal: Int) {
         self.firstName = firstName
-        self.dailyMinutesGoal = dailyMinutesGoal
-        self.isInSession = false
+        self.dailyMinutesGoal = 7
+        self.inSession = false
     }
 }

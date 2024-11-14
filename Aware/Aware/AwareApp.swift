@@ -11,12 +11,14 @@ import SwiftUI
 struct AwareApp: App {
     let hkService = HealthKitService()
     let hkData = HealthKitData()
+    let style = AppStyle(theme: .indigo)
     
     var body: some Scene {
         WindowGroup {
             MindfulnessDashboard()
                 .environment(hkService)
                 .environment(hkData)
+                .environment(style)
                 .preferredColorScheme(.dark)
         }
     }

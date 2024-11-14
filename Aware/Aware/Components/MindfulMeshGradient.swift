@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MindfulMeshGradient: View {
     @Binding var engaged: Bool
+    @Environment(AppStyle.self) var style
+    
     @State private var points: [SIMD2<Float>] = [
         [0.0, 0.0], [0.5, 0.0], [1.0, 0.0],
         [0.0, 0.5], [0.5, 0.5], [1.0, 0.5],
@@ -16,7 +18,7 @@ struct MindfulMeshGradient: View {
         [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
     ]
     
-    @State private var colors: [Color] = AWStyle.greenMesh()
+    @State private var colors: [Color]?
     @State private var isAnimating: Bool = false
     
     let animationDuration: Double = 4.0
@@ -27,15 +29,25 @@ struct MindfulMeshGradient: View {
                 width: 3,
                 height: 4,
                 points: points,
-                colors: colors
+                colors: colors ?? AWStyle.meshFor(.indigo)
             )
         }
         .ignoresSafeArea()
+        .onAppear {
+            colors = style.theme.meshColors
+        }
+        .onChange(of: engaged) {
+            if engaged {
+                startAnimation()
+            } else {
+                
+            }
+        }
         .onTapGesture {
-            withAnimation() {
-                stopAnimation()
+            withAnimation(.smooth(duration: 1.5)) {
                 engaged = false
-                colors = AWStyle.greenMesh()
+                colors = style.theme.meshColors
+                stopAnimation()
             }
         }
     }
@@ -52,7 +64,7 @@ struct MindfulMeshGradient: View {
     private func animateMesh() {
         guard isAnimating else { return }
         withAnimation(.easeIn(duration: animationDuration)) {
-            colors = colors.shuffled()
+            colors = colors!.shuffled()
         }
         // Schedule next animation only if still animating
         DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {

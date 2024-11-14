@@ -24,7 +24,7 @@ struct GaugeView: View {
     
     private var gradient: LinearGradient {
         LinearGradient(
-            colors: [.accentSage, .accentGreen, .white],
+            colors: [.accentSage, .white],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -39,7 +39,7 @@ struct GaugeView: View {
                 .stroke(lineWidth: 20.0)
                 .foregroundStyle(.backgroundGreen)
             Circle()
-                .trim(from: 0.0, to: progress)
+                .trim(from: 0.0, to: 0.8)
                 .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round))
                 .foregroundStyle(gradient)
                 .rotationEffect(Angle(degrees: 270.0))
