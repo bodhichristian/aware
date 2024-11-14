@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DashboardView: View {
     @Binding var inSession: Bool
+    @Environment(AppStyle.self) var style
     @Environment(HealthKitData.self) var hkData
     
     var body: some View {
@@ -52,23 +53,59 @@ struct DashboardView: View {
     }
     
     private var headerView: some View {
-        VStack(spacing: 2) {
-            Text("Mindfulness")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .padding(.top)
-            Text(Date.now.formatted(date: .long, time: .omitted))
-                .font(.headline)
-                .foregroundStyle(.secondary)
+        HStack  {
+            Menu {
+                Section("Select a theme") {
+                    Button("Green") {
+                        style.setGreenTheme()
+                    }
+                    
+                    Button("Indigo") {
+//                        style.set
+                    }
+                    
+                    Button("Earth") {
+                        style.setEarthTheme()
+                    }
+                }
+                
+            } label: {
+                Image(systemName: "paintbrush")
+                    .font(.title2)
+                    .frame(width: 44, height: 44)
+                    
+            }
+            .buttonStyle(.plain)
+           
+
+            VStack(spacing: 2) {
+                Text("Mindfulness")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.top)
+                Text(Date.now.formatted(date: .long, time: .omitted))
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity)
+            
+            Menu {
+                
+            } label: {
+                Image(systemName: "line.3.horizontal")
+                    .font(.title2)
+                    .frame(width: 44, height: 44)
+            }
+            .buttonStyle(.plain)
         }
+        
     }
 }
 
 #Preview {
-    ZStack {
-        Color.backgroundBlue.ignoresSafeArea()
-        DashboardView(inSession: .constant(false))
-            .environment(HealthKitData())
-            .preferredColorScheme(.dark)
-    }
+    DashboardView(inSession: .constant(false))
+        .environment(HealthKitData())
+        .environment(AppStyle(palette: .earth))
+        .preferredColorScheme(.dark)
+    
 }

@@ -23,6 +23,10 @@ class AppStyle {
     func setEarthTheme() {
         palette = .earth
     }
+    
+    func setIndigoTheme() {
+        palette = .indigo
+    }
 }
 
 enum Palette {
