@@ -59,24 +59,19 @@ struct DashboardView: View {
                     Button("Green") {
                         style.setGreenTheme()
                     }
-                    
                     Button("Indigo") {
-//                        style.set
+                        style.setIndigoTheme()
                     }
-                    
                     Button("Earth") {
                         style.setEarthTheme()
                     }
                 }
-                
             } label: {
                 Image(systemName: "paintbrush")
                     .font(.title2)
                     .frame(width: 44, height: 44)
-                    
             }
             .buttonStyle(.plain)
-           
 
             VStack(spacing: 2) {
                 Text("Mindfulness")
