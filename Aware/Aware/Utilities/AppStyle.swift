@@ -26,7 +26,7 @@ class AppStyle {
 }
 
 enum Palette {
-    case indigo, green, earth
+    case indigo, green, earth, purple
     
     var background: Color {
         switch self {
@@ -36,6 +36,8 @@ enum Palette {
                 .backgroundGreen
         case .earth:
                 .backgroundEarth
+        case .purple:
+                .backgroundPurple
         }
     }
     
@@ -47,6 +49,8 @@ enum Palette {
                 .tileHeaderGreen
         case .earth:
                 .tileHeaderEarth
+        case .purple:
+                .tileHeaderPurple
         }
     }
     
@@ -58,6 +62,8 @@ enum Palette {
                 .tileBodyGreen
         case .earth:
                 .tileBodyEarth
+        case .purple:
+                .tileBodyPurple
         }
     }
     
@@ -69,6 +75,8 @@ enum Palette {
                 .accentSage
         case .earth:
                 .accentOrange
+        case .purple:
+                .accentPink
         }
     }
     
