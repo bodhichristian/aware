@@ -57,13 +57,19 @@ struct DashboardView: View {
             Menu {
                 Section("Select a theme") {
                     Button("Green") {
-                        style.setGreenTheme()
+                        withAnimation {
+                            style.setGreenTheme()
+                        }
                     }
                     Button("Indigo") {
-                        style.setIndigoTheme()
+                        withAnimation{
+                            style.setIndigoTheme()
+                        }
                     }
                     Button("Earth") {
-                        style.setEarthTheme()
+                        withAnimation{
+                            style.setEarthTheme()
+                        }
                     }
                 }
             } label: {
