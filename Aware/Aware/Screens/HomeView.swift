@@ -9,7 +9,7 @@ import SwiftUI
 import HealthKit
 import HealthKitUI
 
-struct MindfulnessDashboard: View {
+struct HomeView: View {
     @Environment(HealthKitData.self) var hkData
     @Environment(HealthKitService.self) var hkService
     @State private var inSession = false
@@ -54,7 +54,7 @@ struct MindfulnessDashboard: View {
 }
 
 #Preview {
-    MindfulnessDashboard()
+    HomeView()
         .environment(HealthKitService())
         .environment(HealthKitData())
         .preferredColorScheme(.dark)

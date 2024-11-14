@@ -16,7 +16,7 @@
 		AA8795462CD0EFB2004D817E /* HKPermissionPrimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795382CD0EFB2004D817E /* HKPermissionPrimer.swift */; };
 		AA8795472CD0EFB2004D817E /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87953A2CD0EFB2004D817E /* HealthKitService.swift */; };
 		AA8795492CD0EFB2004D817E /* AwareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795402CD0EFB2004D817E /* AwareApp.swift */; };
-		AA87954A2CD0EFB2004D817E /* MindfulnessDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */; };
+		AA87954A2CD0EFB2004D817E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795412CD0EFB2004D817E /* HomeView.swift */; };
 		AA87954B2CD0EFB2004D817E /* HabitGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795422CD0EFB2004D817E /* HabitGrid.swift */; };
 		AA87954C2CD0EFB2004D817E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8795362CD0EFB2004D817E /* Preview Assets.xcassets */; };
 		AA87954D2CD0EFB2004D817E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA87953E2CD0EFB2004D817E /* Assets.xcassets */; };
@@ -65,7 +65,7 @@
 		AA87953E2CD0EFB2004D817E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA87953F2CD0EFB2004D817E /* Aware.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aware.entitlements; sourceTree = "<group>"; };
 		AA8795402CD0EFB2004D817E /* AwareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareApp.swift; sourceTree = "<group>"; };
-		AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessDashboard.swift; sourceTree = "<group>"; };
+		AA8795412CD0EFB2004D817E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AA8795422CD0EFB2004D817E /* HabitGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitGrid.swift; sourceTree = "<group>"; };
 		AA8795712CD0F563004D817E /* AWStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWStyle.swift; sourceTree = "<group>"; };
 		AA8795732CD14FA8004D817E /* DataTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTile.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8795382CD0EFB2004D817E /* HKPermissionPrimer.swift */,
-				AA8795412CD0EFB2004D817E /* MindfulnessDashboard.swift */,
+				AA8795412CD0EFB2004D817E /* HomeView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -395,7 +395,7 @@
 				AA8795982CD1D628004D817E /* GaugeView.swift in Sources */,
 				AA8795472CD0EFB2004D817E /* HealthKitService.swift in Sources */,
 				AA8795492CD0EFB2004D817E /* AwareApp.swift in Sources */,
-				AA87954A2CD0EFB2004D817E /* MindfulnessDashboard.swift in Sources */,
+				AA87954A2CD0EFB2004D817E /* HomeView.swift in Sources */,
 				AAD21C5C2CD5269100EB133C /* MockData.swift in Sources */,
 				AAA4A1BC2CDC4D4F00461C25 /* Array+Ext.swift in Sources */,
 				AAA4A1C32CDC4E6B00461C25 /* DashboardView.swift in Sources */,
