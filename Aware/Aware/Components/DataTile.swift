@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DataTile: View {
+    @Environment(AppStyle.self) var style
     let header: String
     let headerSymbol: String
     let statString: String
@@ -17,7 +18,7 @@ struct DataTile: View {
         ZStack(alignment: .top)  {
             // Base
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(.tileBodyGreen)
+                .foregroundStyle(style.palette.tileBody)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -28,7 +29,7 @@ struct DataTile: View {
                 )
             )
             .frame(maxHeight: 44)
-            .foregroundStyle(.tileHeaderGreen)
+            .foregroundStyle(style.palette.tileHeader)
             .overlay {
                 Label(header, systemImage: headerSymbol)
                     .font(.subheadline)

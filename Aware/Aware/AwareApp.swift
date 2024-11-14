@@ -11,7 +11,7 @@ import SwiftUI
 struct AwareApp: App {
     let hkService = HealthKitService()
     let hkData = HealthKitData()
-    let style = AppStyle(theme: .indigo)
+    let style = AppStyle(palette: .earth)
     
     var body: some Scene {
         WindowGroup {

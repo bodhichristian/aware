@@ -10,22 +10,22 @@ import SwiftUI
 
 @Observable
 class AppStyle {
-    var theme: Theme
+    var palette: Palette
     
-    init(theme: Theme) {
-        self.theme = .indigo
+    init(palette: Palette) {
+        self.palette = palette
     }
     
     func setGreenTheme() {
-        theme = .green
+        palette = .green
     }
     
     func setEarthTheme() {
-        theme = .earth
+        palette = .earth
     }
 }
 
-enum Theme {
+enum Palette {
     case indigo, green, earth
     
     var background: Color {
@@ -50,7 +50,7 @@ enum Theme {
         }
     }
     
-    var tilteBody: Color {
+    var tileBody: Color {
         switch self {
         case .indigo:
                 .tileBodyBlue

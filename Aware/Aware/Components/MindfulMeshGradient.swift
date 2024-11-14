@@ -34,7 +34,7 @@ struct MindfulMeshGradient: View {
         }
         .ignoresSafeArea()
         .onAppear {
-            colors = style.theme.meshColors
+            colors = style.palette.meshColors
         }
         .onChange(of: engaged) {
             if engaged {
@@ -46,7 +46,7 @@ struct MindfulMeshGradient: View {
         .onTapGesture {
             withAnimation(.smooth(duration: 1.5)) {
                 engaged = false
-                colors = style.theme.meshColors
+                colors = style.palette.meshColors
                 stopAnimation()
             }
         }

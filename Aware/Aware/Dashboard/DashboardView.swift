@@ -36,7 +36,7 @@ struct DashboardView: View {
                     footer: "View trends",
                     footerSymbol: "chart.bar.fill"
                 )
-                HabitGrid(data: hkData.totalMinutesByDay(), color: .accentGreen)
+                HabitGrid(data: hkData.totalMinutesByDay())
                 InsightTile(
                     header: "Daily Inspiration",
                     content: "\"The only zen you'll find on mountain tops is the zen you bring up there with you.\"",
