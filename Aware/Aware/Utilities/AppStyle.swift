@@ -27,10 +27,14 @@ class AppStyle {
     func setIndigoTheme() {
         palette = .indigo
     }
+    
+    func setGrayTheme() {
+        palette = .gray
+    }
 }
 
 enum Palette {
-    case indigo, green, earth, purple
+    case indigo, green, earth, gray
     
     var background: Color {
         switch self {
@@ -40,8 +44,8 @@ enum Palette {
                 .backgroundGreen
         case .earth:
                 .backgroundEarth
-        case .purple:
-                .backgroundPurple
+        case .gray:
+                .backgroundGray
         }
     }
     
@@ -53,8 +57,8 @@ enum Palette {
                 .tileHeaderGreen
         case .earth:
                 .tileHeaderEarth
-        case .purple:
-                .tileHeaderPurple
+        case .gray:
+                .tileHeaderGray
         }
     }
     
@@ -66,8 +70,8 @@ enum Palette {
                 .tileBodyGreen
         case .earth:
                 .tileBodyEarth
-        case .purple:
-                .tileBodyPurple
+        case .gray:
+                .tileBodyGray
         }
     }
     
@@ -79,7 +83,7 @@ enum Palette {
                 .accentSage
         case .earth:
                 .accentOrange
-        case .purple:
+        case .gray:
                 .accentPink
         }
     }

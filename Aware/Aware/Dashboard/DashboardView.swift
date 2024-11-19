@@ -71,6 +71,11 @@ struct DashboardView: View {
                             style.setEarthTheme()
                         }
                     }
+                    Button("Gray") {
+                        withAnimation {
+                            style.setGrayTheme()
+                        }
+                    }
                 }
             } label: {
                 Image(systemName: "paintbrush")
