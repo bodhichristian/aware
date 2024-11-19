@@ -15,7 +15,7 @@ struct AwareApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            Onboarding()
                 .environment(hkService)
                 .environment(hkData)
                 .environment(style)

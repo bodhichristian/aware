@@ -44,9 +44,7 @@ struct MindfulMeshGradient: View {
             }
         }
         .onChange(of: style.palette) {
-            
             colors = style.palette.meshColors
-            
         }
         .onTapGesture {
             withAnimation(.smooth(duration: 1.5)) {

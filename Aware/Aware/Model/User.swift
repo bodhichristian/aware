@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import SwiftData
 
-@Observable
-class User {
+@Model
+final class User {
     var firstName: String
-    var dailyMinutesGoal: Int
+    var dailyGoalMinutes: Int
     var inSession: Bool
     
-    init(firstName: String, dailyMinutesGoal: Int) {
+    init(firstName: String, dailyGoalMinutes: Int) {
         self.firstName = firstName
-        self.dailyMinutesGoal = 7
+        self.dailyGoalMinutes = dailyGoalMinutes
         self.inSession = false
     }
 }
