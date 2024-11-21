@@ -35,7 +35,7 @@ struct Onboarding: View {
     @Environment(AppStyle.self) var style
     @State private var firstName = ""
     @State private var dailyGoalMinutes = 7
-    @State private var phase: OnboardingPhase = .name
+    @State private var phase: OnboardingPhase = .goal
     
     var body: some View {
         NavigationStack {
@@ -119,9 +119,10 @@ struct Onboarding: View {
                     
                     Text("\(dailyGoalMinutes > 1 ? "minutes": "minute")")
                         .animation(.smooth)
-                        .frame(minWidth: 50, maxWidth: .infinity, alignment: .leading)
+                        .frame(width: 80, alignment: .leading)
                 }
-                .frame(width: 100)
+                .font(.headline)
+               // .frame(width: 100)
             }
         }
     }
