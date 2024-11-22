@@ -41,44 +41,54 @@ struct Onboarding: View {
     @State private var phase: OnboardingPhase = .name
     
     var body: some View {
-        ZStack {
-            MindfulMeshGradient(engaged: .constant(false))
-            
-            VStack {
-                switch phase {
-                case .name:
-                    nameInput
-                case .goal:
-                    goalInput
-                case .theme:
-                    themeSelection
-                }
+        NavigationStack {
+            ZStack {
+                MindfulMeshGradient(engaged: .constant(false))
                 
-                HStack {
+                VStack {
+                    switch phase {
+                    case .name:
+                        nameInput
+                    case .goal:
+                        goalInput
+                    case .theme:
+                        themeSelection
+                    }
+                }
+            }
+            .ignoresSafeArea()
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
                     backButton
+                        .padding(.top)
+
+                }
+                ToolbarItem(placement: .topBarTrailing) {
                     advanceButton
+                        .padding(.top)
                 }
             }
         }
-        .ignoresSafeArea()
     }
     
     private var advanceButton: some View {
         Button {
-            switch phase {
-            case .name:
-                phase = .goal
-            case .goal:
-                phase = .theme
-            case .theme:
-                // keeping the appp running. replace with functionality to add user object
-                onboardingComplete = true
+            withAnimation(.smooth) {
+                switch phase {
+                case .name:
+                    phase = .goal
+                case .goal:
+                    phase = .theme
+                case .theme:
+                    // keeping the appp running. replace with functionality to add user object
+                    onboardingComplete = true
+                }
+                
             }
-            
         } label: {
             Capsule()
                 .foregroundStyle(firstName.isEmpty ? .gray : style.palette.accentColor)
-                .frame(width: 132, height: 44)
+                .frame(width: 108, height: 36)
                 .overlay {
                     Text(phase.buttonLabel)
                         .fontWeight(.medium)
@@ -92,20 +102,22 @@ struct Onboarding: View {
     
     private var backButton: some View {
         Button {
-            switch phase {
-            case .name:
-                phase = .goal
-            case .goal:
-                phase = .name
-            case .theme:
-                // keeping the appp running. replace with functionality to add user object
-                phase = .goal
+            withAnimation(.smooth) {
+                switch phase {
+                case .name:
+                    onboardingComplete = true
+                case .goal:
+                    phase = .name
+                case .theme:
+                    // keeping the appp running. replace with functionality to add user object
+                    phase = .goal
+                }
             }
             
         } label: {
             Capsule()
                 .foregroundStyle(.white)
-                .frame(width: 132, height: 44)
+                .frame(width: 108, height: 36)
                 .overlay {
                     Text(phase == .name ? "Skip" : "Back")
                         .fontWeight(.medium)
@@ -189,5 +201,6 @@ struct Onboarding: View {
 #Preview {
     Onboarding(onboardingComplete: .constant(false))
         .environment(AppStyle(palette: .green))
+        .environment(User(firstName: "", dailyGoalMinutes: 8))
         .preferredColorScheme(.dark)
 }
