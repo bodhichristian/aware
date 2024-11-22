@@ -6,19 +6,22 @@
 //
 //
 import SwiftUI
+import SwiftData
 
 @main
 struct AwareApp: App {
     let hkService = HealthKitService()
     let hkData = HealthKitData()
     let style = AppStyle(palette: .indigo)
+    let user = User(firstName: "", dailyGoalMinutes: 7)
     
     var body: some Scene {
         WindowGroup {
-            Onboarding()
+            HomeView()
                 .environment(hkService)
                 .environment(hkData)
                 .environment(style)
+                .environment(user)
                 .preferredColorScheme(.dark)
         }
     }

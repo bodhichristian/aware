@@ -40,6 +40,7 @@
 		AAD21C5C2CD5269100EB133C /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C5B2CD5269100EB133C /* MockData.swift */; };
 		AAD21C6B2CD556DA00EB133C /* HealthKitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C6A2CD556DA00EB133C /* HealthKitData.swift */; };
 		AAD21C6D2CD9463000EB133C /* MindfulMeshGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */; };
+		AAF6B8362CF0119300811321 /* ThemePreviewTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		AAD21C6A2CD556DA00EB133C /* HealthKitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitData.swift; sourceTree = "<group>"; };
 		AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulMeshGradient.swift; sourceTree = "<group>"; };
 		AAEFD9BA2CCC3EDE00A4A2DD /* Aware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aware.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePreviewTile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				AA8795772CD1C223004D817E /* InsightTile.swift */,
 				AA8795972CD1D628004D817E /* GaugeView.swift */,
 				AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */,
+				AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF6B8362CF0119300811321 /* ThemePreviewTile.swift in Sources */,
 				AA8795442CD0EFB2004D817E /* AWError.swift in Sources */,
 				AA8795782CD1C223004D817E /* InsightTile.swift in Sources */,
 				AAA4A1B72CDC4D3400461C25 /* SessionTimer.swift in Sources */,

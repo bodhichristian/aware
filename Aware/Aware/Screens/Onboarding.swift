@@ -32,16 +32,19 @@ enum OnboardingPhase {
 }
 
 struct Onboarding: View {
+    @Binding var onboardingComplete: Bool
     @Environment(AppStyle.self) var style
+    @Environment(User.self) var user
     @State private var firstName = ""
     @State private var dailyGoalMinutes = 7
-    @State private var phase: OnboardingPhase = .goal
+    @State private var selectedPalette: Palette = .green
+    @State private var phase: OnboardingPhase = .name
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                MindfulMeshGradient(engaged: .constant(false))
-                
+        ZStack {
+            MindfulMeshGradient(engaged: .constant(false))
+            
+            VStack {
                 switch phase {
                 case .name:
                     nameInput
@@ -51,11 +54,13 @@ struct Onboarding: View {
                     themeSelection
                 }
                 
-            }
-            .safeAreaInset(edge: .bottom) {
-                advanceButton
+                HStack {
+                    backButton
+                    advanceButton
+                }
             }
         }
+        .ignoresSafeArea()
     }
     
     private var advanceButton: some View {
@@ -67,12 +72,13 @@ struct Onboarding: View {
                 phase = .theme
             case .theme:
                 // keeping the appp running. replace with functionality to add user object
-                phase = .theme
+                onboardingComplete = true
             }
+            
         } label: {
             Capsule()
-                .foregroundStyle(style.palette.accentColor)
-                .frame(width: 200, height: 44)
+                .foregroundStyle(firstName.isEmpty ? .gray : style.palette.accentColor)
+                .frame(width: 132, height: 44)
                 .overlay {
                     Text(phase.buttonLabel)
                         .fontWeight(.medium)
@@ -83,56 +89,105 @@ struct Onboarding: View {
         .disabled(firstName.isEmpty)
     }
     
-    private var nameInput: some View {
-        ZStack {
-            VStack {
-                Text(phase.prompt)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                
-                
-                TextField("First name", text: $firstName)
-                    .multilineTextAlignment(.center)
-                
+    
+    private var backButton: some View {
+        Button {
+            switch phase {
+            case .name:
+                phase = .goal
+            case .goal:
+                phase = .name
+            case .theme:
+                // keeping the appp running. replace with functionality to add user object
+                phase = .goal
             }
-
+            
+        } label: {
+            Capsule()
+                .foregroundStyle(.white)
+                .frame(width: 132, height: 44)
+                .overlay {
+                    Text(phase == .name ? "Skip" : "Back")
+                        .fontWeight(.medium)
+                        .foregroundStyle(style.palette.background)
+                }
+                .padding(.bottom)
+        }
+        .disabled(firstName.isEmpty)
+    }
+    
+    private var nameInput: some View {
+        VStack {
+            Text(phase.prompt)
+                .font(.title)
+                .fontWeight(.medium)
+            
+            TextField("First name", text: $firstName)
+                .multilineTextAlignment(.center)
+                .padding(.bottom)
+        }
+    }
+    private var goalInput: some View {
+        VStack {
+            Text("What's your daily goal?")
+                .font(.title)
+                .fontWeight(.medium)
+            
+            Text("You can change this later in settings.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            
+            HStack {
+                Picker("Daily Goal", selection: $dailyGoalMinutes) {
+                    ForEach(1..<61) { minutes in
+                        Text(String(minutes))
+                        
+                    }
+                }
+                .pickerStyle(.inline)
+                .frame(width: 60, alignment: .trailing)
+                
+                Text("\(dailyGoalMinutes > 1 ? "minutes": "minute")")
+                    .animation(.smooth)
+                    .frame(width: 80, alignment: .leading)
+            }
+            .font(.headline)
         }
         
     }
-    private var goalInput: some View {
-        ZStack {
-            VStack {
-                Text("What's your daily goal?")
-                    .font(.title2)
-                    .fontWeight(.medium)
-                
-                
-                HStack {
-                    Picker("Daily Goal", selection: $dailyGoalMinutes) {
-                        ForEach(1..<61) { minutes in
-                            Text(String(minutes))
-                                
-                        }
+    
+    private var themeSelection: some View {
+        VStack {
+            Text(phase.prompt)
+                .font(.title)
+                .fontWeight(.medium)
+            HStack{
+                ThemePreviewTile(palette: .earth)
+                    .onTapGesture {
+                        style.setEarthTheme()
                     }
-                    .pickerStyle(.inline)
-                    .frame(width: 60, alignment: .trailing)
-                    
-                    Text("\(dailyGoalMinutes > 1 ? "minutes": "minute")")
-                        .animation(.smooth)
-                        .frame(width: 80, alignment: .leading)
-                }
-                .font(.headline)
-               // .frame(width: 100)
+                ThemePreviewTile(palette: .green)
+                    .onTapGesture {
+                        style.setGreenTheme()
+                    }
+            }
+            HStack {
+                ThemePreviewTile(palette: .gray)
+                    .onTapGesture {
+                        style.setGrayTheme()
+                    }
+                ThemePreviewTile(palette: .indigo)
+                    .onTapGesture {
+                        style.setIndigoTheme()
+                    }
             }
         }
-    }
-    private var themeSelection: some View {
-        Text("Hi")
+        .padding(.bottom, 24)
     }
 }
 
 #Preview {
-    Onboarding()
+    Onboarding(onboardingComplete: .constant(false))
         .environment(AppStyle(palette: .green))
         .preferredColorScheme(.dark)
 }

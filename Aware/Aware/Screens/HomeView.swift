@@ -14,30 +14,35 @@ struct HomeView: View {
     @Environment(HealthKitService.self) var hkService
     @State private var inSession = false
     @State private var showingPrimer = false
+    @State private var onboardingComplete: Bool = false
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                MindfulMeshGradient(engaged: $inSession)
-                switch inSession {
-                case true:
-                    SessionView(inSession: $inSession)
-                case false:
-                    DashboardView(inSession: $inSession)
+        if onboardingComplete {
+            NavigationStack {
+                ZStack {
+                    MindfulMeshGradient(engaged: $inSession)
+                    switch inSession {
+                    case true:
+                        SessionView(inSession: $inSession)
+                    case false:
+                        DashboardView(inSession: $inSession)
+                    }
                 }
             }
-        }
-        .fullScreenCover(isPresented: $showingPrimer) {
-            HKPermissionPrimerView()
-        }
-        .task {
-            fetchHealthData()
-            // MARK: Add sample data to simulator
-//            Task { @MainActor in
-//                if hkData.mindfulnessSessions.isEmpty {
-//                    try await hkService.addSampleData()
-//                }
-//            }
+            .fullScreenCover(isPresented: $showingPrimer) {
+                HKPermissionPrimerView()
+            }
+            .task {
+                fetchHealthData()
+                // MARK: Add sample data to simulator
+    //            Task { @MainActor in
+    //                if hkData.mindfulnessSessions.isEmpty {
+    //                    try await hkService.addSampleData()
+    //                }
+    //            }
+            }
+        } else {
+            Onboarding(onboardingComplete: $onboardingComplete)
         }
     }
     
