@@ -91,7 +91,7 @@ struct OnboardingView: View {
                 .frame(width: 30)
                 .padding()
                 .overlay {
-                    Image(systemName: "chevron.right")
+                    Image(systemName: phase == .theme ? "checkmark" : "chevron.right")
                         .font(.caption)
 //                    Text(phase.buttonLabel)
                         .fontWeight(.medium)
