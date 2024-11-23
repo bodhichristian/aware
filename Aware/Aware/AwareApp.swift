@@ -12,8 +12,10 @@ import SwiftData
 struct AwareApp: App {
     let hkService = HealthKitService()
     let hkData = HealthKitData()
+    let onboarding = Onboarding()
     let style = AppStyle(palette: .indigo)
     let user = User(firstName: "", dailyGoalMinutes: 7)
+    let mesh = Mesh()
     
     var body: some Scene {
         WindowGroup {
@@ -21,7 +23,9 @@ struct AwareApp: App {
                 .environment(hkService)
                 .environment(hkData)
                 .environment(style)
+                .environment(onboarding)
                 .environment(user)
+                .environment(mesh)
                 .preferredColorScheme(.dark)
         }
     }

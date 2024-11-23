@@ -24,10 +24,10 @@ struct ThemePreviewTile: View {
                     topTrailing: 16
                 )
             )
-            .frame(maxHeight: 44)
+            .frame(maxHeight: 36)
             .foregroundStyle(palette.tileHeader)
         }
-        .frame(width: 150, height: 120)
+        .frame(width: 120, height: 90)
     }
 }
 

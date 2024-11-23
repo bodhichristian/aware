@@ -58,22 +58,22 @@ struct DashboardView: View {
                 Section("Select a theme") {
                     Button("Green") {
                         withAnimation {
-                            style.setGreenTheme()
+                            style.palette = .green
                         }
                     }
                     Button("Indigo") {
                         withAnimation{
-                            style.setIndigoTheme()
+                            style.palette = .indigo
                         }
                     }
                     Button("Earth") {
                         withAnimation{
-                            style.setEarthTheme()
+                            style.palette = .earth
                         }
                     }
                     Button("Gray") {
                         withAnimation {
-                            style.setGrayTheme()
+                            style.palette = .gray
                         }
                     }
                 }

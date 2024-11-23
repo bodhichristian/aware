@@ -12,15 +12,15 @@ import HealthKitUI
 struct HomeView: View {
     @Environment(HealthKitData.self) var hkData
     @Environment(HealthKitService.self) var hkService
+    @Environment(Onboarding.self) var onboarding
     @State private var inSession = false
     @State private var showingPrimer = false
-    @State private var onboardingComplete: Bool = false
     
     var body: some View {
-        if onboardingComplete {
+        if onboarding.complete {
             NavigationStack {
                 ZStack {
-                    MindfulMeshGradient(engaged: $inSession)
+                    MindfulMeshGradient(inSession: $inSession)
                     switch inSession {
                     case true:
                         SessionView(inSession: $inSession)
@@ -42,7 +42,7 @@ struct HomeView: View {
     //            }
             }
         } else {
-            Onboarding(onboardingComplete: $onboardingComplete)
+            OnboardingView()
         }
     }
     

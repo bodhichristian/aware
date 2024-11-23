@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MindfulMeshGradient: View {
-    @Binding var engaged: Bool
+    @Binding var inSession: Bool
+    @Environment(Mesh.self) var mesh
     @Environment(AppStyle.self) var style
     
     @State private var points: [SIMD2<Float>] = [
@@ -35,43 +36,46 @@ struct MindfulMeshGradient: View {
         .ignoresSafeArea()
         .onAppear {
             colors = style.palette.meshColors
-        }
-        .onChange(of: engaged) {
-            if engaged {
+            if mesh.isAnimating {
                 startAnimation()
-            } else {
-                
             }
         }
         .onChange(of: style.palette) {
             colors = style.palette.meshColors
         }
+        .onChange(of: mesh.isAnimating) {
+            if mesh.isAnimating {
+                startAnimation()
+            } else {
+                stopAnimation()
+            }
+        }
         .onTapGesture {
             withAnimation(.smooth(duration: 1.5)) {
-                engaged = false
+                inSession = false
+                mesh.isAnimating = false
                 colors = style.palette.meshColors
-                stopAnimation()
             }
         }
     }
     
     private func startAnimation() {
-        isAnimating = true
+        mesh.isAnimating = true
         animateMesh()
     }
     
     private func stopAnimation() {
-        isAnimating = false
+        mesh.isAnimating = false
     }
     
     private func animateMesh() {
-        guard isAnimating else { return }
+        guard mesh.isAnimating else { return }
         withAnimation(.easeIn(duration: animationDuration)) {
             colors = colors!.shuffled()
         }
         // Schedule next animation only if still animating
         DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-            if isAnimating {
+            if mesh.isAnimating {
                 animateMesh()
             }
         }
@@ -79,8 +83,9 @@ struct MindfulMeshGradient: View {
 }
 
 #Preview {
-    MindfulMeshGradient(engaged: .constant(true))
+    MindfulMeshGradient(inSession: .constant(true))
         .preferredColorScheme(.dark)
+        .environment(AppStyle(palette: .green))
 }
 
 

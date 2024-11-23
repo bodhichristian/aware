@@ -15,22 +15,6 @@ class AppStyle {
     init(palette: Palette) {
         self.palette = palette
     }
-    
-    func setGreenTheme() {
-        palette = .green
-    }
-    
-    func setEarthTheme() {
-        palette = .earth
-    }
-    
-    func setIndigoTheme() {
-        palette = .indigo
-    }
-    
-    func setGrayTheme() {
-        palette = .gray
-    }
 }
 
 enum Palette {

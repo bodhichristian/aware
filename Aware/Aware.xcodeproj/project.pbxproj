@@ -26,6 +26,7 @@
 		AA8795982CD1D628004D817E /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795972CD1D628004D817E /* GaugeView.swift */; };
 		AA8B67EA2CE52667009643B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B67E92CE52667009643B1 /* User.swift */; };
 		AA8B67EC2CE63DAE009643B1 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B67EB2CE63DAE009643B1 /* AppStyle.swift */; };
+		AA8D3C672CF254F6003A889F /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D3C662CF254F6003A889F /* Mesh.swift */; };
 		AAA4A1B72CDC4D3400461C25 /* SessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1B52CDC4D3400461C25 /* SessionTimer.swift */; };
 		AAA4A1BC2CDC4D4F00461C25 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1B82CDC4D4F00461C25 /* Array+Ext.swift */; };
 		AAA4A1BD2CDC4D4F00461C25 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1B92CDC4D4F00461C25 /* Date+Ext.swift */; };
@@ -75,6 +76,7 @@
 		AA8795972CD1D628004D817E /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		AA8B67E92CE52667009643B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA8B67EB2CE63DAE009643B1 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		AA8D3C662CF254F6003A889F /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
 		AAA4A1B52CDC4D3400461C25 /* SessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTimer.swift; sourceTree = "<group>"; };
 		AAA4A1B82CDC4D4F00461C25 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		AAA4A1B92CDC4D4F00461C25 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -201,13 +203,22 @@
 		AA8795502CD0F023004D817E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AA8D3C652CF254DB003A889F /* Mesh */,
 				AA8795732CD14FA8004D817E /* DataTile.swift */,
 				AA8795772CD1C223004D817E /* InsightTile.swift */,
 				AA8795972CD1D628004D817E /* GaugeView.swift */,
-				AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */,
 				AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		AA8D3C652CF254DB003A889F /* Mesh */ = {
+			isa = PBXGroup;
+			children = (
+				AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */,
+				AA8D3C662CF254F6003A889F /* Mesh.swift */,
+			);
+			path = Mesh;
 			sourceTree = "<group>";
 		};
 		AAA4A1B62CDC4D3400461C25 /* Session */ = {
@@ -407,6 +418,7 @@
 				AAD21C5C2CD5269100EB133C /* MockData.swift in Sources */,
 				AAA4A1BC2CDC4D4F00461C25 /* Array+Ext.swift in Sources */,
 				AAA4A1C32CDC4E6B00461C25 /* DashboardView.swift in Sources */,
+				AA8D3C672CF254F6003A889F /* Mesh.swift in Sources */,
 				AAA4A1BD2CDC4D4F00461C25 /* Date+Ext.swift in Sources */,
 				AA8B67EA2CE52667009643B1 /* User.swift in Sources */,
 				AAA4A1BE2CDC4D4F00461C25 /* TimeInterval+Ext.swift in Sources */,

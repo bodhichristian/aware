@@ -7,33 +7,42 @@
 
 import SwiftUI
 
+@Observable
+class Onboarding {
+    var complete = false
+    var phase: OnboardingPhase = .name
+}
+
+
 enum OnboardingPhase {
     case name, goal, theme
     
     var prompt: String {
         switch self {
         case .name:
-            "Hello. \nWhat's your name?"
+            "What's your name?"
         case .goal:
             "What's your daily goal?"
         case .theme:
             "Select a theme"
         }
     }
-    
-    var buttonLabel: String {
+    var subtitle: String {
         switch self {
-        case .name, .goal:
-            "Next"
+        case .name:
+            ""
+        case .goal:
+            "You can change this later in Settings"
         case .theme:
-            "Done"
+            "Select a theme to get started."
         }
     }
 }
 
-struct Onboarding: View {
-    @Binding var onboardingComplete: Bool
+struct OnboardingView: View {
     @Environment(AppStyle.self) var style
+    @Environment(Onboarding.self) var onboarding
+    @Environment(Mesh.self) var mesh
     @Environment(User.self) var user
     @State private var firstName = ""
     @State private var dailyGoalMinutes = 7
@@ -43,7 +52,7 @@ struct Onboarding: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                MindfulMeshGradient(engaged: .constant(true))
+                MindfulMeshGradient(inSession: .constant(true))
                 
                 HStack {
                     backButton
@@ -57,18 +66,10 @@ struct Onboarding: View {
                             themeSelection
                         }
                     }
-                    
                     advanceButton
                 }
             }
             .ignoresSafeArea()
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    backButton
-                        .padding(.top)
-
-                }
-            }
         }
     }
     
@@ -81,15 +82,13 @@ struct Onboarding: View {
                 case .goal:
                     phase = .theme
                 case .theme:
-                    // keeping the appp running. replace with functionality to add user object
-                    onboardingComplete = true
+                    exitOnboarding()
                 }
-                
             }
         } label: {
             Circle()
                 .foregroundStyle(firstName.isEmpty ? .gray : style.palette.accentColor)
-                .frame(width: 36)
+                .frame(width: 30)
                 .padding()
                 .overlay {
                     Image(systemName: "chevron.right")
@@ -109,7 +108,8 @@ struct Onboarding: View {
             withAnimation(.smooth) {
                 switch phase {
                 case .name:
-                    onboardingComplete = true
+                    onboarding.complete = true
+                    mesh.isAnimating = false
                 case .goal:
                     phase = .name
                 case .theme:
@@ -121,10 +121,10 @@ struct Onboarding: View {
         } label: {
             Circle()
                 .foregroundStyle(.white)
-                .frame(width: 36)
+                .frame(width: 30)
                 .padding()
                 .overlay {
-                    Image(systemName: "chevron.left")
+                    Image(systemName: phase == .name ? "xmark" : "chevron.left")
                         .font(.caption)
 //                    Text(phase == .name ? "Skip" : "Back")
                         .fontWeight(.medium)
@@ -137,14 +137,21 @@ struct Onboarding: View {
     
     private var nameInput: some View {
         VStack {
+            Text("Hello.")
+                .font(.headline)
+                .fontWeight(.bold)
+                .foregroundStyle(style.palette.accentColor.gradient)
             Text(phase.prompt)
                 .multilineTextAlignment(.center)
                 .font(.title2)
                 .fontWeight(.medium)
+
             
             TextField("First name", text: $firstName)
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
+                .frame(height: 70, alignment: .top)
+                .foregroundStyle(.secondary)
         }
     }
     private var goalInput: some View {
@@ -153,7 +160,7 @@ struct Onboarding: View {
                 .font(.title2)
                 .fontWeight(.medium)
             
-            Text("You can change this later in settings.")
+            Text(phase.subtitle)
                 .font(.caption)
                 .foregroundStyle(.secondary)
             
@@ -165,7 +172,7 @@ struct Onboarding: View {
                     }
                 }
                 .pickerStyle(.inline)
-                .frame(width: 60, alignment: .trailing)
+                .frame(width: 60, height: 100, alignment: .trailing)
                 
                 Text("\(dailyGoalMinutes > 1 ? "minutes": "minute")")
                     .animation(.smooth)
@@ -180,35 +187,41 @@ struct Onboarding: View {
     private var themeSelection: some View {
         VStack {
             Text(phase.prompt)
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.medium)
+                .frame(maxWidth: .infinity)
             HStack{
                 ThemePreviewTile(palette: .earth)
                     .onTapGesture {
-                        style.setEarthTheme()
+                        style.palette = .earth
                     }
                 ThemePreviewTile(palette: .green)
                     .onTapGesture {
-                        style.setGreenTheme()
+                        style.palette = .green
                     }
             }
             HStack {
                 ThemePreviewTile(palette: .gray)
                     .onTapGesture {
-                        style.setGrayTheme()
+                        style.palette = .gray
                     }
                 ThemePreviewTile(palette: .indigo)
                     .onTapGesture {
-                        style.setIndigoTheme()
+                        style.palette = .indigo
                     }
             }
         }
         .padding(.bottom, 24)
     }
+    
+    private func exitOnboarding() {
+        onboarding.complete = true
+        mesh.isAnimating = false
+    }
 }
 
 #Preview {
-    Onboarding(onboardingComplete: .constant(false))
+    OnboardingView()
         .environment(AppStyle(palette: .green))
         .environment(User(firstName: "", dailyGoalMinutes: 8))
         .preferredColorScheme(.dark)
