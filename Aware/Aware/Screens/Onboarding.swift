@@ -13,7 +13,7 @@ enum OnboardingPhase {
     var prompt: String {
         switch self {
         case .name:
-            "What's your name?"
+            "Hello. \nWhat's your name?"
         case .goal:
             "What's your daily goal?"
         case .theme:
@@ -43,17 +43,22 @@ struct Onboarding: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                MindfulMeshGradient(engaged: .constant(false))
+                MindfulMeshGradient(engaged: .constant(true))
                 
-                VStack {
-                    switch phase {
-                    case .name:
-                        nameInput
-                    case .goal:
-                        goalInput
-                    case .theme:
-                        themeSelection
+                HStack {
+                    backButton
+                    VStack {
+                        switch phase {
+                        case .name:
+                            nameInput
+                        case .goal:
+                            goalInput
+                        case .theme:
+                            themeSelection
+                        }
                     }
+                    
+                    advanceButton
                 }
             }
             .ignoresSafeArea()
@@ -62,10 +67,6 @@ struct Onboarding: View {
                     backButton
                         .padding(.top)
 
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    advanceButton
-                        .padding(.top)
                 }
             }
         }
@@ -86,11 +87,14 @@ struct Onboarding: View {
                 
             }
         } label: {
-            Capsule()
+            Circle()
                 .foregroundStyle(firstName.isEmpty ? .gray : style.palette.accentColor)
-                .frame(width: 108, height: 36)
+                .frame(width: 36)
+                .padding()
                 .overlay {
-                    Text(phase.buttonLabel)
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+//                    Text(phase.buttonLabel)
                         .fontWeight(.medium)
                         .foregroundStyle(.white)
                 }
@@ -115,11 +119,14 @@ struct Onboarding: View {
             }
             
         } label: {
-            Capsule()
+            Circle()
                 .foregroundStyle(.white)
-                .frame(width: 108, height: 36)
+                .frame(width: 36)
+                .padding()
                 .overlay {
-                    Text(phase == .name ? "Skip" : "Back")
+                    Image(systemName: "chevron.left")
+                        .font(.caption)
+//                    Text(phase == .name ? "Skip" : "Back")
                         .fontWeight(.medium)
                         .foregroundStyle(style.palette.background)
                 }
@@ -131,7 +138,8 @@ struct Onboarding: View {
     private var nameInput: some View {
         VStack {
             Text(phase.prompt)
-                .font(.title)
+                .multilineTextAlignment(.center)
+                .font(.title2)
                 .fontWeight(.medium)
             
             TextField("First name", text: $firstName)
@@ -142,7 +150,7 @@ struct Onboarding: View {
     private var goalInput: some View {
         VStack {
             Text("What's your daily goal?")
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.medium)
             
             Text("You can change this later in settings.")
@@ -165,7 +173,8 @@ struct Onboarding: View {
             }
             .font(.headline)
         }
-        
+        .frame(maxWidth: .infinity)
+
     }
     
     private var themeSelection: some View {
