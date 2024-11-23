@@ -78,7 +78,7 @@ struct DashboardView: View {
                     }
                 }
             } label: {
-                Image(systemName: "paintbrush")
+                Image(systemName: "")
                     .font(.title2)
                     .frame(width: 44, height: 44)
             }

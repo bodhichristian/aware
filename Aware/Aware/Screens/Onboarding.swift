@@ -193,21 +193,29 @@ struct OnboardingView: View {
             HStack{
                 ThemePreviewTile(palette: .earth)
                     .onTapGesture {
-                        style.palette = .earth
+                        withAnimation {
+                            style.palette = .earth
+                        }
                     }
                 ThemePreviewTile(palette: .green)
                     .onTapGesture {
-                        style.palette = .green
+                        withAnimation {
+                            style.palette = .green
+                        }
                     }
             }
             HStack {
                 ThemePreviewTile(palette: .gray)
                     .onTapGesture {
-                        style.palette = .gray
+                        withAnimation {
+                            style.palette = .gray
+                        }
                     }
                 ThemePreviewTile(palette: .indigo)
                     .onTapGesture {
-                        style.palette = .indigo
+                        withAnimation {
+                            style.palette = .indigo
+                        }
                     }
             }
         }
