@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct GaugeView: View {
-    @Binding var inSession: Bool
-    let progress = 0.8
+    @Environment(AppState.self) var appState
+    @Environment(AppStyle.self) var style
+    @Environment(HealthKitData.self) var hkData
+
+    private var progress: Double {
+        let goal = 10.0
+        let todaysMindfulMinutes = Double(hkData.totalMinutesToday())
+        let progressRatio = todaysMindfulMinutes / goal
+        if progressRatio > 0 {
+            return progressRatio
+        } else {
+            return 0.02 // Ensures progress indication always exists
+        }
+    }
     
     private var gradient: LinearGradient {
         LinearGradient(
-            colors: [.accentPurple, .accentPurple, .white],
+            colors: [style.palette.accentColor, .white],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -23,12 +35,12 @@ struct GaugeView: View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 40.0)
-                .foregroundStyle(.backgroundBlue.mix(with: .black, by: 0.1).gradient)
+                .foregroundStyle(style.palette.background.mix(with: .black, by: 0.1).gradient)
             Circle()
                 .stroke(lineWidth: 20.0)
-                .foregroundStyle(.backgroundBlue)
+                .foregroundStyle(style.palette.background)
             Circle()
-                .trim(from: 0.0, to: progress)
+                .trim(from: 0.0, to: 0.8)
                 .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round))
                 .foregroundStyle(gradient)
                 .rotationEffect(Angle(degrees: 270.0))
@@ -41,10 +53,10 @@ struct GaugeView: View {
                     .transition(.blurReplace())
                 Text("10 min")
                     .font(.headline)
-                    .foregroundStyle(.accentPurple.gradient)
+                    .foregroundStyle(style.palette.accentColor.gradient)
                 Button {
                     withAnimation(.smooth(duration: 1)){
-                        inSession.toggle()
+                        appState.scene = .inSession
                     }
                 } label: {
                     Text("Start session")
@@ -70,7 +82,9 @@ struct GaugeView: View {
     
     ZStack {
         Color.backgroundBlue.ignoresSafeArea()
-        GaugeView(inSession: .constant(false))
+        GaugeView()
             .preferredColorScheme(.dark)
     }
+    .environment(HealthKitData())
+
 }

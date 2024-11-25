@@ -32,7 +32,7 @@ struct MockData {
         
         let calendar = Calendar.current
         
-        for i in 0...77 {
+        for i in 0...111 {
             // Create a start date that is `i` number of days before today
             let date = calendar.date(byAdding: .day, value: -i, to: .now)!
             // Calculate an end that is 1-15 minutes after the start date

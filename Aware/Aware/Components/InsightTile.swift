@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InsightTile: View {
+    @Environment(AppStyle.self) var style
     let header: String
     let content: String
     let footer: String
@@ -18,7 +19,7 @@ struct InsightTile: View {
         ZStack(alignment: .bottom)  {
             // Base
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(.tileBody)
+                .foregroundStyle(style.palette.tileBody)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -29,7 +30,7 @@ struct InsightTile: View {
                 )
             )
             .frame(maxHeight: 44)
-            .foregroundStyle(.tileHeader)
+            .foregroundStyle(style.palette.tileHeader)
             .overlay {
                 Label(footer, systemImage: footerSymbol)
                     .font(.subheadline)

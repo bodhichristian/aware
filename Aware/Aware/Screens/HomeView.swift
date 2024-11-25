@@ -9,21 +9,23 @@ import SwiftUI
 import HealthKit
 import HealthKitUI
 
-struct MindfulnessDashboard: View {
+struct HomeView: View {
     @Environment(HealthKitData.self) var hkData
     @Environment(HealthKitService.self) var hkService
-    @State private var inSession = false
+    @Environment(AppState.self) var appState
     @State private var showingPrimer = false
     
     var body: some View {
         NavigationStack {
             ZStack {
-                MindfulMeshGradient(engaged: $inSession)
-                switch inSession {
-                case true:
-                    SessionView(inSession: $inSession)
-                case false:
-                    DashboardView(inSession: $inSession)
+                MindfulMeshGradient()
+                switch appState.scene {
+                case .inSession:
+                    SessionView()
+                case .main:
+                    DashboardView()
+                case .onboarding:
+                    OnboardingView()
                 }
             }
         }
@@ -32,7 +34,14 @@ struct MindfulnessDashboard: View {
         }
         .task {
             fetchHealthData()
+            // MARK: Add sample data to simulator
+            //            Task { @MainActor in
+            //                if hkData.mindfulnessSessions.isEmpty {
+            //                    try await hkService.addSampleData()
+            //                }
+            //            }
         }
+        
     }
     
     private func fetchHealthData() {
@@ -48,9 +57,10 @@ struct MindfulnessDashboard: View {
 }
 
 #Preview {
-    MindfulnessDashboard()
+    HomeView()
         .environment(HealthKitService())
         .environment(HealthKitData())
+        .preferredColorScheme(.dark)
 }
 
 

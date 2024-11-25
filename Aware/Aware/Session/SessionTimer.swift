@@ -9,7 +9,7 @@ import SwiftUI
 import HealthKit
 
 struct SessionTimer: View {
-    @Binding var inSession: Bool
+    @Environment(AppState.self) var appState
     @Environment(HealthKitService.self) var hkService
     @Environment(HealthKitData.self) var hkData
     @State private var startTime: Date = .now
@@ -19,7 +19,7 @@ struct SessionTimer: View {
 
     var body: some View {
         VStack {
-            Text(elapsedTime.minutesSecondsString())
+            Text(elapsedTime.timerFormat())
                 .font(.title2)
                 .foregroundStyle(.secondary)
                 .padding()
@@ -28,14 +28,14 @@ struct SessionTimer: View {
 
         }
         .onReceive(timer) { _ in
-            if inSession {
+            if appState.scene == .inSession {
                 elapsedTime = Date().timeIntervalSince(startTime)
             } else {
                 stopTimer()
             }
         }
-        .onChange(of: inSession) {
-            if !inSession {
+        .onChange(of: appState.scene) {
+            if appState.scene != .inSession {
                 addTimeToHealth()
                 stopTimer()
             }
@@ -54,15 +54,10 @@ struct SessionTimer: View {
     }
 
     private func stopTimer() {
-        inSession = false
-    }
-
-    private func resetTimer() {
-        inSession = false
-        elapsedTime = 0
+        appState.scene = .main
     }
 }
 
 #Preview {
-    SessionTimer(inSession: .constant(true))
+    SessionTimer()
 }

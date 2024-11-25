@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct MindfulMeshGradient: View {
-    @Binding var engaged: Bool
+    @Environment(AppStyle.self) var style
+    @Environment(AppState.self) var appState
+
     @State private var points: [SIMD2<Float>] = [
         [0.0, 0.0], [0.5, 0.0], [1.0, 0.0],
         [0.0, 0.5], [0.5, 0.5], [1.0, 0.5],
         [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
         [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
     ]
-    @State private var colors: [Color] = AWStyle.defaultMesh()
-    @State private var isAnimating: Bool = false
+    
+    @State private var colors: [Color]?
+    
+    private var isAnimating: Bool {
+        appState.scene == .inSession ||
+        appState.scene == .onboarding
+    }
     
     let animationDuration: Double = 4.0
     
@@ -26,36 +33,53 @@ struct MindfulMeshGradient: View {
                 width: 3,
                 height: 4,
                 points: points,
-                colors: colors
+                colors: colors ?? AWStyle.meshFor(.indigo)
             )
         }
         .ignoresSafeArea()
-        .onTapGesture {
-            withAnimation() {
+        .onAppear {
+            colors = style.palette.meshColors
+            if isAnimating {
+                startAnimation()
+            }
+        }
+        .onChange(of: style.palette) {
+            colors = style.palette.meshColors
+        }
+        .onChange(of: appState.scene) {
+            if appState.scene == .inSession {
+                startAnimation()
+            } else {
                 stopAnimation()
-                engaged = false
-                colors = AWStyle.defaultMesh()
+            }
+        }
+        .onTapGesture {
+            withAnimation(.smooth(duration: 1.5)) {
+                if appState.scene == .inSession {
+                    appState.scene = .main
+                    colors = style.palette.meshColors
+                }
             }
         }
     }
     
     private func startAnimation() {
-        isAnimating = true
         animateMesh()
     }
     
     private func stopAnimation() {
-        isAnimating = false
+        appState.scene = .main
+//        user.inSession = false
     }
     
     private func animateMesh() {
         guard isAnimating else { return }
         withAnimation(.easeIn(duration: animationDuration)) {
-            colors = colors.shuffled()
+            colors = colors!.shuffled()
         }
         // Schedule next animation only if still animating
         DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-            if isAnimating {
+            if appState.scene == .inSession  {
                 animateMesh()
             }
         }
@@ -63,8 +87,9 @@ struct MindfulMeshGradient: View {
 }
 
 #Preview {
-    MindfulMeshGradient(engaged: .constant(true))
+    MindfulMeshGradient()
         .preferredColorScheme(.dark)
+        .environment(AppStyle(palette: .green))
 }
 
 
