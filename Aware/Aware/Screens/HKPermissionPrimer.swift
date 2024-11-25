@@ -15,8 +15,7 @@ struct HKPermissionPrimerView: View {
     
     var body: some View {
         ZStack {
-            MindfulMeshGradient(inSession: .constant(false))
-                .ignoresSafeArea()
+            MindfulMeshGradient()                .ignoresSafeArea()
             
             VStack(alignment: .leading) {
                 Image("appleHealth")

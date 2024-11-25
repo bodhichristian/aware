@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @Binding var inSession: Bool
+    @Environment(AppState.self) var appState
     @Environment(AppStyle.self) var style
     @Environment(HealthKitData.self) var hkData
     
@@ -16,7 +16,7 @@ struct DashboardView: View {
         ScrollView {
             VStack(spacing: 16) {
                 headerView
-                GaugeView(inSession: $inSession)
+                GaugeView()
                 HStack(spacing: 16) {
                     DataTile(
                         header: "Last Session",
@@ -109,7 +109,7 @@ struct DashboardView: View {
 }
 
 #Preview {
-    DashboardView(inSession: .constant(false))
+    DashboardView()
         .environment(HealthKitData())
         .environment(AppStyle(palette: .earth))
         .preferredColorScheme(.dark)

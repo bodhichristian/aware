@@ -6,8 +6,8 @@
 //
 
 import Foundation
-
-@Observable
-class Mesh {
-    var isAnimating: Bool = true
-}
+//
+//@Observable
+//class Mesh {
+//    var isAnimating: Bool = true
+//}

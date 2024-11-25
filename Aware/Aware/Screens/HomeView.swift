@@ -12,38 +12,36 @@ import HealthKitUI
 struct HomeView: View {
     @Environment(HealthKitData.self) var hkData
     @Environment(HealthKitService.self) var hkService
-    @Environment(Onboarding.self) var onboarding
-    @State private var inSession = false
+    @Environment(AppState.self) var appState
     @State private var showingPrimer = false
     
     var body: some View {
-        if onboarding.complete {
-            NavigationStack {
-                ZStack {
-                    MindfulMeshGradient(inSession: $inSession)
-                    switch inSession {
-                    case true:
-                        SessionView(inSession: $inSession)
-                    case false:
-                        DashboardView(inSession: $inSession)
-                    }
+        NavigationStack {
+            ZStack {
+                MindfulMeshGradient()
+                switch appState.scene {
+                case .inSession:
+                    SessionView()
+                case .main:
+                    DashboardView()
+                case .onboarding:
+                    OnboardingView()
                 }
             }
-            .fullScreenCover(isPresented: $showingPrimer) {
-                HKPermissionPrimerView()
-            }
-            .task {
-                fetchHealthData()
-                // MARK: Add sample data to simulator
-    //            Task { @MainActor in
-    //                if hkData.mindfulnessSessions.isEmpty {
-    //                    try await hkService.addSampleData()
-    //                }
-    //            }
-            }
-        } else {
-            OnboardingView()
         }
+        .fullScreenCover(isPresented: $showingPrimer) {
+            HKPermissionPrimerView()
+        }
+        .task {
+            fetchHealthData()
+            // MARK: Add sample data to simulator
+            //            Task { @MainActor in
+            //                if hkData.mindfulnessSessions.isEmpty {
+            //                    try await hkService.addSampleData()
+            //                }
+            //            }
+        }
+        
     }
     
     private func fetchHealthData() {

@@ -8,15 +8,19 @@
 import Foundation
 import SwiftData
 
-@Model
+@Observable
 final class User {
     var firstName: String
     var dailyGoalMinutes: Int
-    var inSession: Bool
+    var selectedPalette: Palette
+    var isOnboarded: Bool
     
-    init(firstName: String, dailyGoalMinutes: Int) {
+    init(firstName: String, dailyGoalMinutes: Int, selectedPalette: Palette) {
         self.firstName = firstName
         self.dailyGoalMinutes = dailyGoalMinutes
-        self.inSession = false
+        self.selectedPalette = selectedPalette
+        self.isOnboarded = false
     }
 }
+
+

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SessionView: View {
-    @Binding var inSession: Bool
-    @Environment(Mesh.self) var mesh
+    @Environment(AppState.self) var appState
     
     var body: some View {
         ZStack  {
@@ -24,16 +23,16 @@ struct SessionView: View {
             }
             .frame(maxHeight: .infinity, alignment: .center)
             
-            SessionTimer(inSession: $inSession)
+            SessionTimer()
                 .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .onAppear {
-            mesh.isAnimating = true
+//            user.inSession = true
         }
         .frame(maxHeight: .infinity)
     }
 }
 
 #Preview {
-    SessionView(inSession: .constant(true))
+    SessionView()
 }

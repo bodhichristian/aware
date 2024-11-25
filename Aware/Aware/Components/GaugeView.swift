@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GaugeView: View {
-    @Binding var inSession: Bool
+    @Environment(AppState.self) var appState
     @Environment(AppStyle.self) var style
     @Environment(HealthKitData.self) var hkData
 
@@ -56,7 +56,7 @@ struct GaugeView: View {
                     .foregroundStyle(style.palette.accentColor.gradient)
                 Button {
                     withAnimation(.smooth(duration: 1)){
-                        inSession.toggle()
+                        appState.scene = .inSession
                     }
                 } label: {
                     Text("Start session")
@@ -82,7 +82,7 @@ struct GaugeView: View {
     
     ZStack {
         Color.backgroundBlue.ignoresSafeArea()
-        GaugeView(inSession: .constant(false))
+        GaugeView()
             .preferredColorScheme(.dark)
     }
     .environment(HealthKitData())

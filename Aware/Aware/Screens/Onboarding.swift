@@ -7,43 +7,10 @@
 
 import SwiftUI
 
-@Observable
-class Onboarding {
-    var complete = false
-    var phase: OnboardingPhase = .name
-}
-
-
-enum OnboardingPhase {
-    case name, goal, theme
-    
-    var prompt: String {
-        switch self {
-        case .name:
-            "What's your name?"
-        case .goal:
-            "What's your daily goal?"
-        case .theme:
-            "Select a theme"
-        }
-    }
-    var subtitle: String {
-        switch self {
-        case .name:
-            ""
-        case .goal:
-            "You can change this later in Settings"
-        case .theme:
-            "Select a theme to get started."
-        }
-    }
-}
-
 struct OnboardingView: View {
     @Environment(AppStyle.self) var style
-    @Environment(Onboarding.self) var onboarding
-    @Environment(Mesh.self) var mesh
     @Environment(User.self) var user
+    @Environment(AppState.self) var appState
     @State private var firstName = ""
     @State private var dailyGoalMinutes = 7
     @State private var selectedPalette: Palette = .green
@@ -52,7 +19,7 @@ struct OnboardingView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                MindfulMeshGradient(inSession: .constant(true))
+                MindfulMeshGradient()
                 
                 HStack {
                     backButton
@@ -108,8 +75,7 @@ struct OnboardingView: View {
             withAnimation(.smooth) {
                 switch phase {
                 case .name:
-                    onboarding.complete = true
-                    mesh.isAnimating = false
+                    exitOnboarding()
                 case .goal:
                     phase = .name
                 case .theme:
@@ -223,14 +189,13 @@ struct OnboardingView: View {
     }
     
     private func exitOnboarding() {
-        onboarding.complete = true
-        mesh.isAnimating = false
+        appState.scene = .main
     }
 }
 
 #Preview {
     OnboardingView()
         .environment(AppStyle(palette: .green))
-        .environment(User(firstName: "", dailyGoalMinutes: 8))
+        .environment(User(firstName: "", dailyGoalMinutes: 8, selectedPalette: .green))
         .preferredColorScheme(.dark)
 }
