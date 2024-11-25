@@ -9,7 +9,6 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Environment(AppStyle.self) var style
-    @Environment(User.self) var user
     @Environment(AppState.self) var appState
     @State private var firstName = ""
     @State private var dailyGoalMinutes = 7
@@ -196,6 +195,5 @@ struct OnboardingView: View {
 #Preview {
     OnboardingView()
         .environment(AppStyle(palette: .green))
-        .environment(User(firstName: "", dailyGoalMinutes: 8, selectedPalette: .green))
         .preferredColorScheme(.dark)
 }

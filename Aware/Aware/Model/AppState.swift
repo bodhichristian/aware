@@ -15,10 +15,9 @@ class AppState {
     }
     
     init() {
-        self.scene = AppScene.main
+        self.scene = AppScene.onboarding
     }
 }
-
 
 enum OnboardingPhase {
     case name, goal, theme
@@ -33,6 +32,7 @@ enum OnboardingPhase {
             "Select a theme"
         }
     }
+    
     var subtitle: String {
         switch self {
         case .name:

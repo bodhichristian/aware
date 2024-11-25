@@ -14,7 +14,6 @@ struct AwareApp: App {
     let hkData = HealthKitData()
     let appState = AppState()
     let style = AppStyle(palette: .indigo)
-    let user = User(firstName: "", dailyGoalMinutes: 7, selectedPalette: .green)
     
     var body: some Scene {
         WindowGroup {
@@ -23,7 +22,6 @@ struct AwareApp: App {
                 .environment(hkService)
                 .environment(hkData)
                 .environment(style)
-                .environment(user)
                 .preferredColorScheme(.dark)
         }
     }

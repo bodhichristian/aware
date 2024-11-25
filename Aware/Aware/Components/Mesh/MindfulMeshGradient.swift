@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MindfulMeshGradient: View {
-    @Environment(User.self) var user
     @Environment(AppStyle.self) var style
     @Environment(AppState.self) var appState
 
