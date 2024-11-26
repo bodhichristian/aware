@@ -39,8 +39,14 @@ struct HabitGrid: View {
         .padding()
         .frame(height: 180)
         .background {
-            RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(.ultraThickMaterial)
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundStyle(.ultraThinMaterial)
+                
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
+                
+            }
         }
     }
 }

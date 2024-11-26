@@ -38,11 +38,11 @@ struct GaugeView: View {
                 .shadow(radius: 4, y: 4)
 
             Circle()
-                .stroke(lineWidth: 24.0)
+                .stroke(lineWidth: 30.0)
                 .foregroundStyle(appState.theme.background)
             Circle()
                 .trim(from: 0.0, to: progress)
-                .stroke(style: StrokeStyle(lineWidth: 24.0, lineCap: .round))
+                .stroke(style: StrokeStyle(lineWidth: 30.0, lineCap: .round))
                 .foregroundStyle(gradient)
                 .rotationEffect(Angle(degrees: 270.0))
             VStack {

@@ -20,6 +20,7 @@ struct DataTile: View {
             // Base
             RoundedRectangle(cornerRadius: radius)
                 .foregroundStyle(.ultraThinMaterial)
+                .shadow(radius: 4, x: 4)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -35,7 +36,7 @@ struct DataTile: View {
                 Label(header, systemImage: headerSymbol)
                     .font(.subheadline)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.white.opacity(0.7))
+                    .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
             }

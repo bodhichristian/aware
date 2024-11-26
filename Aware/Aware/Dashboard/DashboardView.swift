@@ -39,6 +39,7 @@ struct DashboardView: View {
                 }
                 
                 HabitGrid(data: hkData.totalMinutesByDay())
+                    .shadow(radius: 4, x: 4)
 
                 InsightTile(
                     header: "Keep it up",

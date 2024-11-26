@@ -22,6 +22,8 @@ struct InsightTile: View {
             // Base
             RoundedRectangle(cornerRadius: radius)
                 .foregroundStyle(.ultraThinMaterial)
+                .shadow(radius: 4, x: 4)
+
             // Footer
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
