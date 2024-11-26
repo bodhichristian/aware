@@ -63,7 +63,7 @@ struct DashboardView: View {
                     .padding(.top)
                 Text("Mindfulness Dashboard")
                     .font(.headline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.white.gradient)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             

@@ -13,19 +13,20 @@ struct DataTile: View {
     let headerSymbol: String
     let statString: String
     let bodySymbol: String
+    let radius: CGFloat = 16
     
     var body: some View {
         ZStack(alignment: .top)  {
             // Base
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: radius)
                 .foregroundStyle(.ultraThinMaterial)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
-                    topLeading: 16,
+                    topLeading: radius,
                     bottomLeading: 0,
                     bottomTrailing: 0,
-                    topTrailing: 16
+                    topTrailing: radius
                 )
             )
             .frame(maxHeight: 44)
@@ -38,6 +39,8 @@ struct DataTile: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
             }
+            RoundedRectangle(cornerRadius: radius)
+                .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
             // Body
             HStack {
                 Text(statString)

@@ -15,15 +15,11 @@ struct GaugeView: View {
     private var progress: Double {
         let todaysMindfulMinutes = hkData.totalMinutesToday()
         let progressRatio = todaysMindfulMinutes / Double(dailyGoal)
-        print(todaysMindfulMinutes)
-        print(dailyGoal)
-        print(progressRatio)
         if progressRatio > 0.0 {
             return progressRatio
         } else {
             return 0.02 // Ensures progress indication always exists
         }
-        
     }
     
     private var gradient: LinearGradient {
@@ -37,14 +33,16 @@ struct GaugeView: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(lineWidth: 40.0)
+                .stroke(lineWidth: 36.0)
                 .foregroundStyle(appState.theme.background.mix(with: .black, by: 0.1).gradient)
+                .shadow(radius: 4, y: 4)
+
             Circle()
-                .stroke(lineWidth: 20.0)
+                .stroke(lineWidth: 24.0)
                 .foregroundStyle(appState.theme.background)
             Circle()
                 .trim(from: 0.0, to: progress)
-                .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round))
+                .stroke(style: StrokeStyle(lineWidth: 24.0, lineCap: .round))
                 .foregroundStyle(gradient)
                 .rotationEffect(Angle(degrees: 270.0))
             VStack {
@@ -64,18 +62,19 @@ struct GaugeView: View {
                 } label: {
                     Text("Start session")
                         .font(.subheadline)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.white)
                         .padding()
                         .background {
                             Capsule()
-                                .foregroundStyle(.white.opacity(0.5))
+                                .foregroundStyle(appState.theme.tileHeader)
                                 .frame(height: 44)
+                                .shadow(radius: 4, y: 4)
+
                         }
                 }
             }
             .offset(y: 10)
         }
-        .shadow(radius: 4)
         .padding(30)
         .frame(maxWidth: 320, maxHeight: 320)
     }
