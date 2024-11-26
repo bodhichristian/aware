@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @Environment(AppStyle.self) var style
     @Environment(AppState.self) var appState
     @State private var firstName = ""
-    @State private var dailyGoalMinutes = 7
     @State private var selectedPalette: Palette = .green
     @State private var phase: OnboardingPhase = .name
+    @AppStorage("hasOnboarded") var hasOnboarded: Bool = false
+    @AppStorage("dailyGoal") var dailyGoal: Int = 7
     
     var body: some View {
         NavigationStack {
@@ -46,6 +46,7 @@ struct OnboardingView: View {
                 case .name:
                     phase = .goal
                 case .goal:
+                    appState.dailyGoal = dailyGoal
                     phase = .theme
                 case .theme:
                     exitOnboarding()
@@ -53,13 +54,12 @@ struct OnboardingView: View {
             }
         } label: {
             Circle()
-                .foregroundStyle(firstName.isEmpty ? .gray : style.palette.accentColor)
+                .foregroundStyle(firstName.isEmpty ? .gray : appState.theme.accentColor)
                 .frame(width: 30)
                 .padding()
                 .overlay {
                     Image(systemName: phase == .theme ? "checkmark" : "chevron.right")
                         .font(.caption)
-//                    Text(phase.buttonLabel)
                         .fontWeight(.medium)
                         .foregroundStyle(.white)
                 }
@@ -78,7 +78,6 @@ struct OnboardingView: View {
                 case .goal:
                     phase = .name
                 case .theme:
-                    // keeping the appp running. replace with functionality to add user object
                     phase = .goal
                 }
             }
@@ -91,13 +90,11 @@ struct OnboardingView: View {
                 .overlay {
                     Image(systemName: phase == .name ? "xmark" : "chevron.left")
                         .font(.caption)
-//                    Text(phase == .name ? "Skip" : "Back")
                         .fontWeight(.medium)
-                        .foregroundStyle(style.palette.background)
+                        .foregroundStyle(appState.theme.background)
                 }
                 .padding(.bottom)
         }
-        .disabled(firstName.isEmpty)
     }
     
     private var nameInput: some View {
@@ -105,7 +102,7 @@ struct OnboardingView: View {
             Text("Hello.")
                 .font(.headline)
                 .fontWeight(.bold)
-                .foregroundStyle(style.palette.accentColor.gradient)
+                .foregroundStyle(appState.theme.accentColor.gradient)
             Text(phase.prompt)
                 .multilineTextAlignment(.center)
                 .font(.title2)
@@ -130,8 +127,8 @@ struct OnboardingView: View {
                 .foregroundStyle(.secondary)
             
             HStack {
-                Picker("Daily Goal", selection: $dailyGoalMinutes) {
-                    ForEach(1..<61) { minutes in
+                Picker("Daily Goal", selection: $dailyGoal) {
+                    ForEach(0..<60) { minutes in
                         Text(String(minutes))
                         
                     }
@@ -139,7 +136,7 @@ struct OnboardingView: View {
                 .pickerStyle(.inline)
                 .frame(width: 60, height: 100, alignment: .trailing)
                 
-                Text("\(dailyGoalMinutes > 1 ? "minutes": "minute")")
+                Text("\(dailyGoal > 1 ? "minutes": "minute")")
                     .animation(.smooth)
                     .frame(width: 80, alignment: .leading)
             }
@@ -159,13 +156,13 @@ struct OnboardingView: View {
                 ThemePreviewTile(palette: .earth)
                     .onTapGesture {
                         withAnimation {
-                            style.palette = .earth
+                            appState.theme = .earth
                         }
                     }
                 ThemePreviewTile(palette: .green)
                     .onTapGesture {
                         withAnimation {
-                            style.palette = .green
+                            appState.theme = .green
                         }
                     }
             }
@@ -173,13 +170,13 @@ struct OnboardingView: View {
                 ThemePreviewTile(palette: .gray)
                     .onTapGesture {
                         withAnimation {
-                            style.palette = .gray
+                            appState.theme = .gray
                         }
                     }
                 ThemePreviewTile(palette: .indigo)
                     .onTapGesture {
                         withAnimation {
-                            style.palette = .indigo
+                            appState.theme = .indigo
                         }
                     }
             }
@@ -188,12 +185,15 @@ struct OnboardingView: View {
     }
     
     private func exitOnboarding() {
-        appState.scene = .main
+        withAnimation {
+            hasOnboarded = true
+            appState.scene = .main
+        }
     }
 }
 
 #Preview {
     OnboardingView()
-        .environment(AppStyle(palette: .green))
+        .environment(AppState())
         .preferredColorScheme(.dark)
 }

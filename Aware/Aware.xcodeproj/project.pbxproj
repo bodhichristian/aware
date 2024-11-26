@@ -25,7 +25,7 @@
 		AA8795782CD1C223004D817E /* InsightTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795772CD1C223004D817E /* InsightTile.swift */; };
 		AA8795982CD1D628004D817E /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795972CD1D628004D817E /* GaugeView.swift */; };
 		AA8B67EA2CE52667009643B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B67E92CE52667009643B1 /* User.swift */; };
-		AA8B67EC2CE63DAE009643B1 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B67EB2CE63DAE009643B1 /* AppStyle.swift */; };
+		AA8B67EC2CE63DAE009643B1 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B67EB2CE63DAE009643B1 /* Palette.swift */; };
 		AA8D3C672CF254F6003A889F /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D3C662CF254F6003A889F /* Mesh.swift */; };
 		AA8D3C692CF3F521003A889F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D3C682CF3F521003A889F /* AppState.swift */; };
 		AAA4A1B72CDC4D3400461C25 /* SessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1B52CDC4D3400461C25 /* SessionTimer.swift */; };
@@ -76,7 +76,7 @@
 		AA8795772CD1C223004D817E /* InsightTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightTile.swift; sourceTree = "<group>"; };
 		AA8795972CD1D628004D817E /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		AA8B67E92CE52667009643B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		AA8B67EB2CE63DAE009643B1 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		AA8B67EB2CE63DAE009643B1 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		AA8D3C662CF254F6003A889F /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
 		AA8D3C682CF3F521003A889F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		AAA4A1B52CDC4D3400461C25 /* SessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTimer.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8795712CD0F563004D817E /* AWStyle.swift */,
-				AA8B67EB2CE63DAE009643B1 /* AppStyle.swift */,
+				AA8B67EB2CE63DAE009643B1 /* Palette.swift */,
 				AAA4A1BB2CDC4D4F00461C25 /* Extensions */,
 				AA8795332CD0EFB2004D817E /* Errors */,
 			);
@@ -413,7 +413,7 @@
 				AA8795452CD0EFB2004D817E /* MindfulnessSession.swift in Sources */,
 				AAD21C6D2CD9463000EB133C /* MindfulMeshGradient.swift in Sources */,
 				AA8795462CD0EFB2004D817E /* HKPermissionPrimer.swift in Sources */,
-				AA8B67EC2CE63DAE009643B1 /* AppStyle.swift in Sources */,
+				AA8B67EC2CE63DAE009643B1 /* Palette.swift in Sources */,
 				AA8795982CD1D628004D817E /* GaugeView.swift in Sources */,
 				AA8795472CD0EFB2004D817E /* HealthKitService.swift in Sources */,
 				AA8795492CD0EFB2004D817E /* AwareApp.swift in Sources */,

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HabitGrid: View {
-    @Environment(AppStyle.self) var style
+    @Environment(AppState.self) var appState
+
     let data: [DailyMindfulness]
     
     let columns: Int = 16
@@ -30,7 +31,7 @@ struct HabitGrid: View {
                     .fill(
                         Calendar.current.startOfDay(for: data.date) > Date.now
                         ? .clear
-                        : style.palette.accentColor.progressOpacity(from: data.minutes)
+                        : appState.theme.accentColor.progressOpacity(from: data.minutes)
                     )
                     .aspectRatio(contentMode: .fit)
             }
@@ -48,7 +49,7 @@ struct HabitGrid: View {
 #Preview {
     VStack {
         HabitGrid(data: MockData.dailyMindfulness())
-            .environment(AppStyle(palette: .indigo))
+            .environment(AppState())
 
     }
         .preferredColorScheme(.dark)

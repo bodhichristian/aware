@@ -9,14 +9,13 @@ import SwiftUI
 
 struct GaugeView: View {
     @Environment(AppState.self) var appState
-    @Environment(AppStyle.self) var style
     @Environment(HealthKitData.self) var hkData
+    @AppStorage("dailyGoal") private var dailyGoal: Int = 7
 
     private var progress: Double {
-        let goal = 10.0
         let todaysMindfulMinutes = Double(hkData.totalMinutesToday())
-        let progressRatio = todaysMindfulMinutes / goal
-        if progressRatio > 0 {
+        let progressRatio = todaysMindfulMinutes / Double(dailyGoal)
+        if progressRatio > 0.0 {
             return progressRatio
         } else {
             return 0.02 // Ensures progress indication always exists
@@ -25,7 +24,7 @@ struct GaugeView: View {
     
     private var gradient: LinearGradient {
         LinearGradient(
-            colors: [style.palette.accentColor, .white],
+            colors: [appState.theme.accentColor, .white],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -35,12 +34,12 @@ struct GaugeView: View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 40.0)
-                .foregroundStyle(style.palette.background.mix(with: .black, by: 0.1).gradient)
+                .foregroundStyle(appState.theme.background.mix(with: .black, by: 0.1).gradient)
             Circle()
                 .stroke(lineWidth: 20.0)
-                .foregroundStyle(style.palette.background)
+                .foregroundStyle(appState.theme.background)
             Circle()
-                .trim(from: 0.0, to: 0.8)
+                .trim(from: 0.0, to: progress)
                 .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round))
                 .foregroundStyle(gradient)
                 .rotationEffect(Angle(degrees: 270.0))
@@ -51,9 +50,9 @@ struct GaugeView: View {
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.white)
                     .transition(.blurReplace())
-                Text("10 min")
+                Text("\(dailyGoal) min")
                     .font(.headline)
-                    .foregroundStyle(style.palette.accentColor.gradient)
+                    .foregroundStyle(appState.theme.accentColor.gradient)
                 Button {
                     withAnimation(.smooth(duration: 1)){
                         appState.scene = .inSession
