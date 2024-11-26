@@ -34,10 +34,6 @@ struct OnboardingView: View {
                     }
                     advanceButton
                 }
-                Text("dailyGoal: \(dailyGoal)")
-                    .background {
-                        Color.black
-                    }
             }
             .ignoresSafeArea()
         }
