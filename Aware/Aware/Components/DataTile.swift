@@ -18,7 +18,7 @@ struct DataTile: View {
         ZStack(alignment: .top)  {
             // Base
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(appState.theme.tileBody)
+                .foregroundStyle(.ultraThinMaterial)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -34,7 +34,7 @@ struct DataTile: View {
                 Label(header, systemImage: headerSymbol)
                     .font(.subheadline)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.white.opacity(0.5))
+                    .foregroundStyle(.white.opacity(0.7))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
             }

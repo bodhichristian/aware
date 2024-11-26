@@ -31,8 +31,6 @@ struct HomeView: View {
                 case .inSession:
                     SessionView()
                 }
-                
-                
             }
         }
         .fullScreenCover(isPresented: $showingPrimer) {
@@ -49,12 +47,12 @@ struct HomeView: View {
         }
         .task {
             fetchHealthData()
-            // MARK: Add sample data to simulator
-            //            Task { @MainActor in
-            //                if hkData.mindfulnessSessions.isEmpty {
-            //                    try await hkService.addSampleData()
-            //                }
-            //            }
+//             MARK: Add sample data to simulator
+//                        Task { @MainActor in
+//                            if hkData.mindfulnessSessions.isEmpty {
+//                                try await hkService.addSampleData()
+//                            }
+//                        }
         }
     }
     

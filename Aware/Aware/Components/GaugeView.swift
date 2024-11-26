@@ -13,13 +13,17 @@ struct GaugeView: View {
     @AppStorage("dailyGoal") private var dailyGoal: Int = 7
 
     private var progress: Double {
-        let todaysMindfulMinutes = Double(hkData.totalMinutesToday())
+        let todaysMindfulMinutes = hkData.totalMinutesToday()
         let progressRatio = todaysMindfulMinutes / Double(dailyGoal)
+        print(todaysMindfulMinutes)
+        print(dailyGoal)
+        print(progressRatio)
         if progressRatio > 0.0 {
             return progressRatio
         } else {
             return 0.02 // Ensures progress indication always exists
         }
+        
     }
     
     private var gradient: LinearGradient {

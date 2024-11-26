@@ -19,8 +19,8 @@ struct InsightTile: View {
         ZStack(alignment: .bottom)  {
             // Base
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(appState.theme.tileBody)
-            // Header
+                .foregroundStyle(.ultraThinMaterial)
+            // Footer
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
                     topLeading: 0,
@@ -45,7 +45,7 @@ struct InsightTile: View {
                     .font(.title3)
                     .fontDesign(.rounded)
                     .fontWeight(.medium)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(appState.theme.accentColor.mix(with: .white, by: 0.5))
                 Text(content)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
