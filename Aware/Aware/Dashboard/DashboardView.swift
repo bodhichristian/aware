@@ -25,6 +25,13 @@ struct DashboardView: View {
                 
                 HStack(spacing: 16) {
                     DataTile(
+                        header: "Today",
+                        headerSymbol: "calendar",
+                        statString: "3 sessions",
+                        bodySymbol: ""
+                    )
+                    
+                    DataTile(
                         header: "Last Session",
                         headerSymbol: "brain.head.profile",
                         statString: "\(hkData.lastSessionDuration()) min",
@@ -36,6 +43,7 @@ struct DashboardView: View {
                         statString: "\(hkData.averageSessionDuration()) min",
                         bodySymbol: "gauge.high"
                     )
+                    
                 }
                 
                 HabitGrid(data: hkData.totalMinutesByDay())

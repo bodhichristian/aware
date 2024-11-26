@@ -30,22 +30,22 @@ struct DataTile: View {
                     topTrailing: radius
                 )
             )
-            .frame(maxHeight: 44)
+            .frame(maxHeight: 36)
             .foregroundStyle(appState.theme.tileHeader)
             .overlay {
                 Label(header, systemImage: headerSymbol)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
+                    .font(.caption)
+                    .fontWeight(.medium)
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
+                    .padding(.leading, 8)
             }
             RoundedRectangle(cornerRadius: radius)
                 .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
             // Body
             HStack {
                 Text(statString)
-                    .font(.title)
+                    .font(.subheadline)
                     .fontDesign(.rounded)
                     .fontWeight(.semibold)
                     .foregroundStyle(.white)
@@ -60,10 +60,10 @@ struct DataTile: View {
                 maxHeight: .infinity,
                 alignment: .bottomLeading
             )
-            .padding()
+            .padding(8)
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 110)
+        .frame(height: 100)
     }
 }
 
