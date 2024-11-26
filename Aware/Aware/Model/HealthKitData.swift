@@ -51,10 +51,10 @@ final class HealthKitData: Sendable {
         return durations.average
     }
     
-    func totalMinutesToday() -> Int {
+    func totalMinutesToday() -> Double {
         let todaysSessions = mindfulnessSessions.filter({$0.sessionDate.weekdayInt == Date.now.weekdayInt})
         let totalMinutes = todaysSessions.reduce(0) {
-            $0 + Int($1.interval.duration / 60)
+            $0 + ($1.interval.duration / 60)
         }
         return totalMinutes
     }

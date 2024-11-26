@@ -31,6 +31,8 @@ struct HomeView: View {
                 case .inSession:
                     SessionView()
                 }
+                
+                
             }
         }
         .fullScreenCover(isPresented: $showingPrimer) {

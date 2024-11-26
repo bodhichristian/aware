@@ -15,10 +15,12 @@ class AppState {
         case launched, onboarding, main, inSession
     }
     
+    var dailyGoal: Int
     var theme: Palette
     
     init() {
         self.scene = .onboarding
+        self.dailyGoal = 7
         self.theme = .indigo
     }
 }

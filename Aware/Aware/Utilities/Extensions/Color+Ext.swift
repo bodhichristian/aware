@@ -16,9 +16,11 @@ extension Color {
         if minutes >= 15 {
             return self
         } else if minutes >= 10 {
-            return self.opacity(0.7)
+            return self.opacity(0.8)
         } else if minutes >= 5 {
-            return self.opacity(0.3)
+            return self.opacity(0.4)
+        } else if minutes >= 1 {
+            return self.opacity(0.2)
         } else {
             return .white.opacity(0.1)
         }

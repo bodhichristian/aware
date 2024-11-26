@@ -10,10 +10,10 @@ import SwiftUI
 struct OnboardingView: View {
     @Environment(AppState.self) var appState
     @State private var firstName = ""
-    @State private var dailyGoalMinutes = 7
     @State private var selectedPalette: Palette = .green
     @State private var phase: OnboardingPhase = .name
     @AppStorage("hasOnboarded") var hasOnboarded: Bool = false
+    @AppStorage("dailyGoal") var dailyGoal: Int = 7
     
     var body: some View {
         NavigationStack {
@@ -34,6 +34,10 @@ struct OnboardingView: View {
                     }
                     advanceButton
                 }
+                Text("dailyGoal: \(dailyGoal)")
+                    .background {
+                        Color.black
+                    }
             }
             .ignoresSafeArea()
         }
@@ -46,6 +50,7 @@ struct OnboardingView: View {
                 case .name:
                     phase = .goal
                 case .goal:
+                    appState.dailyGoal = dailyGoal
                     phase = .theme
                 case .theme:
                     exitOnboarding()
@@ -126,8 +131,8 @@ struct OnboardingView: View {
                 .foregroundStyle(.secondary)
             
             HStack {
-                Picker("Daily Goal", selection: $dailyGoalMinutes) {
-                    ForEach(1..<61) { minutes in
+                Picker("Daily Goal", selection: $dailyGoal) {
+                    ForEach(0..<60) { minutes in
                         Text(String(minutes))
                         
                     }
@@ -135,7 +140,7 @@ struct OnboardingView: View {
                 .pickerStyle(.inline)
                 .frame(width: 60, height: 100, alignment: .trailing)
                 
-                Text("\(dailyGoalMinutes > 1 ? "minutes": "minute")")
+                Text("\(dailyGoal > 1 ? "minutes": "minute")")
                     .animation(.smooth)
                     .frame(width: 80, alignment: .leading)
             }
