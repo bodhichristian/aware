@@ -15,6 +15,7 @@ struct HomeView: View {
     @Environment(AppState.self) var appState
     @State private var showingPrimer = false
     @AppStorage("hasOnboarded") private var hasOnboarded: Bool = false
+    @AppStorage("theme") private var themeKey: String = Palette.green.key
     
     var body: some View {
         NavigationStack {
@@ -22,7 +23,7 @@ struct HomeView: View {
                 MindfulMeshGradient()
                 switch appState.scene {
                 case .launched:
-                    MindfulMeshGradient()
+                    EmptyView()
                 case .onboarding:
                     OnboardingView()
                 case .main:
@@ -36,9 +37,13 @@ struct HomeView: View {
             HKPermissionPrimerView()
         }
         .onAppear {
+            appState.theme = Palette.from(themeKey)
             if hasOnboarded {
                 appState.scene = .main
             }
+        }
+        .onChange(of: appState.theme) {
+            themeKey = appState.theme.key
         }
         .task {
             fetchHealthData()

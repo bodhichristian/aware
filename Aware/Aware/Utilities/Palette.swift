@@ -66,4 +66,32 @@ enum Palette {
     var meshColors: [Color] {
         AWStyle.meshFor(self.background)
     }
+    
+    var key: String {
+        switch self {
+        case .indigo:
+            "indigo"
+        case .green:
+            "green"
+        case .earth:
+            "earth"
+        case .gray:
+            "gray"
+        }
+    }
+    
+    static func from(_ key: String) -> Palette {
+        switch key {
+        case "indigo":
+            return .indigo
+        case "green":
+            return .green
+        case "earth":
+            return .earth
+        case "gray":
+            return .gray
+        default:
+            return .green
+        }
+    }
 }
