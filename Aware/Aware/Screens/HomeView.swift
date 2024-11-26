@@ -14,23 +14,31 @@ struct HomeView: View {
     @Environment(HealthKitService.self) var hkService
     @Environment(AppState.self) var appState
     @State private var showingPrimer = false
+    @AppStorage("hasOnboarded") private var hasOnboarded: Bool = false
     
     var body: some View {
         NavigationStack {
             ZStack {
                 MindfulMeshGradient()
                 switch appState.scene {
-                case .inSession:
-                    SessionView()
-                case .main:
-                    DashboardView()
+                case .launched:
+                    MindfulMeshGradient()
                 case .onboarding:
                     OnboardingView()
+                case .main:
+                    DashboardView()
+                case .inSession:
+                    SessionView()
                 }
             }
         }
         .fullScreenCover(isPresented: $showingPrimer) {
             HKPermissionPrimerView()
+        }
+        .onAppear {
+            if hasOnboarded {
+                appState.scene = .main
+            }
         }
         .task {
             fetchHealthData()
@@ -41,7 +49,6 @@ struct HomeView: View {
             //                }
             //            }
         }
-        
     }
     
     private func fetchHealthData() {
@@ -62,17 +69,3 @@ struct HomeView: View {
         .environment(HealthKitData())
         .preferredColorScheme(.dark)
 }
-
-
-
-
-// MARK: - Attach this modifier to add sample data to the Health app on the iOS siumulator
-//.toolbar {
-//    ToolbarItem (placement: .topBarLeading){
-//        Button("Add Sample Data") {
-//            Task {
-//                try await hkService.addSampleData()
-//            }
-//        }
-//    }
-//}

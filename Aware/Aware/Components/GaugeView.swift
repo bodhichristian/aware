@@ -9,7 +9,6 @@ import SwiftUI
 
 struct GaugeView: View {
     @Environment(AppState.self) var appState
-    @Environment(AppStyle.self) var style
     @Environment(HealthKitData.self) var hkData
 
     private var progress: Double {
@@ -25,7 +24,7 @@ struct GaugeView: View {
     
     private var gradient: LinearGradient {
         LinearGradient(
-            colors: [style.palette.accentColor, .white],
+            colors: [appState.theme.accentColor, .white],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -35,10 +34,10 @@ struct GaugeView: View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 40.0)
-                .foregroundStyle(style.palette.background.mix(with: .black, by: 0.1).gradient)
+                .foregroundStyle(appState.theme.background.mix(with: .black, by: 0.1).gradient)
             Circle()
                 .stroke(lineWidth: 20.0)
-                .foregroundStyle(style.palette.background)
+                .foregroundStyle(appState.theme.background)
             Circle()
                 .trim(from: 0.0, to: 0.8)
                 .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round))
@@ -53,7 +52,7 @@ struct GaugeView: View {
                     .transition(.blurReplace())
                 Text("10 min")
                     .font(.headline)
-                    .foregroundStyle(style.palette.accentColor.gradient)
+                    .foregroundStyle(appState.theme.accentColor.gradient)
                 Button {
                     withAnimation(.smooth(duration: 1)){
                         appState.scene = .inSession

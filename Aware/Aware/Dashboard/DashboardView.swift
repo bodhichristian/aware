@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DashboardView: View {
     @Environment(AppState.self) var appState
-    @Environment(AppStyle.self) var style
     @Environment(HealthKitData.self) var hkData
     
     var body: some View {
@@ -58,22 +57,22 @@ struct DashboardView: View {
                 Section("Select a theme") {
                     Button("Green") {
                         withAnimation {
-                            style.palette = .green
+                            appState.theme = .green
                         }
                     }
                     Button("Indigo") {
                         withAnimation{
-                            style.palette = .indigo
+                            appState.theme = .indigo
                         }
                     }
                     Button("Earth") {
                         withAnimation{
-                            style.palette = .earth
+                            appState.theme = .earth
                         }
                     }
                     Button("Gray") {
                         withAnimation {
-                            style.palette = .gray
+                            appState.theme = .gray
                         }
                     }
                 }
@@ -111,7 +110,5 @@ struct DashboardView: View {
 #Preview {
     DashboardView()
         .environment(HealthKitData())
-        .environment(AppStyle(palette: .earth))
         .preferredColorScheme(.dark)
-    
 }

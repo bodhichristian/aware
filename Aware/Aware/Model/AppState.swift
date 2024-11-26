@@ -6,16 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
 
 @Observable
 class AppState {
     var scene: AppScene
     enum AppScene {
-        case onboarding, main, inSession
+        case launched, onboarding, main, inSession
     }
     
+    var theme: Palette
+    
     init() {
-        self.scene = AppScene.onboarding
+        self.scene = .onboarding
+        self.theme = .indigo
     }
 }
 

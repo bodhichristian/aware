@@ -7,15 +7,15 @@
 
 import Foundation
 import SwiftUI
-
-@Observable
-class AppStyle {
-    var palette: Palette
-    
-    init(palette: Palette) {
-        self.palette = palette
-    }
-}
+//
+//@Observable
+//class AppStyle {
+//    var palette: Palette
+//    
+//    init(palette: Palette) {
+//        self.palette = palette
+//    }
+//}
 
 enum Palette {
     case indigo, green, earth, gray
