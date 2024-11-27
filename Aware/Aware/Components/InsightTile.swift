@@ -14,22 +14,26 @@ struct InsightTile: View {
     let footer: String
     let footerSymbol: String
     
+    let radius: CGFloat = 16
+    
     var body: some View {
         
         ZStack(alignment: .bottom)  {
             // Base
-            RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(appState.theme.tileBody)
-            // Header
+            RoundedRectangle(cornerRadius: radius)
+                .foregroundStyle(.ultraThinMaterial)
+                .shadow(radius: 4, x: 4)
+
+            // Footer
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
                     topLeading: 0,
-                    bottomLeading: 16,
-                    bottomTrailing: 16,
+                    bottomLeading: radius,
+                    bottomTrailing: radius,
                     topTrailing: 0
                 )
             )
-            .frame(maxHeight: 44)
+            .frame(maxHeight: 36)
             .foregroundStyle(appState.theme.tileHeader)
             .overlay {
                 Label(footer, systemImage: footerSymbol)
@@ -39,13 +43,17 @@ struct InsightTile: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
             }
+            
+            RoundedRectangle(cornerRadius: radius)
+                .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
+            
             // Body
             VStack(alignment: .leading, spacing: 10) {
                 Text(header)
                     .font(.title3)
                     .fontDesign(.rounded)
                     .fontWeight(.medium)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(appState.theme.accentColor.mix(with: .white, by: 0.5))
                 Text(content)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

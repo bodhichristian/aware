@@ -16,32 +16,44 @@ struct DashboardView: View {
             VStack(spacing: 16) {
                 headerView
                 GaugeView()
-                HStack(spacing: 16) {
-                    DataTile(
-                        header: "Last Session",
-                        headerSymbol: "brain.head.profile",
-                        statString: "\(hkData.lastSessionDuration()) min",
-                        bodySymbol: "gauge.medium"
-                    )
-                    DataTile(
-                        header: "Average",
-                        headerSymbol: "chart.line.uptrend.xyaxis",
-                        statString: "\(hkData.averageSessionDuration()) min",
-                        bodySymbol: "gauge.high"
-                    )
-                }
-                InsightTile(
-                    header: "Keep it up",
-                    content: "You've had more moments of mindfulness this week than last.",
-                    footer: "View trends",
-                    footerSymbol: "chart.bar.fill"
-                )
-                HabitGrid(data: hkData.totalMinutesByDay())
                 InsightTile(
                     header: "Daily Inspiration",
                     content: "\"The only zen you'll find on mountain tops is the zen you bring up there with you.\"",
                     footer: "View more",
                     footerSymbol: "quote.opening"
+                )
+                
+                HStack(spacing: 16) {
+                    DataTile(
+                        header: "Today",
+                        headerSymbol: "calendar",
+                        value: hkData.totalSessionsToday(),
+                        unit: "sessions"
+                    )
+                    
+                    DataTile(
+                        header: "Last Session",
+                        headerSymbol: "brain.head.profile",
+                        value: hkData.lastSessionDuration(),
+                        unit: "minutes"
+                    )
+                    DataTile(
+                        header: "Average",
+                        headerSymbol: "chart.line.uptrend.xyaxis",
+                        value: hkData.averageSessionDuration(),
+                        unit: "minutes"
+                    )
+                    
+                }
+                
+                HabitGrid(data: hkData.totalMinutesByDay())
+                    .shadow(radius: 4, x: 4)
+
+                InsightTile(
+                    header: "Keep it up",
+                    content: "You've had more moments of mindfulness this week than last.",
+                    footer: "View trends",
+                    footerSymbol: "chart.bar.fill"
                 )
             }
             .padding(.horizontal)
@@ -52,7 +64,18 @@ struct DashboardView: View {
     }
     
     private var headerView: some View {
-        HStack  {
+        HStack {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Aware")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.top)
+                Text("Mindfulness Dashboard")
+                    .font(.headline)
+                    .foregroundStyle(.white.gradient)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
             Menu {
                 Section("Select a theme") {
                     Button("Green") {
@@ -76,26 +99,6 @@ struct DashboardView: View {
                         }
                     }
                 }
-            } label: {
-                Image(systemName: "")
-                    .font(.title2)
-                    .frame(width: 44, height: 44)
-            }
-            .buttonStyle(.plain)
-
-            VStack(spacing: 2) {
-                Text("Mindfulness")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding(.top)
-                Text(Date.now.formatted(date: .long, time: .omitted))
-                    .font(.headline)
-                    .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-            
-            Menu {
-                
             } label: {
                 Image(systemName: "line.3.horizontal")
                     .font(.title2)

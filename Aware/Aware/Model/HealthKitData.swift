@@ -52,10 +52,17 @@ final class HealthKitData: Sendable {
     }
     
     func totalMinutesToday() -> Double {
-        let todaysSessions = mindfulnessSessions.filter({$0.sessionDate.weekdayInt == Date.now.weekdayInt})
+        let calendar = Calendar.current
+        let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
         let totalMinutes = todaysSessions.reduce(0) {
             $0 + ($1.interval.duration / 60)
         }
         return totalMinutes
+    }
+    
+    func totalSessionsToday() -> Int {
+        let calendar = Calendar.current
+        let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
+        return todaysSessions.count
     }
 }
