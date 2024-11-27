@@ -10,6 +10,7 @@ import SwiftUI
 struct GaugeView: View {
     @Environment(AppState.self) var appState
     @Environment(HealthKitData.self) var hkData
+    @State private var showingAlert: Bool = false
     @AppStorage("dailyGoal") private var dailyGoal: Int = 7
 
     private var progress: Double {
@@ -52,9 +53,13 @@ struct GaugeView: View {
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.white)
                     .transition(.blurReplace())
+                
                 Text("\(dailyGoal) min")
                     .font(.headline)
                     .foregroundStyle(appState.theme.accentColor.gradient)
+                    .onTapGesture {
+                        showingAlert.toggle()
+                    }
                 Button {
                     withAnimation(.smooth(duration: 1)){
                         appState.scene = .inSession
@@ -77,6 +82,33 @@ struct GaugeView: View {
         }
         .padding(30)
         .frame(maxWidth: 320, maxHeight: 320)
+        .sheet(isPresented: $showingAlert) {
+            VStack {
+                Text("What's your daily goal?")
+                    .font(.title2)
+                    .fontWeight(.medium)
+                
+                HStack {
+                    Picker("Daily Goal", selection: $dailyGoal) {
+                        ForEach(0..<60) { minutes in
+                            Text(String(minutes))
+                            
+                        }
+                    }
+                    .pickerStyle(.inline)
+                    .frame(width: 60, height: 100, alignment: .trailing)
+                    
+                    Text("\(dailyGoal > 1 ? "minutes": "minute")")
+                        .animation(.smooth)
+                        .frame(width: 80, alignment: .leading)
+                }
+                .font(.headline)
+            }
+            .frame(maxWidth: .infinity)
+            .presentationDetents([.fraction(0.5)])
+            .presentationDragIndicator(.visible)
+        }
+        
     }
 }
 

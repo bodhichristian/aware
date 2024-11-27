@@ -33,7 +33,7 @@ struct InsightTile: View {
                     topTrailing: 0
                 )
             )
-            .frame(maxHeight: 44)
+            .frame(maxHeight: 36)
             .foregroundStyle(appState.theme.tileHeader)
             .overlay {
                 Label(footer, systemImage: footerSymbol)
