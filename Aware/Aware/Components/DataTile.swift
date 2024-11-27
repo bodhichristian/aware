@@ -11,8 +11,8 @@ struct DataTile: View {
     @Environment(AppState.self) var appState
     let header: String
     let headerSymbol: String
-    let statString: String
-    let bodySymbol: String
+    let value: Int
+    let unit: String
     let radius: CGFloat = 16
     
     var body: some View {
@@ -33,7 +33,7 @@ struct DataTile: View {
             .frame(maxHeight: 36)
             .foregroundStyle(appState.theme.tileHeader)
             .overlay {
-                Label(header, systemImage: headerSymbol)
+                Text(header)
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundStyle(.white)
@@ -43,18 +43,19 @@ struct DataTile: View {
             RoundedRectangle(cornerRadius: radius)
                 .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
             // Body
-            HStack {
-                Text(statString)
+            VStack(alignment: .leading)  {
+                Text(String(value))
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .foregroundStyle(appState.theme.accentColor)
+                
+                Text(unit)
                     .font(.subheadline)
-                    .fontDesign(.rounded)
                     .fontWeight(.semibold)
                     .foregroundStyle(.white)
-                Spacer()
-                
-                Image(systemName: bodySymbol)
-                    .font(.title3)
-                    .foregroundStyle(.secondary)
+
             }
+            .fontDesign(.rounded)
             .frame(
                 maxWidth: .infinity,
                 maxHeight: .infinity,
@@ -71,10 +72,10 @@ struct DataTile: View {
     ZStack{
         Color.backgroundBlue.ignoresSafeArea()
         DataTile(
-            header: "Last Session",
-            headerSymbol: "brain.head.profile",
-            statString: "8 min",
-            bodySymbol: "gauge.medium"
+            header: "Today",
+            headerSymbol: "calendar",
+            value: 7,
+            unit: "sessions"
         )
     }
     

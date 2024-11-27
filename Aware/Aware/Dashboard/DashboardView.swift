@@ -27,21 +27,21 @@ struct DashboardView: View {
                     DataTile(
                         header: "Today",
                         headerSymbol: "calendar",
-                        statString: "3 sessions",
-                        bodySymbol: ""
+                        value: 3,
+                        unit: "sessions"
                     )
                     
                     DataTile(
                         header: "Last Session",
                         headerSymbol: "brain.head.profile",
-                        statString: "\(hkData.lastSessionDuration()) min",
-                        bodySymbol: "gauge.medium"
+                        value: hkData.lastSessionDuration(),
+                        unit: "minutes"
                     )
                     DataTile(
                         header: "Average",
                         headerSymbol: "chart.line.uptrend.xyaxis",
-                        statString: "\(hkData.averageSessionDuration()) min",
-                        bodySymbol: "gauge.high"
+                        value: hkData.averageSessionDuration(),
+                        unit: "minutes"
                     )
                     
                 }
