@@ -46,13 +46,13 @@ struct HomeView: View {
             themeKey = appState.theme.key
         }
         .task {
-            fetchHealthData()
 //             MARK: Add sample data to simulator
 //                        Task { @MainActor in
 //                            if hkData.mindfulnessSessions.isEmpty {
 //                                try await hkService.addSampleData()
 //                            }
 //                        }
+            fetchHealthData()
         }
     }
     

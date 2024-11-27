@@ -27,7 +27,7 @@ struct DashboardView: View {
                     DataTile(
                         header: "Today",
                         headerSymbol: "calendar",
-                        value: 3,
+                        value: hkData.totalSessionsToday(),
                         unit: "sessions"
                     )
                     

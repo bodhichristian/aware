@@ -92,7 +92,6 @@ struct GaugeView: View {
                     Picker("Daily Goal", selection: $dailyGoal) {
                         ForEach(0..<60) { minutes in
                             Text(String(minutes))
-                            
                         }
                     }
                     .pickerStyle(.inline)

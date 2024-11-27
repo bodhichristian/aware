@@ -59,4 +59,10 @@ final class HealthKitData: Sendable {
         }
         return totalMinutes
     }
+    
+    func totalSessionsToday() -> Int {
+        let calendar = Calendar.current
+        let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
+        return todaysSessions.count
+    }
 }
