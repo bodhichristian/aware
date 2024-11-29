@@ -17,13 +17,22 @@ struct InsightTile: View {
     let radius: CGFloat = 16
     
     var body: some View {
-        
         ZStack(alignment: .bottom)  {
             // Base
             RoundedRectangle(cornerRadius: radius)
                 .foregroundStyle(.ultraThinMaterial)
                 .shadow(radius: 4, x: 4)
-
+            // Body
+            VStack(alignment: .leading, spacing: 10) {
+                Text(header)
+                    .font(.title3)
+                    .fontDesign(.rounded)
+                    .fontWeight(.medium)
+                    .foregroundStyle(appState.theme.accentColor.mix(with: .white, by: 0.5))
+                Text(content)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
             // Footer
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
@@ -37,27 +46,15 @@ struct InsightTile: View {
             .foregroundStyle(appState.theme.tileHeader)
             .overlay {
                 Label(footer, systemImage: footerSymbol)
-                    .font(.subheadline)
+                    .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundStyle(.white.gradient)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
             }
-            
+            // Cell outline
             RoundedRectangle(cornerRadius: radius)
                 .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
-            
-            // Body
-            VStack(alignment: .leading, spacing: 10) {
-                Text(header)
-                    .font(.title3)
-                    .fontDesign(.rounded)
-                    .fontWeight(.medium)
-                    .foregroundStyle(appState.theme.accentColor.mix(with: .white, by: 0.5))
-                Text(content)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .padding()
         }
         .frame(maxWidth: .infinity)
         .frame(height: 160)
