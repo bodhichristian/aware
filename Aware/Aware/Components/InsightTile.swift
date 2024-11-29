@@ -14,12 +14,10 @@ struct InsightTile: View {
     let footer: String
     let footerSymbol: String
     
-    let radius: CGFloat = 16
-    
     var body: some View {
         ZStack(alignment: .bottom)  {
             // Base
-            RoundedRectangle(cornerRadius: radius)
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
                 .foregroundStyle(.ultraThinMaterial)
                 .shadow(radius: 4, x: 4)
             // Body
@@ -37,8 +35,8 @@ struct InsightTile: View {
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
                     topLeading: 0,
-                    bottomLeading: radius,
-                    bottomTrailing: radius,
+                    bottomLeading: AppState.cornerRadius,
+                    bottomTrailing: AppState.cornerRadius,
                     topTrailing: 0
                 )
             )
@@ -53,7 +51,7 @@ struct InsightTile: View {
                     .padding(.leading)
             }
             // Cell outline
-            RoundedRectangle(cornerRadius: radius)
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
                 .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
         }
         .frame(maxWidth: .infinity)

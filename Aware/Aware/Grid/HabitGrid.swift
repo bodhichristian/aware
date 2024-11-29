@@ -40,10 +40,10 @@ struct HabitGrid: View {
         .frame(height: 180)
         .background {
             ZStack {
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: AppState.cornerRadius)
                     .foregroundStyle(.ultraThinMaterial)
                 
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: AppState.cornerRadius)
                     .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
                 
             }

@@ -13,21 +13,20 @@ struct DataTile: View {
     let headerSymbol: String
     let value: Int
     let unit: String
-    let radius: CGFloat = 16
     
     var body: some View {
         ZStack(alignment: .top)  {
             // Base
-            RoundedRectangle(cornerRadius: radius)
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
                 .foregroundStyle(.ultraThinMaterial)
                 .shadow(radius: 4, x: 4)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
-                    topLeading: radius,
+                    topLeading: AppState.cornerRadius,
                     bottomLeading: 0,
                     bottomTrailing: 0,
-                    topTrailing: radius
+                    topTrailing: AppState.cornerRadius
                 )
             )
             .frame(maxHeight: 36)
@@ -60,7 +59,7 @@ struct DataTile: View {
             )
             .padding(8)
             // Cell outline
-            RoundedRectangle(cornerRadius: radius)
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
                 .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
         }
         .frame(maxWidth: .infinity)
@@ -78,5 +77,4 @@ struct DataTile: View {
             unit: "sessions"
         )
     }
-    
 }
