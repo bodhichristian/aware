@@ -32,16 +32,14 @@ struct DataTile: View {
             )
             .frame(maxHeight: 36)
             .foregroundStyle(appState.theme.tileHeader)
-            .overlay {
-                Text(header)
-                    .font(.caption)
-                    .fontWeight(.medium)
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 8)
-            }
-            RoundedRectangle(cornerRadius: radius)
-                .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
+            
+            Text(header)
+                .font(.caption)
+                .fontWeight(.medium)
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 12)
+                .padding(.leading, 8)
             // Body
             VStack(alignment: .leading)  {
                 Text(String(value))
@@ -53,7 +51,6 @@ struct DataTile: View {
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundStyle(.white)
-
             }
             .fontDesign(.rounded)
             .frame(
@@ -62,6 +59,9 @@ struct DataTile: View {
                 alignment: .bottomLeading
             )
             .padding(8)
+            // Cell outline
+            RoundedRectangle(cornerRadius: radius)
+                .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
         }
         .frame(maxWidth: .infinity)
         .frame(height: 100)
