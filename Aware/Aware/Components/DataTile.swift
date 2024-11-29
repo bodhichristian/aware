@@ -13,35 +13,32 @@ struct DataTile: View {
     let headerSymbol: String
     let value: Int
     let unit: String
-    let radius: CGFloat = 16
     
     var body: some View {
         ZStack(alignment: .top)  {
             // Base
-            RoundedRectangle(cornerRadius: radius)
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
                 .foregroundStyle(.ultraThinMaterial)
                 .shadow(radius: 4, x: 4)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
-                    topLeading: radius,
+                    topLeading: AppState.cornerRadius,
                     bottomLeading: 0,
                     bottomTrailing: 0,
-                    topTrailing: radius
+                    topTrailing: AppState.cornerRadius
                 )
             )
             .frame(maxHeight: 36)
             .foregroundStyle(appState.theme.tileHeader)
-            .overlay {
-                Text(header)
-                    .font(.caption)
-                    .fontWeight(.medium)
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 8)
-            }
-            RoundedRectangle(cornerRadius: radius)
-                .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
+            
+            Text(header)
+                .font(.caption)
+                .fontWeight(.medium)
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 12)
+                .padding(.leading, 8)
             // Body
             VStack(alignment: .leading)  {
                 Text(String(value))
@@ -53,7 +50,6 @@ struct DataTile: View {
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundStyle(.white)
-
             }
             .fontDesign(.rounded)
             .frame(
@@ -62,6 +58,9 @@ struct DataTile: View {
                 alignment: .bottomLeading
             )
             .padding(8)
+            // Cell outline
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
+                .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
         }
         .frame(maxWidth: .infinity)
         .frame(height: 100)
@@ -78,5 +77,4 @@ struct DataTile: View {
             unit: "sessions"
         )
     }
-    
 }

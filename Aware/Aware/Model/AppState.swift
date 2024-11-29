@@ -10,19 +10,14 @@ import SwiftUI
 
 @Observable
 class AppState {
-    var scene: AppScene
     enum AppScene {
         case launched, onboarding, main, inSession
     }
     
-    var dailyGoal: Int
-    var theme: Palette
-    
-    init() {
-        self.scene = .onboarding
-        self.dailyGoal = 7
-        self.theme = .indigo
-    }
+    var scene: AppScene = .onboarding
+    var dailyGoal: Int = 7
+    var theme: Palette = .earth
+    static let cornerRadius: CGFloat = 16
 }
 
 enum OnboardingPhase {

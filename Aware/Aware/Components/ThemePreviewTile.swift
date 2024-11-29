@@ -13,19 +13,21 @@ struct ThemePreviewTile: View {
     var body: some View {
         ZStack(alignment: .top)  {
             // Base
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
                 .foregroundStyle(palette.tileBody)
+                .shadow(radius: 4, x: 4)
             // Header
             UnevenRoundedRectangle(
                 cornerRadii: RectangleCornerRadii(
-                    topLeading: 16,
+                    topLeading: AppState.cornerRadius,
                     bottomLeading: 0,
                     bottomTrailing: 0,
-                    topTrailing: 16
+                    topTrailing: AppState.cornerRadius
                 )
             )
             .frame(maxHeight: 36)
             .foregroundStyle(palette.tileHeader)
+            
         }
         .frame(width: 120, height: 90)
     }

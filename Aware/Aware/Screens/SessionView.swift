@@ -1,12 +1,34 @@
 //
-//  SessionTimer.swift
+//  SessionView.swift
 //  Aware
 //
-//  Created by christian on 11/5/24.
+//  Created by christian on 11/6/24.
 //
 
 import SwiftUI
-import HealthKit
+
+struct SessionView: View {
+    @Environment(AppState.self) var appState
+    
+    var body: some View {
+        ZStack  {
+            VStack {
+                Text("Bring attention to the moment.")
+                    .font(.title2)
+                    .foregroundStyle(.white)
+                    .transition(.blurReplace)
+               Text("Tap anywhere to end the session.")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+            }
+            .frame(maxHeight: .infinity, alignment: .center)
+            
+            SessionTimer()
+                .frame(maxHeight: .infinity, alignment: .bottom)
+        }
+        .frame(maxHeight: .infinity)
+    }
+}
 
 struct SessionTimer: View {
     @Environment(AppState.self) var appState
@@ -59,5 +81,5 @@ struct SessionTimer: View {
 }
 
 #Preview {
-    SessionTimer()
+    SessionView()
 }

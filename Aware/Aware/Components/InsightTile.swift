@@ -14,39 +14,12 @@ struct InsightTile: View {
     let footer: String
     let footerSymbol: String
     
-    let radius: CGFloat = 16
-    
     var body: some View {
-        
         ZStack(alignment: .bottom)  {
             // Base
-            RoundedRectangle(cornerRadius: radius)
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
                 .foregroundStyle(.ultraThinMaterial)
                 .shadow(radius: 4, x: 4)
-
-            // Footer
-            UnevenRoundedRectangle(
-                cornerRadii: RectangleCornerRadii(
-                    topLeading: 0,
-                    bottomLeading: radius,
-                    bottomTrailing: radius,
-                    topTrailing: 0
-                )
-            )
-            .frame(maxHeight: 36)
-            .foregroundStyle(appState.theme.tileHeader)
-            .overlay {
-                Label(footer, systemImage: footerSymbol)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.white.gradient)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-            }
-            
-            RoundedRectangle(cornerRadius: radius)
-                .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
-            
             // Body
             VStack(alignment: .leading, spacing: 10) {
                 Text(header)
@@ -58,6 +31,28 @@ struct InsightTile: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding()
+            // Footer
+            UnevenRoundedRectangle(
+                cornerRadii: RectangleCornerRadii(
+                    topLeading: 0,
+                    bottomLeading: AppState.cornerRadius,
+                    bottomTrailing: AppState.cornerRadius,
+                    topTrailing: 0
+                )
+            )
+            .frame(maxHeight: 36)
+            .foregroundStyle(appState.theme.tileHeader)
+            .overlay {
+                Label(footer, systemImage: footerSymbol)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white.gradient)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
+            }
+            // Cell outline
+            RoundedRectangle(cornerRadius: AppState.cornerRadius)
+                .stroke(appState.theme.accentColor.gradient, lineWidth: 1)
         }
         .frame(maxWidth: .infinity)
         .frame(height: 160)

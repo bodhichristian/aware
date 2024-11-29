@@ -9,7 +9,7 @@ import SwiftUI
 import HealthKit
 import HealthKitUI
 
-struct HomeView: View {
+struct AppContainer: View {
     @Environment(HealthKitData.self) var hkData
     @Environment(HealthKitService.self) var hkService
     @Environment(AppState.self) var appState
@@ -69,7 +69,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    AppContainer()
         .environment(HealthKitService())
         .environment(HealthKitData())
         .preferredColorScheme(.dark)

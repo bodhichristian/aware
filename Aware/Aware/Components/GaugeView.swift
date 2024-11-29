@@ -12,7 +12,7 @@ struct GaugeView: View {
     @Environment(HealthKitData.self) var hkData
     @State private var showingAlert: Bool = false
     @AppStorage("dailyGoal") private var dailyGoal: Int = 7
-
+    
     private var progress: Double {
         let todaysMindfulMinutes = hkData.totalMinutesToday()
         let progressRatio = todaysMindfulMinutes / Double(dailyGoal)
@@ -37,7 +37,7 @@ struct GaugeView: View {
                 .stroke(lineWidth: 36.0)
                 .foregroundStyle(appState.theme.background.mix(with: .black, by: 0.1).gradient)
                 .shadow(radius: 4, y: 4)
-
+            
             Circle()
                 .stroke(lineWidth: 30.0)
                 .foregroundStyle(appState.theme.background)
@@ -47,20 +47,24 @@ struct GaugeView: View {
                 .foregroundStyle(gradient)
                 .rotationEffect(Angle(degrees: 270.0))
             VStack {
-                Text("Daily Goal")
-                    .font(.title)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(.white)
-                    .transition(.blurReplace())
-                
-                Text("\(dailyGoal) min")
-                    .font(.headline)
-                    .foregroundStyle(appState.theme.accentColor.gradient)
-                    .onTapGesture {
-                        showingAlert.toggle()
+                Button { // Daily Goal
+                    showingAlert.toggle()
+                } label: {
+                    VStack {
+                        Text("Daily Goal")
+                            .font(.title)
+                            .fontWeight(.medium)
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.white)
+                            .transition(.blurReplace())
+                        
+                        Text("\(dailyGoal) min")
+                            .font(.headline)
+                            .foregroundStyle(appState.theme.accentColor.gradient)
                     }
-                Button {
+                }
+                
+                Button { // Start Session
                     withAnimation(.smooth(duration: 1)){
                         appState.scene = .inSession
                     }
@@ -74,7 +78,7 @@ struct GaugeView: View {
                                 .foregroundStyle(appState.theme.tileHeader)
                                 .frame(height: 44)
                                 .shadow(radius: 4, y: 4)
-
+                            
                         }
                 }
             }
@@ -119,5 +123,5 @@ struct GaugeView: View {
             .preferredColorScheme(.dark)
     }
     .environment(HealthKitData())
-
+    
 }
