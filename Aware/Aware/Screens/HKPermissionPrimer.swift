@@ -18,7 +18,7 @@ struct HKPermissionPrimerView: View {
         ZStack {
             MindfulMeshGradient()                .ignoresSafeArea()
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 10) {
                 Image("appleHealth")
                     .resizable()
                     .frame(width: 80, height: 80)
@@ -32,13 +32,21 @@ struct HKPermissionPrimerView: View {
                 Text(hkService.permissionPrimer)
                     .foregroundStyle(.secondary)
                 
-                Button("Connect to Apple Health") {
+                Button {
                     requestingPermission = true
+                } label: {
+                    Text("Connect to Apple Health")
+                        .background {
+                            Capsule()
+                                .foregroundStyle(appState.theme.accentColor)
+                                .frame(width: 220, height: 44)
+                                .shadow(radius: 4, y: 4)
+                        }
+                    
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(appState.theme.accentColor)
                 .frame(maxWidth: .infinity)
                 .padding(.top, 160)
+                .buttonStyle(.plain)
             }
             
             .frame(maxWidth: .infinity, alignment: .leading)
