@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct MindfulMeshGradient: View {
-    @Environment(AppStyle.self) var style
     @Environment(AppState.self) var appState
-
+    
     @State private var points: [SIMD2<Float>] = [
         [0.0, 0.0], [0.5, 0.0], [1.0, 0.0],
         [0.0, 0.5], [0.5, 0.5], [1.0, 0.5],
@@ -38,26 +37,26 @@ struct MindfulMeshGradient: View {
         }
         .ignoresSafeArea()
         .onAppear {
-            colors = style.palette.meshColors
+            setMeshColorsDefaultOrder()
             if isAnimating {
                 startAnimation()
             }
         }
-        .onChange(of: style.palette) {
-            colors = style.palette.meshColors
+        .onChange(of: appState.theme) {
+            setMeshColorsDefaultOrder()
         }
         .onChange(of: appState.scene) {
             if appState.scene == .inSession {
                 startAnimation()
             } else {
-                stopAnimation()
+                setMeshColorsDefaultOrder()
             }
         }
         .onTapGesture {
-            withAnimation(.smooth(duration: 1.5)) {
-                if appState.scene == .inSession {
+            if appState.scene == .inSession {
+                withAnimation(.smooth(duration: 1.5)) {
                     appState.scene = .main
-                    colors = style.palette.meshColors
+                    setMeshColorsDefaultOrder()
                 }
             }
         }
@@ -67,9 +66,10 @@ struct MindfulMeshGradient: View {
         animateMesh()
     }
     
-    private func stopAnimation() {
-        appState.scene = .main
-//        user.inSession = false
+    private func setMeshColorsDefaultOrder() {
+        withAnimation {
+            colors = appState.theme.meshColors
+        }
     }
     
     private func animateMesh() {
@@ -79,7 +79,7 @@ struct MindfulMeshGradient: View {
         }
         // Schedule next animation only if still animating
         DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-            if appState.scene == .inSession  {
+            if isAnimating  {
                 animateMesh()
             }
         }
@@ -89,7 +89,7 @@ struct MindfulMeshGradient: View {
 #Preview {
     MindfulMeshGradient()
         .preferredColorScheme(.dark)
-        .environment(AppStyle(palette: .green))
+        .environment(AppState())
 }
 
 

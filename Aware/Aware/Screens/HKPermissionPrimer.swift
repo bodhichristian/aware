@@ -10,6 +10,7 @@ import HealthKitUI
 
 struct HKPermissionPrimerView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(AppState.self) var appState
     @Environment(HealthKitService.self) var hkService
     @State private var requestingPermission: Bool = false
     
@@ -35,7 +36,7 @@ struct HKPermissionPrimerView: View {
                     requestingPermission = true
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(.accentPurple)
+                .tint(appState.theme.accentColor)
                 .frame(maxWidth: .infinity)
                 .padding(.top, 160)
             }

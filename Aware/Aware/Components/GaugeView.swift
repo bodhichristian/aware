@@ -9,14 +9,14 @@ import SwiftUI
 
 struct GaugeView: View {
     @Environment(AppState.self) var appState
-    @Environment(AppStyle.self) var style
     @Environment(HealthKitData.self) var hkData
-
+    @State private var showingAlert: Bool = false
+    @AppStorage("dailyGoal") private var dailyGoal: Int = 7
+    
     private var progress: Double {
-        let goal = 10.0
-        let todaysMindfulMinutes = Double(hkData.totalMinutesToday())
-        let progressRatio = todaysMindfulMinutes / goal
-        if progressRatio > 0 {
+        let todaysMindfulMinutes = hkData.totalMinutesToday()
+        let progressRatio = todaysMindfulMinutes / Double(dailyGoal)
+        if progressRatio > 0.0 {
             return progressRatio
         } else {
             return 0.02 // Ensures progress indication always exists
@@ -25,7 +25,7 @@ struct GaugeView: View {
     
     private var gradient: LinearGradient {
         LinearGradient(
-            colors: [style.palette.accentColor, .white],
+            colors: [appState.theme.accentColor, .white],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -34,47 +34,84 @@ struct GaugeView: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(lineWidth: 40.0)
-                .foregroundStyle(style.palette.background.mix(with: .black, by: 0.1).gradient)
+                .stroke(lineWidth: 36.0)
+                .foregroundStyle(appState.theme.background.mix(with: .black, by: 0.1).gradient)
+                .shadow(radius: 4, y: 4)
+            
             Circle()
-                .stroke(lineWidth: 20.0)
-                .foregroundStyle(style.palette.background)
+                .stroke(lineWidth: 30.0)
+                .foregroundStyle(appState.theme.background)
             Circle()
-                .trim(from: 0.0, to: 0.8)
-                .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round))
+                .trim(from: 0.0, to: progress)
+                .stroke(style: StrokeStyle(lineWidth: 30.0, lineCap: .round))
                 .foregroundStyle(gradient)
                 .rotationEffect(Angle(degrees: 270.0))
             VStack {
-                Text("Daily Goal")
-                    .font(.title)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(.white)
-                    .transition(.blurReplace())
-                Text("10 min")
-                    .font(.headline)
-                    .foregroundStyle(style.palette.accentColor.gradient)
-                Button {
+                Button { // Daily Goal
+                    showingAlert.toggle()
+                } label: {
+                    VStack {
+                        Text("Daily Goal")
+                            .font(.title)
+                            .fontWeight(.medium)
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.white)
+                            .transition(.blurReplace())
+                        
+                        Text("\(dailyGoal) min")
+                            .font(.headline)
+                            .foregroundStyle(appState.theme.accentColor.gradient)
+                    }
+                }
+                
+                Button { // Start Session
                     withAnimation(.smooth(duration: 1)){
                         appState.scene = .inSession
                     }
                 } label: {
                     Text("Start session")
                         .font(.subheadline)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.white)
                         .padding()
                         .background {
                             Capsule()
-                                .foregroundStyle(.white.opacity(0.5))
+                                .foregroundStyle(appState.theme.tileHeader)
                                 .frame(height: 44)
+                                .shadow(radius: 4, y: 4)
+                            
                         }
                 }
             }
             .offset(y: 10)
         }
-        .shadow(radius: 4)
         .padding(30)
         .frame(maxWidth: 320, maxHeight: 320)
+        .sheet(isPresented: $showingAlert) {
+            VStack {
+                Text("What's your daily goal?")
+                    .font(.title2)
+                    .fontWeight(.medium)
+                
+                HStack {
+                    Picker("Daily Goal", selection: $dailyGoal) {
+                        ForEach(0..<60) { minutes in
+                            Text(String(minutes))
+                        }
+                    }
+                    .pickerStyle(.inline)
+                    .frame(width: 60, height: 100, alignment: .trailing)
+                    
+                    Text("\(dailyGoal > 1 ? "minutes": "minute")")
+                        .animation(.smooth)
+                        .frame(width: 80, alignment: .leading)
+                }
+                .font(.headline)
+            }
+            .frame(maxWidth: .infinity)
+            .presentationDetents([.fraction(0.5)])
+            .presentationDragIndicator(.visible)
+        }
+        
     }
 }
 
@@ -86,5 +123,5 @@ struct GaugeView: View {
             .preferredColorScheme(.dark)
     }
     .environment(HealthKitData())
-
+    
 }
