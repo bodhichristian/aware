@@ -51,7 +51,6 @@ struct DashboardView: View {
                 
                 HabitGrid(data: hkData.totalMinutesByDay())
                     .shadow(radius: 4, x: 4)
-                    .accessibilityLabel("Historical trends")
 
                 InsightTile(
                     header: "Keep it up",

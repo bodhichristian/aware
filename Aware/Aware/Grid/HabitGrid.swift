@@ -34,6 +34,8 @@ struct HabitGrid: View {
                         : appState.theme.accentColor.progressOpacity(from: data.minutes)
                     )
                     .aspectRatio(contentMode: .fit)
+                    .accessibilityElement()
+                    .accessibilityLabel("\(data.date)")
             }
         }
         .padding()
@@ -48,6 +50,8 @@ struct HabitGrid: View {
                 
             }
         }
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Historical trends")
     }
 }
 
