@@ -56,6 +56,7 @@ struct InsightTile: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 160)
+        .accessibilityLabel(header + content + "tap to \(footer)")
     }
 }
 

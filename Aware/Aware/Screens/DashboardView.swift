@@ -30,6 +30,7 @@ struct DashboardView: View {
                         value: hkData.totalSessionsToday(),
                         unit: "sessions"
                     )
+                    .accessibilityLabel("\(hkData.totalSessionsToday()) sessions today")
                     
                     DataTile(
                         header: "Last Session",
@@ -37,17 +38,20 @@ struct DashboardView: View {
                         value: hkData.lastSessionDuration(),
                         unit: "minutes"
                     )
+                    .accessibilityLabel("Last session lasted \(hkData.lastSessionDuration()) minutes")
+                    
                     DataTile(
                         header: "Average",
                         headerSymbol: "chart.line.uptrend.xyaxis",
                         value: hkData.averageSessionDuration(),
                         unit: "minutes"
                     )
-                    
+                    .accessibilityLabel("Average session duration: \(hkData.averageSessionDuration()) minutes")
                 }
                 
                 HabitGrid(data: hkData.totalMinutesByDay())
                     .shadow(radius: 4, x: 4)
+                   
 
                 InsightTile(
                     header: "Keep it up",
@@ -105,8 +109,8 @@ struct DashboardView: View {
                     .frame(width: 44, height: 44)
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("Menu")
         }
-        
     }
 }
 
