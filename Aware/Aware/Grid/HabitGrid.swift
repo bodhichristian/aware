@@ -48,6 +48,8 @@ struct HabitGrid: View {
                 
             }
         }
+        .accessibilityElement()
+        .accessibilityLabel("Historical data. Tap to view more.")
     }
 }
 

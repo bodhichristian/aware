@@ -38,7 +38,7 @@ struct DashboardView: View {
                         value: hkData.lastSessionDuration(),
                         unit: "minutes"
                     )
-                    .accessibilityLabel("Last session lasted for \(hkData.lastSessionDuration())" + hkData.lastSessionDuration() == 1 ? "minute" : "minutes")
+                    .accessibilityLabel("Last session lasted \(hkData.lastSessionDuration()) minutes")
                     
                     DataTile(
                         header: "Average",
@@ -46,12 +46,12 @@ struct DashboardView: View {
                         value: hkData.averageSessionDuration(),
                         unit: "minutes"
                     )
-                    .accessibilityLabel("Average session duration: \(hkData.averageSessionDuration())" + hkData.lastSessionDuration() == 1 ? "minute" : "minutes")
+                    .accessibilityLabel("Average session duration: \(hkData.averageSessionDuration()) minutes")
                 }
                 
                 HabitGrid(data: hkData.totalMinutesByDay())
                     .shadow(radius: 4, x: 4)
-                    .accessibilityLabel("Historical trends")
+                   
 
                 InsightTile(
                     header: "Keep it up",
