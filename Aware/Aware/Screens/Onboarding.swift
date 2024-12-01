@@ -11,7 +11,7 @@ struct OnboardingView: View {
     @Environment(AppState.self) var appState
     @State private var firstName = ""
     @State private var selectedPalette: Palette = .green
-    @State private var phase: OnboardingPhase = .name
+    @State private var phase: OnboardingPhase = .goal
     @AppStorage("hasOnboarded") var hasOnboarded: Bool = false
     @AppStorage("dailyGoal") var dailyGoal: Int = 7
     
@@ -24,8 +24,6 @@ struct OnboardingView: View {
                     backButton
                     VStack {
                         switch phase {
-                        case .name:
-                            nameInput
                         case .goal:
                             goalInput
                         case .theme:
@@ -43,8 +41,6 @@ struct OnboardingView: View {
         Button {
             withAnimation(.smooth) {
                 switch phase {
-                case .name:
-                    phase = .goal
                 case .goal:
                     appState.dailyGoal = dailyGoal
                     phase = .theme
@@ -64,19 +60,16 @@ struct OnboardingView: View {
                         .foregroundStyle(.white)
                 }
                 .padding(.bottom)
+                .accessibilityLabel(phase.advanceButtonAccessibilityLabel)
         }
-        .disabled(firstName.isEmpty)
     }
-    
     
     private var backButton: some View {
         Button {
             withAnimation(.smooth) {
                 switch phase {
-                case .name:
-                    exitOnboarding()
                 case .goal:
-                    phase = .name
+                    exitOnboarding()
                 case .theme:
                     phase = .goal
                 }
@@ -88,34 +81,16 @@ struct OnboardingView: View {
                 .frame(width: 30)
                 .padding()
                 .overlay {
-                    Image(systemName: phase == .name ? "xmark" : "chevron.left")
+                    Image(systemName: phase == .goal ? "xmark" : "chevron.left")
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundStyle(appState.theme.background)
                 }
                 .padding(.bottom)
+                .accessibilityLabel(phase.backButtonAccessibilityLabel)
         }
     }
     
-    private var nameInput: some View {
-        VStack {
-            Text("Hello.")
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundStyle(appState.theme.accentColor.gradient)
-            Text(phase.prompt)
-                .multilineTextAlignment(.center)
-                .font(.title2)
-                .fontWeight(.medium)
-
-            
-            TextField("First name", text: $firstName)
-                .multilineTextAlignment(.center)
-                .padding(.bottom)
-                .frame(height: 70, alignment: .top)
-                .foregroundStyle(.secondary)
-        }
-    }
     private var goalInput: some View {
         VStack {
             Text("What's your daily goal?")
@@ -128,9 +103,8 @@ struct OnboardingView: View {
             
             HStack {
                 Picker("Daily Goal", selection: $dailyGoal) {
-                    ForEach(0..<60) { minutes in
+                    ForEach(0..<61) { minutes in
                         Text(String(minutes))
-                        
                     }
                 }
                 .pickerStyle(.inline)
@@ -143,7 +117,6 @@ struct OnboardingView: View {
             .font(.headline)
         }
         .frame(maxWidth: .infinity)
-
     }
     
     private var themeSelection: some View {
@@ -154,12 +127,14 @@ struct OnboardingView: View {
                 .frame(maxWidth: .infinity)
             HStack{
                 ThemePreviewTile(palette: .earth)
+                    .accessibilityLabel("Select earth theme")
                     .onTapGesture {
                         withAnimation {
                             appState.theme = .earth
                         }
                     }
                 ThemePreviewTile(palette: .green)
+                    .accessibilityLabel("Select green theme")
                     .onTapGesture {
                         withAnimation {
                             appState.theme = .green
@@ -168,12 +143,14 @@ struct OnboardingView: View {
             }
             HStack {
                 ThemePreviewTile(palette: .gray)
+                    .accessibilityLabel("Select gray theme")
                     .onTapGesture {
                         withAnimation {
                             appState.theme = .gray
                         }
                     }
                 ThemePreviewTile(palette: .indigo)
+                    .accessibilityLabel("Select indigo theme")
                     .onTapGesture {
                         withAnimation {
                             appState.theme = .indigo

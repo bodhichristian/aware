@@ -21,12 +21,10 @@ class AppState {
 }
 
 enum OnboardingPhase {
-    case name, goal, theme
+    case goal, theme
     
     var prompt: String {
         switch self {
-        case .name:
-            "What's your name?"
         case .goal:
             "What's your daily goal?"
         case .theme:
@@ -36,12 +34,28 @@ enum OnboardingPhase {
     
     var subtitle: String {
         switch self {
-        case .name:
-            ""
         case .goal:
             "You can change this later in Settings"
         case .theme:
             "Select a theme to get started."
+        }
+    }
+    
+    var advanceButtonAccessibilityLabel: String {
+        switch self {
+        case .goal:
+            "Next onboarding step"
+        case .theme:
+            "Complete onboarding"
+        }
+    }
+    
+    var backButtonAccessibilityLabel: String {
+        switch self {
+        case .goal:
+            "Skip onboarding"
+        case .theme:
+            "Back to goal input"
         }
     }
 }
