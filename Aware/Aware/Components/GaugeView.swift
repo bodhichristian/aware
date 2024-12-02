@@ -14,8 +14,8 @@ struct GaugeView: View {
     @AppStorage("dailyGoal") private var dailyGoal: Int = 7
     
     private var progress: Double {
-        let todaysMindfulMinutes = hkData.totalMinutesToday()
-        let progressRatio = todaysMindfulMinutes / Double(dailyGoal)
+        let progressRatio = hkData.totalMinutesToday / Double(dailyGoal)
+        
         if progressRatio > 0.0 {
             return progressRatio
         } else {
