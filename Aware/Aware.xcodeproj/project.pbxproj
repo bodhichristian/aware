@@ -132,11 +132,11 @@
 		AA8795352CD0EFB2004D817E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */,
-				AAD21C6A2CD556DA00EB133C /* HealthKitData.swift */,
-				AAD21C572CD51AD700EB133C /* DailyMindfulness.swift */,
-				AAD21C5B2CD5269100EB133C /* MockData.swift */,
 				AA8D3C682CF3F521003A889F /* AppState.swift */,
+				AAD21C572CD51AD700EB133C /* DailyMindfulness.swift */,
+				AAD21C6A2CD556DA00EB133C /* HealthKitData.swift */,
+				AA8795342CD0EFB2004D817E /* MindfulnessSession.swift */,
+				AAD21C5B2CD5269100EB133C /* MockData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

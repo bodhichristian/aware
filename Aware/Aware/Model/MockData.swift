@@ -9,7 +9,6 @@ import Foundation
 
 struct MockData {
     static func mindfulnessSessions() -> [MindfulnessSession] {
-        
         var mockData: [MindfulnessSession] = []
         
         let calendar = Calendar.current
@@ -42,5 +41,4 @@ struct MockData {
         }
         return mockData
     }
-    
 }
