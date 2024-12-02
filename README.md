@@ -9,7 +9,7 @@ Bring attention to the moment.
 - Swift Algorithms
 - DocC
 
-![Promo Images 001](https://github.com/user-attachments/assets/c928a468-f8bb-4fd9-8121-81f6652dd90a)
+![app gallery 001](https://github.com/user-attachments/assets/4d1dec4e-6534-47fc-8c7a-0054490b3653)
 
 ## Discussion
 Upon first launch, Aware will leverage HealthKitUI to request permissions from the user. Should the user provide access to reading and writing Health data, they may record new sessions and view historical data.
