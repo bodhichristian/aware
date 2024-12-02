@@ -50,7 +50,7 @@ struct OnboardingView: View {
             }
         } label: {
             Circle()
-                .foregroundStyle(firstName.isEmpty ? .gray : appState.theme.accentColor)
+                .foregroundStyle(appState.theme.accentColor)
                 .frame(width: 30)
                 .padding()
                 .overlay {

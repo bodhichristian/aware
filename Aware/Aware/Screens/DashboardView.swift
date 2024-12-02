@@ -27,26 +27,26 @@ struct DashboardView: View {
                     DataTile(
                         header: "Today",
                         headerSymbol: "calendar",
-                        value: hkData.totalSessionsToday(),
+                        value: hkData.totalSessionsToday,
                         unit: "sessions"
                     )
-                    .accessibilityLabel("\(hkData.totalSessionsToday()) sessions today")
+                    .accessibilityLabel("\(hkData.totalSessionsToday) sessions today")
                     
                     DataTile(
                         header: "Last Session",
                         headerSymbol: "brain.head.profile",
-                        value: hkData.lastSessionDuration(),
+                        value: hkData.lastSessionDuration,
                         unit: "minutes"
                     )
-                    .accessibilityLabel("Last session lasted \(hkData.lastSessionDuration()) minutes")
+                    .accessibilityLabel("Last session lasted \(hkData.lastSessionDuration) minutes")
                     
                     DataTile(
                         header: "Average",
                         headerSymbol: "chart.line.uptrend.xyaxis",
-                        value: hkData.averageSessionDuration(),
+                        value: hkData.averageSessionDuration,
                         unit: "minutes"
                     )
-                    .accessibilityLabel("Average session duration: \(hkData.averageSessionDuration()) minutes")
+                    .accessibilityLabel("Average session duration: \(hkData.averageSessionDuration) minutes")
                 }
                 
                 HabitGrid(data: hkData.totalMinutesByDay())

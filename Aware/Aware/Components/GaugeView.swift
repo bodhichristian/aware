@@ -14,8 +14,8 @@ struct GaugeView: View {
     @AppStorage("dailyGoal") private var dailyGoal: Int = 7
     
     private var progress: Double {
-        let todaysMindfulMinutes = hkData.totalMinutesToday()
-        let progressRatio = todaysMindfulMinutes / Double(dailyGoal)
+        let progressRatio = hkData.totalMinutesToday / Double(dailyGoal)
+        
         if progressRatio > 0.0 {
             return progressRatio
         } else {
@@ -41,6 +41,7 @@ struct GaugeView: View {
             Circle()
                 .stroke(lineWidth: 30.0)
                 .foregroundStyle(appState.theme.background)
+            
             Circle()
                 .trim(from: 0.0, to: progress)
                 .stroke(style: StrokeStyle(lineWidth: 30.0, lineCap: .round))
@@ -78,7 +79,6 @@ struct GaugeView: View {
                                 .foregroundStyle(appState.theme.tileHeader)
                                 .frame(height: 44)
                                 .shadow(radius: 4, y: 4)
-                            
                         }
                 }
             }

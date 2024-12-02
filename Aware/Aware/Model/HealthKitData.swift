@@ -13,6 +13,31 @@ import Algorithms
 final class HealthKitData: Sendable {
     var mindfulnessSessions: [MindfulnessSession] = []
     
+    var lastSessionDuration: Int {
+        guard let lastSession = mindfulnessSessions.last else { return 0 }
+        return Int(lastSession.interval.duration) / 60
+    }
+    
+    var averageSessionDuration: Int {
+        let durations = mindfulnessSessions.map { Int($0.interval.duration) / 60 }
+        return durations.average
+    }
+    
+    var totalMinutesToday: Double {
+        let calendar = Calendar.current
+        let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
+        let totalMinutes = todaysSessions.reduce(0) {
+            $0 + ($1.interval.duration / 60)
+        }
+        return totalMinutes
+    }
+    
+    var totalSessionsToday: Int {
+        let calendar = Calendar.current
+        let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
+        return todaysSessions.count
+    }
+    
     /// Calculate daily total minutes of mindfulness.
     ///
     ///  Uses ``chunked(by:)`` from Swift Algorithms to group the total number of minutes spent in mindfulness sessions by their session date.
@@ -39,30 +64,5 @@ final class HealthKitData: Sendable {
             mindfulnessByDay.append(dailyTotal)
         }
         return mindfulnessByDay
-    }
-    
-    func lastSessionDuration() -> Int {
-        guard let lastSession = mindfulnessSessions.last else { return 0 }
-        return Int(lastSession.interval.duration) / 60
-    }
-    
-    func averageSessionDuration() -> Int {
-        let durations = mindfulnessSessions.map { Int($0.interval.duration) / 60 }
-        return durations.average
-    }
-    
-    func totalMinutesToday() -> Double {
-        let calendar = Calendar.current
-        let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
-        let totalMinutes = todaysSessions.reduce(0) {
-            $0 + ($1.interval.duration / 60)
-        }
-        return totalMinutes
-    }
-    
-    func totalSessionsToday() -> Int {
-        let calendar = Calendar.current
-        let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
-        return todaysSessions.count
     }
 }
