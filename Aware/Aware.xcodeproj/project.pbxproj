@@ -90,6 +90,7 @@
 		AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulMeshGradient.swift; sourceTree = "<group>"; };
 		AAEFD9BA2CCC3EDE00A4A2DD /* Aware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aware.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePreviewTile.swift; sourceTree = "<group>"; };
+		AAFFB2F82CFE2BF700900BB2 /* Aware.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Aware.xctestplan; path = AwareTests/Aware.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +235,7 @@
 		AAEFD9B12CCC3EDE00A4A2DD = {
 			isa = PBXGroup;
 			children = (
+				AAFFB2F82CFE2BF700900BB2 /* Aware.xctestplan */,
 				AA8795432CD0EFB2004D817E /* Aware */,
 				AA30E8442CDE90DF0095FFF8 /* AwareTests */,
 				AAEFD9BB2CCC3EDE00A4A2DD /* Products */,

@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "9FE8A67E-A622-4199-8EAB-D20933538E76",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Aware.xcodeproj",
+      "identifier" : "AAEFD9B92CCC3EDE00A4A2DD",
+      "name" : "Aware"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Aware.xcodeproj",
+        "identifier" : "AA30E8392CDE90DA0095FFF8",
+        "name" : "AwareTests"
+      }
+    }
+  ],
+  "version" : 1
+}
