@@ -41,6 +41,7 @@
 		AAD21C6D2CD9463000EB133C /* MindfulMeshGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */; };
 		AAF6B8362CF0119300811321 /* ThemePreviewTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */; };
 		AAFFB2FA2CFF624600900BB2 /* MindfulnessSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFFB2F92CFF624600900BB2 /* MindfulnessSessionTests.swift */; };
+		AAFFB2FC2CFF827300900BB2 /* HealthKitDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFFB2FB2CFF827300900BB2 /* HealthKitDataTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePreviewTile.swift; sourceTree = "<group>"; };
 		AAFFB2F82CFE2BF700900BB2 /* Aware.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Aware.xctestplan; path = AwareTests/Aware.xctestplan; sourceTree = "<group>"; };
 		AAFFB2F92CFF624600900BB2 /* MindfulnessSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessSessionTests.swift; sourceTree = "<group>"; };
+		AAFFB2FB2CFF827300900BB2 /* HealthKitDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				AA21BE9C2CE37C3C0098695E /* ArrayExtensionTests.swift */,
 				AA21BE9A2CE309AC0098695E /* DateExtensionTests.swift */,
 				AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */,
+				AAFFB2FB2CFF827300900BB2 /* HealthKitDataTests.swift */,
 				AA21BE982CE305780098695E /* TimeIntervalExtensionTests.swift */,
 				AAFFB2F92CFF624600900BB2 /* MindfulnessSessionTests.swift */,
 			);
@@ -364,6 +367,7 @@
 				AA21BE992CE305780098695E /* TimeIntervalExtensionTests.swift in Sources */,
 				AA21BE9B2CE309AC0098695E /* DateExtensionTests.swift in Sources */,
 				AA30E8452CDE90DF0095FFF8 /* GridHelperTests.swift in Sources */,
+				AAFFB2FC2CFF827300900BB2 /* HealthKitDataTests.swift in Sources */,
 				AA21BE9D2CE37C3C0098695E /* ArrayExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

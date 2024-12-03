@@ -19,9 +19,12 @@ struct MindfulnessSessionTests {
     }
     
     @Test func initializesWithUniqueID() {
-        let session1 = MindfulnessSession(interval: DateInterval(start: .now, end: .now))
-        let session2 = MindfulnessSession(interval: DateInterval(start: .now, end: .now))
+        let interval = DateInterval(start: .now, end: .now)
+        let session1 = MindfulnessSession(interval: interval)
+        let session2 = MindfulnessSession(interval: interval)
         
+        #expect(session1.id != nil)
         #expect(session1.id != session2.id)
+        #expect(type(of: session1.id) == UUID.self)
     }
 }

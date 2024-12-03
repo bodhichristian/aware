@@ -19,11 +19,13 @@ final class HealthKitData: Sendable {
     }
     
     var averageSessionDuration: Int {
+        guard !mindfulnessSessions.isEmpty else { return 0 }
         let durations = mindfulnessSessions.map { Int($0.interval.duration) / 60 }
         return durations.average
     }
     
     var totalMinutesToday: Double {
+        guard !mindfulnessSessions.isEmpty else { return 0 }
         let calendar = Calendar.current
         let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
         let totalMinutes = todaysSessions.reduce(0) {
@@ -33,6 +35,7 @@ final class HealthKitData: Sendable {
     }
     
     var totalSessionsToday: Int {
+        guard !mindfulnessSessions.isEmpty else { return 0 }
         let calendar = Calendar.current
         let todaysSessions = mindfulnessSessions.filter { calendar.startOfDay(for: $0.sessionDate) == calendar.startOfDay(for: Date.now)}
         return todaysSessions.count
