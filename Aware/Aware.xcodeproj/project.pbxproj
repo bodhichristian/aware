@@ -34,12 +34,16 @@
 		AAA4A1C72CDC53A700461C25 /* GridHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1C62CDC53A700461C25 /* GridHelper.swift */; };
 		AAA4A1C92CDC554800461C25 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4A1C82CDC554800461C25 /* Color+Ext.swift */; };
 		AAB48B3D2CED0FD2009937CF /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB48B3C2CED0FD2009937CF /* Onboarding.swift */; };
+		AABE67AE2D01FFD10080AF0D /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE67AD2D01FFD10080AF0D /* TestHelper.swift */; };
+		AABE67B02D036A280080AF0D /* HealthKitServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE67AF2D036A280080AF0D /* HealthKitServiceTests.swift */; };
 		AAD21C562CD519F400EB133C /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = AAD21C552CD519F400EB133C /* Algorithms */; };
 		AAD21C582CD51AD700EB133C /* DailyMindfulness.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C572CD51AD700EB133C /* DailyMindfulness.swift */; };
 		AAD21C5C2CD5269100EB133C /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C5B2CD5269100EB133C /* MockData.swift */; };
 		AAD21C6B2CD556DA00EB133C /* HealthKitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C6A2CD556DA00EB133C /* HealthKitData.swift */; };
 		AAD21C6D2CD9463000EB133C /* MindfulMeshGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD21C6C2CD9463000EB133C /* MindfulMeshGradient.swift */; };
 		AAF6B8362CF0119300811321 /* ThemePreviewTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */; };
+		AAFFB2FA2CFF624600900BB2 /* MindfulnessSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFFB2F92CFF624600900BB2 /* MindfulnessSessionTests.swift */; };
+		AAFFB2FC2CFF827300900BB2 /* HealthKitDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFFB2FB2CFF827300900BB2 /* HealthKitDataTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,8 @@
 		AAA4A1C62CDC53A700461C25 /* GridHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridHelper.swift; sourceTree = "<group>"; };
 		AAA4A1C82CDC554800461C25 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		AAB48B3C2CED0FD2009937CF /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		AABE67AD2D01FFD10080AF0D /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		AABE67AF2D036A280080AF0D /* HealthKitServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitServiceTests.swift; sourceTree = "<group>"; };
 		AAD21C572CD51AD700EB133C /* DailyMindfulness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMindfulness.swift; sourceTree = "<group>"; };
 		AAD21C5B2CD5269100EB133C /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		AAD21C6A2CD556DA00EB133C /* HealthKitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitData.swift; sourceTree = "<group>"; };
@@ -89,6 +95,8 @@
 		AAEFD9BA2CCC3EDE00A4A2DD /* Aware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aware.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF6B8352CF0119300811321 /* ThemePreviewTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePreviewTile.swift; sourceTree = "<group>"; };
 		AAFFB2F82CFE2BF700900BB2 /* Aware.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Aware.xctestplan; path = AwareTests/Aware.xctestplan; sourceTree = "<group>"; };
+		AAFFB2F92CFF624600900BB2 /* MindfulnessSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessSessionTests.swift; sourceTree = "<group>"; };
+		AAFFB2FB2CFF827300900BB2 /* HealthKitDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +121,14 @@
 		AA30E8442CDE90DF0095FFF8 /* AwareTests */ = {
 			isa = PBXGroup;
 			children = (
+				AABE67AD2D01FFD10080AF0D /* TestHelper.swift */,
 				AA21BE9C2CE37C3C0098695E /* ArrayExtensionTests.swift */,
 				AA21BE9A2CE309AC0098695E /* DateExtensionTests.swift */,
 				AA30E8432CDE90DF0095FFF8 /* GridHelperTests.swift */,
+				AAFFB2FB2CFF827300900BB2 /* HealthKitDataTests.swift */,
+				AABE67AF2D036A280080AF0D /* HealthKitServiceTests.swift */,
 				AA21BE982CE305780098695E /* TimeIntervalExtensionTests.swift */,
+				AAFFB2F92CFF624600900BB2 /* MindfulnessSessionTests.swift */,
 			);
 			path = AwareTests;
 			sourceTree = "<group>";
@@ -357,9 +369,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAFFB2FA2CFF624600900BB2 /* MindfulnessSessionTests.swift in Sources */,
 				AA21BE992CE305780098695E /* TimeIntervalExtensionTests.swift in Sources */,
+				AABE67B02D036A280080AF0D /* HealthKitServiceTests.swift in Sources */,
+				AABE67AE2D01FFD10080AF0D /* TestHelper.swift in Sources */,
 				AA21BE9B2CE309AC0098695E /* DateExtensionTests.swift in Sources */,
 				AA30E8452CDE90DF0095FFF8 /* GridHelperTests.swift in Sources */,
+				AAFFB2FC2CFF827300900BB2 /* HealthKitDataTests.swift in Sources */,
 				AA21BE9D2CE37C3C0098695E /* ArrayExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

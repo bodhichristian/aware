@@ -52,7 +52,6 @@ class HealthKitService {
         } catch {
             print(error.localizedDescription)
         }
-        print("✅ Sample data added.")
     }
     
     /// Write mindful minute data to HealthKit. This requires HealthKit write permission.
