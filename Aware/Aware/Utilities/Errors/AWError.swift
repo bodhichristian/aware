@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AWError: LocalizedError {
+enum AWError: LocalizedError, Equatable {
     case authNotDetermined
     case sharingDenied(quantityType: String)
     case noData

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import HealthKit
+
 @testable import Aware
 
 struct TestHelper {
@@ -25,3 +27,7 @@ struct TestHelper {
         return sessions.reversed()
     }
 }
+
+//class MockHealthStore: HKHealthStore, @unchecked Sendable {
+//    override func
+//}
