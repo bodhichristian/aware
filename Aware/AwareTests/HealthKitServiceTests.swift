@@ -15,8 +15,5 @@ struct HealthKitServiceTests {
         let hkService = HealthKitService()
         
         let interval = DateInterval(start: .now, end: Calendar.current.date(byAdding: .minute, value: 10, to: .now)!)
-        
-
     }
-
 }

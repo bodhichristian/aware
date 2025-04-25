@@ -27,7 +27,6 @@ struct HealthKitDataTests {
         
         let lastSessionDuration = hkData.lastSessionDuration
         #expect(lastSessionDuration == 0)
-        
     }
     
     @MainActor @Test func averageSessionDurationReturnsZeroWhenNoSessions() {

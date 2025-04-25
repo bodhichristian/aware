@@ -27,7 +27,3 @@ struct TestHelper {
         return sessions.reversed()
     }
 }
-
-//class MockHealthStore: HKHealthStore, @unchecked Sendable {
-//    override func
-//}
