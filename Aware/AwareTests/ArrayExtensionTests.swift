@@ -9,6 +9,7 @@ import Testing
 @testable import Aware
 
 struct ArrayExtensionTests {
+    
     @Test func arrayAverageForInt() {
         let arr = [1, 2, 3, 4, 5]
         let expectedAverage = 3
